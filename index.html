@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy's Guide to Particle Physics</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body.dark {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: hsl(235, 100%, 69%);
+            display: inline-block;
+            margin: 20px 250px;
+            margin-top: 50px;
+        }
+        
+        nav {
+            background-color: #f7f7f7;
+            padding: 20px;
+            width: 250px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        nav.dark {
+            background-color: #333;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 15px 0;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a.dark {
+            color: #f0f0f0;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 300px;
+            width: calc(100% - 330px);
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        
+        header.dark {
+            background-color: #333;
+        }
+        
+        header .left ul,
+        header .right ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        header .left ul li,
+        header .right ul li {
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        .icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .container {
+            margin-left: 350px;
+            padding-top: 80px;
+            padding: 20px;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .content {
+            flex: 1;
+            min-width: 280px;
+            text-align: left;
+        }
+        
+        .image {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .main-content h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .main-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .profile-image img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            margin: 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: hsl(235, 100%, 69%);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 200px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            header {
+                left: 0;
+                width: 100%;
+            }
+            .container {
+                margin-left: 0;
+            }
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .content,
+            .image {
+                text-align: center;
+            }
+            .content {
+                order: 2;
+            }
+            h2 {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="sidebar">
+        <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
+        <ul>
+            <li><a href="new.html" id="learning-materials">Learning Materials</a></li>
+            <li><a href="#" id="blog-posts">Blog Posts</a></li>
+            <li><a href="#" id="resources">Resources</a></li>
+        </ul>
+    </nav>
+
+    <header id="header">
+        <div class="left">
+            <ul>
+                <li><i class="fas fa-bars icon" title="Menu"></i></li>
+                <li><i class="fas fa-adjust icon" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()"></i></li>
+                <li><i class="fas fa-language icon" title="Change Language" onclick="toggleLanguage()"></i></li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+
+                <li><i class="fas fa-print icon" title="Print" onclick="window.print()"></i></li>
+                <li><a href="https://github.com" target="_blank"><i class="fab fa-github icon" title="GitHub"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 id="page-title">Dummy's Guide to Particle Physics</h2>
+        <div class="main-content">
+            <div class="content">
+                <h1 id="main-heading">Hi! I'm Saskia, and this is a website for anyone interested in particle physics.</h1>
+                <p id="description">Here, you will find both learning materials and blog posts depicting my own journey into the subject.</p>
+            </div>
+            <div class="image">
+                <div class="profile-image">
+                    <img src="profile.png" alt="Profile Image">
+                </div>
+                <div class="social-icons">
+                    <a href="mailto:saskia@example.com" style="color: rgb(139, 139, 189);" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com" style="color: rgb(139, 139, 189);" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>Copyright 2021-2022 Sergey Slotin</footer>
+
+    <script>
+        let isDarkMode = false;
+        let isEnglish = true;
+
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle("dark", isDarkMode);
+            document.getElementById("sidebar").classList.toggle("dark", isDarkMode);
+            document.getElementById("header").classList.toggle("dark", isDarkMode);
+        }
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            document.getElementById("sidebar-title").textContent = isEnglish ? "Dummy's Guide to Particle Physics" : "Osaline Juhend Osakeste Füüsikasse";
+            document.getElementById("learning-materials").textContent = isEnglish ? "Learning Materials" : "Õppematerjalid";
+            document.getElementById("blog-posts").textContent = isEnglish ? "Blog Posts" : "Blogipostitused";
+            document.getElementById("resources").textContent = isEnglish ? "Resources" : "Ressursid";
+            document.getElementById("home").textContent = isEnglish ? "Home" : "Avaleht";
+            document.getElementById("about").textContent = isEnglish ? "About" : "Teave";
+            document.getElementById("page-title").textContent = isEnglish ? "Dummy's Guide to Particle Physics" : "Osaline Juhend Osakeste Füüsikasse";
+            document.getElementById("main-heading").textContent = isEnglish ? "Hi! I'm Saskia, and this is a website for anyone interested in particle physics." : "Tere! Olen Saskia ja see on veebileht kõigile, keda huvitab osakeste füüsika.";
+            document.getElementById("description").textContent = isEnglish ? "Here, you will find both learning materials and blog posts depicting my own journey into the subject." : "Siit leiate õppematerjale ja blogipostitusi, mis kirjeldavad minu teekonda selles valdkonnas.";
+        }
+    </script>
+</body>
+
+</html>
