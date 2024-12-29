@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algorithms for Modern Hardware</title>
+    <title>Expandable Sidebar with Translation</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         /* General Reset */
@@ -17,64 +17,33 @@
         
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
             display: flex;
-            flex-direction: row;
+            color: #333;
             background-color: #fff;
             transition: background-color 0.3s, color 0.3s;
         }
         
-        body.dark {
+        body.dark-mode {
             background-color: #121212;
-            color: #f0f0f0;
+            color: #f8f9fa;
         }
         
         header {
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #f0f0f0;
+            background-color: #f8f9fa;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
             top: 0;
             left: 300px;
-            width: calc(100% - 330px);
+            width: calc(100% - 300px);
             z-index: 10;
             display: flex;
-            transition: background-color 0.3s;
         }
         
-        header.dark {
-            background-color: #333;
-        }
-        
-        header .left ul,
-        header .right ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        header .left ul li,
-        header .right ul li {
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        
-        header .right ul li a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .icon {
-            font-size: 20px;
-            cursor: pointer;
+        body.dark-mode header {
+            background-color: #1e1e1e;
         }
         
         .sidebar {
@@ -82,12 +51,20 @@
             width: 300px;
             padding: 20px;
             border-right: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
             overflow-y: auto;
-            transition: background-color 0.3s;
         }
         
-        .sidebar.dark {
-            background-color: #333;
+        body.dark-mode .sidebar {
+            background-color: #1e1e1e;
+            border-right: 1px solid #444;
+        }
+        
+        .language-toggle li {
+            list-style: none;
         }
         
         .sidebar h1 {
@@ -98,10 +75,12 @@
         
         .sidebar ul {
             list-style: none;
+            padding-left: 0;
         }
         
         .sidebar ul li {
             margin: 10px 0;
+            cursor: pointer;
         }
         
         .sidebar ul li a {
@@ -110,16 +89,20 @@
             font-size: 14px;
         }
         
+        body.dark-mode .sidebar ul li a {
+            color: #80bfff;
+        }
+        
+        .sidebar ul ul {
+            display: none;
+            padding-left: 20px;
+        }
+        
         .content {
             flex: 1;
             padding: 20px;
-            overflow-y: auto;
+            margin-left: 300px;
             margin-top: 60px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        
-        .content.dark {
-            background-color: #121212;
         }
         
         .content h1 {
@@ -131,80 +114,98 @@
             margin-bottom: 10px;
         }
         
-        .content a {
-            color: #007bff;
-            text-decoration: none;
+        .language-toggle {
+            display: flex;
+            gap: 10px;
         }
         
-        .faq {
-            margin-top: 20px;
+        .language-toggle button {
+            padding: 5px 10px;
+            cursor: pointer;
         }
         
-        .faq h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
+        .icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-right: 10px;
         }
         
-        .faq ul {
-            list-style: disc;
-            padding-left: 20px;
+        .icon.github {
+            color: #333;
         }
         
-        .faq ul li {
-            margin-bottom: 10px;
+        body.dark-mode .icon.github {
+            color: #f8f9fa;
         }
         
-        @media screen and (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid #ddd;
-            }
-            .content {
-                padding: 10px;
-            }
+        body.dark-mode .icon {
+            color: #f8f9fa;
+        }
+        
+        .sidebar li {
+            list-style: none;
         }
     </style>
 </head>
 
 <body>
     <div class="sidebar">
-        <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
+        <a href="index.html">
+            <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
+        </a>
         <ul>
-            <li><a href="#" id="link1">1. Complexity Models</a></li>
-            <ul>
-                <li><a href="#" id="link1-1">1.1 Modern Hardware</a></li>
-                <li><a href="#" id="link1-2">1.2 Programming Languages</a></li>
+            <li onclick="toggleSubmenu('submenu1')" id="complexity">1. Complexity Models</li>
+            <ul id="submenu1">
+                <li><a href="#" id="modernHardware">1.1. Modern Hardware</a></li>
+                <li><a href="#" id="programmingLanguages">1.2. Programming Languages</a></li>
             </ul>
-            <li><a href="#" id="link2">2. Computer Architecture</a></li>
-            <ul>
-                <li><a href="#" id="link2-1">2.1 Instruction Set Architectures</a></li>
-                <li><a href="#" id="link2-2">2.2 Algorithms for Modern...</a></li>
+            <li onclick="toggleSubmenu('submenu2')" id="architecture">2. Computer Architecture</li>
+            <ul id="submenu2">
+                <li><a href="#" id="isa">2.1. Instruction Set Architectures</a></li>
+                <li><a href="#" id="algorithms">2.2. Algorithms for Modern...</a></li>
+                <li><a href="#" id="loops">2.3. Loops and Conditionals</a></li>
+                <li><a href="#" id="functions">2.4. Functions and Recursion</a></li>
+                <li><a href="#" id="branching">2.5. Indirect Branching</a></li>
+                <li><a href="#" id="layout">2.6. Machine Code Layout</a></li>
             </ul>
-            <li><a href="#" id="link3">3. Instruction-Level Parallelism</a></li>
-            <li><a href="#" id="link4">4. Compilation</a></li>
-            <li><a href="#" id="link5">5. Profiling</a></li>
-            <li><a href="#" id="link6">6. Arithmetic</a></li>
+            <li onclick="toggleSubmenu('submenu3')" id="parallelism">3. Instruction-Level Parallelism</li>
+            <ul id="submenu3">
+                <li><a href="#" id="hazards">3.1. Pipeline Hazards</a></li>
+                <li><a href="#" id="costBranching">3.2. The Cost of Branching</a></li>
+                <li><a href="#" id="branchless">3.3. Branchless Programming</a></li>
+                <li><a href="#" id="tables">3.4. Instruction Tables</a></li>
+                <li><a href="#" id="throughput">3.5. Throughput Computing</a></li>
+            </ul>
+            <li onclick="toggleSubmenu('submenu4')" id="compilation">4. Compilation</li>
+            <ul id="submenu4">
+                <li><a href="#" id="stages">4.1. Stages of Compilation</a></li>
+                <li><a href="#" id="flags">4.2. Flags and Targets</a></li>
+                <li><a href="#" id="optimizations">4.3. Situational Optimizations</a></li>
+                <li><a href="#" id="contract">4.4. Contract Programming</a></li>
+                <li><a href="#" id="precomputation">4.5. Precomputation</a></li>
+            </ul>
+            <li onclick="toggleSubmenu('submenu5')" id="profiling">5. Profiling</li>
+            <ul id="submenu5">
+                <li><a href="#" id="instrumentation">5.1. Instrumentation</a></li>
+                <li><a href="#" id="statistical">5.2. Statistical Profiling</a></li>
+                <li><a href="#" id="simulation">5.3. Program Simulation</a></li>
+                <li><a href="#" id="analyzers">5.4. Machine Code Analyzers</a></li>
+                <li><a href="#" id="benchmarking">5.5. Benchmarking</a></li>
+                <li><a href="#" id="accurate">5.6. Getting Accurate Results</a></li>
+            </ul>
         </ul>
     </div>
 
     <header>
-        <div class="left">
-            <ul>
-                <li><i class="fas fa-bars icon" title="Menu"></i></li>
-                <li><i class="fas fa-adjust icon" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()"></i></li>
-                <li><i class="fas fa-language icon" title="Change Language" onclick="toggleLanguage()"></i></li>
-            </ul>
+        <div class="language-toggle">
+            <li><i class="fas fa-bars icon" title="Menu"></i></li>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('et')">Estonian</button>
         </div>
-        <div class="right">
-            <ul>
 
-                <li><i class="fas fa-print icon" title="Print" onclick="window.print()"></i></li>
-                <li><a href="https://github.com" target="_blank"><i class="fab fa-github icon" title="GitHub"></i></a></li>
-            </ul>
+        <div>
+            <i class="fas fa-adjust icon" title="Toggle Dark Mode" onclick="toggleDarkMode()"></i>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github icon github" title="GitHub"></i></a>
         </div>
     </header>
 
@@ -212,62 +213,158 @@
         <h1 id="main-title">Algorithms for Modern Hardware</h1>
         <p id="description">This is an upcoming high-performance computing book titled "Algorithms for Modern Hardware" by Sergey Slotin.</p>
         <p id="content1">Its intended audience is everyone from performance engineers and practical algorithm researchers to undergraduate computer science students who have just finished an advanced algorithms course and want to learn more practical ways to speed up
-            a program than by going from <em>O(n log n)</em> to <em>O(n log log n)</em>.</p>
-        <p id="content2">All book materials are <a href="#">hosted on GitHub</a>, with code in a <a href="#">separate repository</a>. This isn't a collaborative project, but any contributions and feedback are very much welcome.</p>
-
-        <div class="faq">
-            <h2 id="faq-title">FAQ</h2>
-            <ul>
-                <li id="faq-bug">Bug/typo fixes. If you spot an error on any page, please do one of these — in the order of preference:</li>
-                <ul>
-                    <li id="faq-bug1">Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or, more traditionally, by modifying the page directly on GitHub (the link to the source is also on the top right);</li>
-                    <li id="faq-bug2">Create <a href="#">an issue on GitHub</a>;</li>
-                    <li id="faq-bug3">Tell me about it directly;</li>
-                    <li id="faq-bug4">Leave a comment on some other website where it is being discussed — I read most of <a href="#">HackerNews</a>, <a href="#">CodeForces</a>, and Twitter threads where I'm tagged.</li>
-                </ul>
-                <li id="faq-release">Release date. The book is split into several parts that I plan to finish sequentially with long breaks in between. Part I, Performance Engineering, is ~75% complete as of March 2022 and will hopefully be >95% complete by this summer.</li>
-            </ul>
-        </div>
+            a program than by going from O(n log n) to O(n log log n).</p>
+        <p id="content2">All book materials are hosted on GitHub, with code in a separate repository. This isn't a collaborative project, but any contributions and feedback are very much welcome.</p>
+        <h2 id="faq">FAQ</h2>
+        <h3 id="bug">Bug/Typo Fixes</h3>
+        <p id="bugContent">If you spot an error on any page, please do one of these — in the order of preference:</p>
+        <ul>
+            <li id="fix1">Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or by modifying the page directly on GitHub (link to the source is also on the top right).</li>
+            <li id="fix2">Create an issue on GitHub.</li>
+            <li id="fix3">Tell me about it directly.</li>
+        </ul>
     </div>
 
     <script>
-        let isDarkMode = false;
-        let isEnglish = true;
+        const translations = {
+            en: {
+                sidebarTitle: "Dummy's Guide to Particle Physics",
+                complexity: "1. Complexity Models",
+                modernHardware: "1.1. Modern Hardware",
+                programmingLanguages: "1.2. Programming Languages",
+                architecture: "2. Computer Architecture",
+                isa: "2.1. Instruction Set Architectures",
+                algorithms: "2.2. Algorithms for Modern...",
+                loops: "2.3. Loops and Conditionals",
+                functions: "2.4. Functions and Recursion",
+                branching: "2.5. Indirect Branching",
+                layout: "2.6. Machine Code Layout",
+                parallelism: "3. Instruction-Level Parallelism",
+                hazards: "3.1. Pipeline Hazards",
+                costBranching: "3.2. The Cost of Branching",
+                branchless: "3.3. Branchless Programming",
+                tables: "3.4. Instruction Tables",
+                throughput: "3.5. Throughput Computing",
+                compilation: "4. Compilation",
+                stages: "4.1. Stages of Compilation",
+                flags: "4.2. Flags and Targets",
+                optimizations: "4.3. Situational Optimizations",
+                contract: "4.4. Contract Programming",
+                precomputation: "4.5. Precomputation",
+                profiling: "5. Profiling",
+                instrumentation: "5.1. Instrumentation",
+                statistical: "5.2. Statistical Profiling",
+                simulation: "5.3. Program Simulation",
+                analyzers: "5.4. Machine Code Analyzers",
+                benchmarking: "5.5. Benchmarking",
+                accurate: "5.6. Getting Accurate Results",
+                mainTitle: "Algorithms for Modern Hardware",
+                description: "This is an upcoming high-performance computing book titled \"Algorithms for Modern Hardware\" by Sergey Slotin.",
+                content1: "Its intended audience is everyone from performance engineers and practical algorithm researchers to undergraduate computer science students who have just finished an advanced algorithms course and want to learn more practical ways to speed up a program than by going from O(n log n) to O(n log log n).",
+                content2: "All book materials are hosted on GitHub, with code in a separate repository. This isn't a collaborative project, but any contributions and feedback are very much welcome.",
+                faq: "FAQ",
+                bug: "Bug/Typo Fixes",
+                bugContent: "If you spot an error on any page, please do one of these — in the order of preference:",
+                fix1: "Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or by modifying the page directly on GitHub (link to the source is also on the top right).",
+                fix2: "Create an issue on GitHub.",
+                fix3: "Tell me about it directly."
+            },
+            et: {
+                sidebarTitle: "Osaline Juhend Osakeste Füsikasse",
+                complexity: "1. Kompleksuse Mudelid",
+                modernHardware: "1.1. Kaasaegne Riistvara",
+                programmingLanguages: "1.2. Programmeerimiskeeled",
+                architecture: "2. Arvuti Arhitektuur",
+                isa: "2.1. Käskude Komplekti Arhitektuurid",
+                algorithms: "2.2. Algoritmid Kaasaegse...",
+                loops: "2.3. Tsüklid ja Tingimused",
+                functions: "2.4. Funktsioonid ja Rekursioon",
+                branching: "2.5. Kaudne Hargnemine",
+                layout: "2.6. Masinkoodi Paigutus",
+                parallelism: "3. Käskude Taseme Paralellism",
+                hazards: "3.1. Torujuhtmete Takistused",
+                costBranching: "3.2. Hargnemise Kulu",
+                branchless: "3.3. Hargnemiseta Programmeerimine",
+                tables: "3.4. Käskude Tabelid",
+                throughput: "3.5. Läbilaske Arvutamine",
+                compilation: "4. Kompileerimine",
+                stages: "4.1. Kompileerimise Etapid",
+                flags: "4.2. Lipud ja Sihtmärgid",
+                optimizations: "4.3. Situatsioonilised Optimeerimised",
+                contract: "4.4. Lepingupõhine Programmeerimine",
+                precomputation: "4.5. Eelarvutus",
+                profiling: "5. Profileerimine",
+                instrumentation: "5.1. Instrumentatsioon",
+                statistical: "5.2. Statistiline Profileerimine",
+                simulation: "5.3. Programmi Simulatsioon",
+                analyzers: "5.4. Masinkoodi Analüsaatorid",
+                benchmarking: "5.5. Võrdlustestimine",
+                accurate: "5.6. Täpsete Tulemusteni Jõudmine",
+                mainTitle: "Algoritmid Kaasaegse Riistvara Jaoks",
+                description: "See on peatselt ilmuv suure jõudlusega arvutiraamat pealkirjaga \"Algoritmid Kaasaegse Riistvara Jaoks\" Sergey Slotini poolt.",
+                content1: "Selle sihtrühmaks on kõik alates jõudlustehnikutest ja praktilistest algoritmide uurijatest kuni arvutiteaduse tudengiteni, kes on just lõpetanud edasijõudnud algoritmikursuse ja tahavad õppida praktilisemaid viise programmide kiirendamiseks.",
+                content2: "Kõik raamatu materjalid on GitHubis, kood on eraldi hoones. See ei ole koostööprojekt, kuid kõik panused ja tagasiside on väga teretulnud.",
+                faq: "KKK",
+                bug: "Vea/Trükivea Parandused",
+                bugContent: "Kui leiate lehelt vea, tehke üks järgmistest – eelistuste järjekorras:",
+                fix1: "Parandage see kohe, klõpsates kas pliiatsikoonil lehe paremas ülanurgas (avaneb Prose toimetaja) või muutes lehte otse GitHubis (allikas on samuti paremas ülanurgas).",
+                fix2: "Loo probleem GitHubis.",
+                fix3: "Teavitage mind sellest otse."
+            }
+        };
 
-        function toggleDarkMode() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('dark', isDarkMode);
-            document.querySelector('header').classList.toggle('dark', isDarkMode);
-            document.querySelector('.sidebar').classList.toggle('dark', isDarkMode);
-            document.querySelector('.content').classList.toggle('dark', isDarkMode);
+        function setLanguage(lang) {
+            document.getElementById("sidebar-title").textContent = translations[lang].sidebarTitle;
+            document.getElementById("complexity").textContent = translations[lang].complexity;
+            document.getElementById("modernHardware").textContent = translations[lang].modernHardware;
+            document.getElementById("programmingLanguages").textContent = translations[lang].programmingLanguages;
+            document.getElementById("architecture").textContent = translations[lang].architecture;
+            document.getElementById("isa").textContent = translations[lang].isa;
+            document.getElementById("algorithms").textContent = translations[lang].algorithms;
+            document.getElementById("loops").textContent = translations[lang].loops;
+            document.getElementById("functions").textContent = translations[lang].functions;
+            document.getElementById("branching").textContent = translations[lang].branching;
+            document.getElementById("layout").textContent = translations[lang].layout;
+            document.getElementById("parallelism").textContent = translations[lang].parallelism;
+            document.getElementById("hazards").textContent = translations[lang].hazards;
+            document.getElementById("costBranching").textContent = translations[lang].costBranching;
+            document.getElementById("branchless").textContent = translations[lang].branchless;
+            document.getElementById("tables").textContent = translations[lang].tables;
+            document.getElementById("throughput").textContent = translations[lang].throughput;
+            document.getElementById("compilation").textContent = translations[lang].compilation;
+            document.getElementById("stages").textContent = translations[lang].stages;
+            document.getElementById("flags").textContent = translations[lang].flags;
+            document.getElementById("optimizations").textContent = translations[lang].optimizations;
+            document.getElementById("contract").textContent = translations[lang].contract;
+            document.getElementById("precomputation").textContent = translations[lang].precomputation;
+            document.getElementById("profiling").textContent = translations[lang].profiling;
+            document.getElementById("instrumentation").textContent = translations[lang].instrumentation;
+            document.getElementById("statistical").textContent = translations[lang].statistical;
+            document.getElementById("simulation").textContent = translations[lang].simulation;
+            document.getElementById("analyzers").textContent = translations[lang].analyzers;
+            document.getElementById("benchmarking").textContent = translations[lang].benchmarking;
+            document.getElementById("accurate").textContent = translations[lang].accurate;
+
+            // Updating the content section
+            document.getElementById("main-title").textContent = translations[lang].mainTitle;
+            document.getElementById("description").textContent = translations[lang].description;
+            document.getElementById("content1").textContent = translations[lang].content1;
+            document.getElementById("content2").textContent = translations[lang].content2;
+            document.getElementById("faq").textContent = translations[lang].faq;
+            document.getElementById("bug").textContent = translations[lang].bug;
+            document.getElementById("bugContent").textContent = translations[lang].bugContent;
+            document.getElementById("fix1").textContent = translations[lang].fix1;
+            document.getElementById("fix2").textContent = translations[lang].fix2;
+            document.getElementById("fix3").textContent = translations[lang].fix3;
         }
 
-        function toggleLanguage() {
-            isEnglish = !isEnglish;
-            document.getElementById('sidebar-title').textContent = isEnglish ? "Dummy's Guide to Particle Physics" : "Osaline Juhend Osakeste Füüsikasse";
-            document.getElementById('link1').textContent = isEnglish ? "1. Complexity Models" : "1. Keerukuse Mudelid";
-            document.getElementById('link1-1').textContent = isEnglish ? "1.1 Modern Hardware" : "1.1 Kaasaegne Riistvara";
-            document.getElementById('link1-2').textContent = isEnglish ? "1.2 Programming Languages" : "1.2 Programmeerimiskeeled";
-            document.getElementById('link2').textContent = isEnglish ? "2. Computer Architecture" : "2. Arhitektuur";
-            document.getElementById('link2-1').textContent = isEnglish ? "2.1 Instruction Set Architectures" : "2.1 Käskluste Arhitektuurid";
-            document.getElementById('link2-2').textContent = isEnglish ? "2.2 Algorithms for Modern..." : "2.2 Algoritmid Kaasaegse...";
-            document.getElementById('link3').textContent = isEnglish ? "3. Instruction-Level Parallelism" : "3. Käskude Paralleelsus";
-            document.getElementById('link4').textContent = isEnglish ? "4. Compilation" : "4. Kompileerimine";
-            document.getElementById('link5').textContent = isEnglish ? "5. Profiling" : "5. Profiilianalüüs";
-            document.getElementById('link6').textContent = isEnglish ? "6. Arithmetic" : "6. Aritmeetika";
-            document.getElementById('home').textContent = isEnglish ? "Home" : "Avaleht";
-            document.getElementById('about').textContent = isEnglish ? "About" : "Teave";
-            document.getElementById('main-title').textContent = isEnglish ? "Algorithms for Modern Hardware" : "Algoritmid Kaasaegse Riistvara Jaoks";
-            document.getElementById('description').textContent = isEnglish ? "This is an upcoming high-performance computing book titled \"Algorithms for Modern Hardware\" by Sergey Slotin." : "See on peatselt ilmuv suure jõudlusega arvutiraamat pealkirjaga \"Algoritmid Kaasaegse Riistvara Jaoks\" Sergey Slotini poolt.";
-            document.getElementById('content1').textContent = isEnglish ? "Its intended audience is everyone from performance engineers and practical algorithm researchers to undergraduate computer science students who have just finished an advanced algorithms course and want to learn more practical ways to speed up a program than by going from O(n log n) to O(n log log n)." : "Selle sihtrühmaks on kõik alates jõudlustehnikutest ja praktilistest algoritmide uurijatest kuni arvutiteaduse tudengiteni, kes on just lõpetanud edasijõudnud algoritmikursuse ja tahavad õppida praktilisemaid viise programmide kiirendamiseks.";
-            document.getElementById('content2').textContent = isEnglish ? "All book materials are hosted on GitHub, with code in a separate repository. This isn't a collaborative project, but any contributions and feedback are very much welcome." : "Kõik raamatu materjalid on saadaval GitHubis, kood eraldi repositooriumis. See pole koostööprojekt, kuid panused ja tagasiside on väga teretulnud.";
-            document.getElementById('faq-title').textContent = isEnglish ? "FAQ" : "KKK";
-            document.getElementById('faq-bug').textContent = isEnglish ? "Bug/typo fixes. If you spot an error on any page, please do one of these — in the order of preference:" : "Vea/parandused. Kui leiate lehelt vea, tehke üks järgmistest - eelistatud järjekorras:";
-            document.getElementById('faq-bug1').textContent = isEnglish ? "Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or, more traditionally, by modifying the page directly on GitHub (the link to the source is also on the top right);" : "Parandage see kohe, klõpsates kas pliiatsi ikoonil lehe ülaosas paremal (avab Prose redaktori) või traditsioonilisemalt, muutes lehte otse GitHubis (link allikale on samuti ülaosas paremal);";
-            document.getElementById('faq-bug2').textContent = isEnglish ? "Create an issue on GitHub;" : "Looge probleem GitHubis;";
-            document.getElementById('faq-bug3').textContent = isEnglish ? "Tell me about it directly;" : "Teavitage mind sellest otse;";
-            document.getElementById('faq-bug4').textContent = isEnglish ? "Leave a comment on some other website where it is being discussed — I read most of HackerNews, CodeForces, and Twitter threads where I'm tagged." : "Jätke kommentaar mõnel muul veebisaidil, kus seda arutatakse – loen enamikku HackerNews, CodeForces ja Twitteri lõime, kus mind sildistatakse.";
-            document.getElementById('faq-release').textContent = isEnglish ? "Release date. The book is split into several parts that I plan to finish sequentially with long breaks in between. Part I, Performance Engineering, is ~75% complete as of March 2022 and will hopefully be >95% complete by this summer." : "Väljalaskekuupäev. Raamat on jagatud mitmeks osaks, mille kavatsen lõpetada järjestikku pikkade pausidega. I osa, Jõudluse inseneeria, on 2022. aasta märtsi seisuga ~75% valmis ja loodetavasti >95% valmis suve lõpuks.";
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
         }
     </script>
 </body>
