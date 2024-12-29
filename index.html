@@ -61,6 +61,17 @@
             transition: color 0.3s;
         }
         
+        nav ul li a:active,
+        nav ul li a:focus {
+            color: hsl(235, 100%, 69%);
+            outline: none;
+            /* Optional: Remove focus outline if it appears */
+        }
+        
+        nav ul li a.clicked {
+            color: hsl(235, 100%, 69%);
+        }
+        
         nav ul li a.dark {
             color: #f0f0f0;
         }
@@ -205,6 +216,11 @@
             h2 {
                 margin: 0;
             }
+            .sidebar ul li a {
+                text-decoration: none;
+                color: #007bff;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -215,12 +231,12 @@
         <ul>
             <li onclick="toggleSubmenu('submenu1')">Learning Materials</li>
             <ul id="submenu1" class="submenu">
-                <li><a href="#" onclick="updateContent('Complexity Models', 'Dive into the study of complexity models and their significance.')">1. Complexity Models</a></li>
-                <li><a href="#" onclick="updateContent('Computer Architecture', 'Learn about the design and functionality of modern computer architecture.')">2. Computer Architecture</a></li>
-                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism', 'Understand the concepts of instruction-level parallelism and its impact.')">3. Instruction-Level Parallelism</a></li>
-                <li><a href="#" onclick="updateContent('Compilation', 'Explore the compilation process and optimization techniques.')">4. Compilation</a></li>
-                <li><a href="#" onclick="updateContent('Profiling', 'Learn about profiling techniques to optimize performance.')">5. Profiling</a></li>
-                <li><a href="new.html" onclick="updateContent('Algorithms for Modern Hardware', 'Discover algorithms specifically designed for modern hardware.')">6. Algorithms for Modern Hardware</a></li>
+                <li><a href="#" onclick="updateContent('Complexity Models')">1. Complexity Models</a></li>
+                <li><a href="#" onclick="updateContent('Computer Architecture')">2. Computer Architecture</a></li>
+                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
+                <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
+                <li><a href="#" onclick="updateContent('Profiling')">5. Profiling</a></li>
+                <li><a href="new.html" onclick="updateContent('Algorithms for Modern Hardware')">6. Algorithms for Modern Hardware</a></li>
             </ul>
             <li><a href="#" id="blog-posts">Blog Posts</a></li>
             <li><a href="#" id="resources">Resources</a></li>
@@ -279,10 +295,31 @@
             submenu.style.display = submenu.style.display === "block" ? "none" : "block";
         }
 
-        function updateContent(title, description) {
-            document.getElementById("main-heading").textContent = title;
-            document.getElementById("description").textContent = description;
-        }
+        // Ensure only clicked chapter changes color
+        document.querySelectorAll('#submenu1 li a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                // Prevent default link behavior for internal updates
+                if (!this.href.includes("new.html")) {
+                    event.preventDefault();
+                }
+
+                // Remove "clicked" class from all chapter links
+                document.querySelectorAll('#submenu1 li a').forEach(el => el.classList.remove('clicked'));
+
+                // Add "clicked" class to the clicked link
+                this.classList.add('clicked');
+            });
+        });
+
+        // Add behavior for parent items (like "Learning Materials")
+        document.querySelectorAll('nav ul > li').forEach(item => {
+            item.addEventListener('click', function() {
+                const submenu = this.querySelector('.submenu');
+                if (submenu) {
+                    toggleSubmenu(submenu.id);
+                }
+            });
+        });
     </script>
 </body>
 
