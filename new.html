@@ -116,12 +116,21 @@
         
         .language-toggle {
             display: flex;
-            gap: 10px;
         }
         
         .language-toggle button {
-            padding: 5px 10px;
+            /* padding: 5px 10px; */
             cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .language-toggle button.active {
+            font-weight: bold;
+            text-decoration: underline;
         }
         
         .icon {
@@ -144,6 +153,10 @@
         
         .sidebar li {
             list-style: none;
+        }
+        
+        .language-toggle button.active {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -198,13 +211,13 @@
 
     <header>
         <div class="language-toggle">
-            <li><i class="fas fa-bars icon" title="Menu"></i></li>
-            <button onclick="setLanguage('en')">English</button>
-            <button onclick="setLanguage('et')">Estonian</button>
+            <i class="fas fa-adjust icon" title="Toggle Dark Mode" onclick="toggleDarkMode()"></i>
+            <button id="btn-en" class="active" onclick="setLanguage('en')">English /</button>
+            <button id="btn-et" onclick="setLanguage('et')">Estonian</button>
         </div>
 
         <div>
-            <i class="fas fa-adjust icon" title="Toggle Dark Mode" onclick="toggleDarkMode()"></i>
+            <a class="fas fa-print icon" title="Print" title="print" onclick="window.print()"></a>
             <a href="https://github.com" target="_blank"><i class="fab fa-github icon github" title="GitHub"></i></a>
         </div>
     </header>
@@ -320,6 +333,7 @@
             document.getElementById("programmingLanguages").textContent = translations[lang].programmingLanguages;
             document.getElementById("architecture").textContent = translations[lang].architecture;
             document.getElementById("isa").textContent = translations[lang].isa;
+            document
             document.getElementById("algorithms").textContent = translations[lang].algorithms;
             document.getElementById("loops").textContent = translations[lang].loops;
             document.getElementById("functions").textContent = translations[lang].functions;
@@ -356,6 +370,11 @@
             document.getElementById("fix1").textContent = translations[lang].fix1;
             document.getElementById("fix2").textContent = translations[lang].fix2;
             document.getElementById("fix3").textContent = translations[lang].fix3;
+
+            // Toggle active class for buttons
+            document.getElementById("btn-en").classList.remove("active");
+            document.getElementById("btn-et").classList.remove("active");
+            document.getElementById(`btn-${lang}`).classList.add("active");
         }
 
         function toggleSubmenu(id) {

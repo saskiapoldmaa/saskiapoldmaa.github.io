@@ -51,6 +51,7 @@
         
         nav ul li {
             margin: 15px 0;
+            cursor: pointer;
         }
         
         nav ul li a {
@@ -62,6 +63,13 @@
         
         nav ul li a.dark {
             color: #f0f0f0;
+        }
+        
+        nav ul .submenu {
+            display: none;
+            padding-left: 20px;
+            font-weight: normal;
+            font-size: 1rem;
         }
         
         header {
@@ -205,7 +213,15 @@
     <nav id="sidebar">
         <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
         <ul>
-            <li><a href="new.html" id="learning-materials">Learning Materials</a></li>
+            <li onclick="toggleSubmenu('submenu1')">Learning Materials</li>
+            <ul id="submenu1" class="submenu">
+                <li><a href="#" onclick="updateContent('Complexity Models', 'Dive into the study of complexity models and their significance.')">1. Complexity Models</a></li>
+                <li><a href="#" onclick="updateContent('Computer Architecture', 'Learn about the design and functionality of modern computer architecture.')">2. Computer Architecture</a></li>
+                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism', 'Understand the concepts of instruction-level parallelism and its impact.')">3. Instruction-Level Parallelism</a></li>
+                <li><a href="#" onclick="updateContent('Compilation', 'Explore the compilation process and optimization techniques.')">4. Compilation</a></li>
+                <li><a href="#" onclick="updateContent('Profiling', 'Learn about profiling techniques to optimize performance.')">5. Profiling</a></li>
+                <li><a href="new.html" onclick="updateContent('Algorithms for Modern Hardware', 'Discover algorithms specifically designed for modern hardware.')">6. Algorithms for Modern Hardware</a></li>
+            </ul>
             <li><a href="#" id="blog-posts">Blog Posts</a></li>
             <li><a href="#" id="resources">Resources</a></li>
         </ul>
@@ -216,15 +232,11 @@
             <ul>
                 <li><i class="fas fa-bars icon" title="Menu"></i></li>
                 <li><i class="fas fa-adjust icon" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()"></i></li>
-                <li>
-                    <li class="fas fa-search icon" title="Search"></li>
-                </li>
-
+                <li><i class="fas fa-search icon" title="Search"></i></li>
             </ul>
         </div>
         <div class="right">
             <ul>
-
                 <li><i class="fas fa-print icon" title="Print" onclick="window.print()"></i></li>
                 <li><a href="https://github.com" target="_blank"><i class="fab fa-github icon" title="GitHub"></i></a></li>
             </ul>
@@ -254,7 +266,6 @@
 
     <script>
         let isDarkMode = false;
-        let isEnglish = true;
 
         function toggleDarkMode() {
             isDarkMode = !isDarkMode;
@@ -263,17 +274,14 @@
             document.getElementById("header").classList.toggle("dark", isDarkMode);
         }
 
-        function toggleLanguage() {
-            isEnglish = !isEnglish;
-            document.getElementById("sidebar-title").textContent = isEnglish ? "Dummy's Guide to Particle Physics" : "Osaline Juhend Osakeste Füüsikasse";
-            document.getElementById("learning-materials").textContent = isEnglish ? "Learning Materials" : "Õppematerjalid";
-            document.getElementById("blog-posts").textContent = isEnglish ? "Blog Posts" : "Blogipostitused";
-            document.getElementById("resources").textContent = isEnglish ? "Resources" : "Ressursid";
-            document.getElementById("home").textContent = isEnglish ? "Home" : "Avaleht";
-            document.getElementById("about").textContent = isEnglish ? "About" : "Teave";
-            document.getElementById("page-title").textContent = isEnglish ? "Dummy's Guide to Particle Physics" : "Osaline Juhend Osakeste Füüsikasse";
-            document.getElementById("main-heading").textContent = isEnglish ? "Hi! I'm Saskia, and this is a website for anyone interested in particle physics." : "Tere! Olen Saskia ja see on veebileht kõigile, keda huvitab osakeste füüsika.";
-            document.getElementById("description").textContent = isEnglish ? "Here, you will find both learning materials and blog posts depicting my own journey into the subject." : "Siit leiate õppematerjale ja blogipostitusi, mis kirjeldavad minu teekonda selles valdkonnas.";
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+
+        function updateContent(title, description) {
+            document.getElementById("main-heading").textContent = title;
+            document.getElementById("description").textContent = description;
         }
     </script>
 </body>
