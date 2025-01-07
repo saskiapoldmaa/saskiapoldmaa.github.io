@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy's Guide to Particle Physics</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body.dark {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: hsl(235, 100%, 69%);
+            display: inline-block;
+            margin: 20px 250px;
+            margin-top: 50px;
+        }
+        
+        nav {
+            background-color: #f7f7f7;
+            padding: 20px;
+            width: 250px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        nav.dark {
+            background-color: #333;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 15px 0;
+            cursor: pointer;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:active,
+        nav ul li a:focus {
+            color: hsl(235, 100%, 69%);
+            outline: none;
+        }
+        
+        nav ul li a.clicked {
+            color: hsl(235, 100%, 69%);
+        }
+        
+        nav ul li a.dark {
+            color: #f0f0f0;
+        }
+        
+        nav ul .submenu {
+            display: none;
+            padding-left: 20px;
+            font-weight: normal;
+            font-size: 1rem;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 300px;
+            width: calc(100% - 330px);
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        
+        header.dark {
+            background-color: #333;
+        }
+        
+        header .left ul,
+        header .right ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        header .left ul li,
+        header .right ul li {
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        .icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .container {
+            margin-left: 350px;
+            padding-top: 60px;
+            padding: 20px;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .content {
+            flex: 1;
+            width: 70%;
+            text-align: left;
+            padding-top: 100px;
+        }
+        
+        .image {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .main-content h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .main-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .profile-image img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            margin: 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: hsl(235, 100%, 69%);
+        }
+        
+        .language-toggle {
+            display: flex;
+            align-items: left;
+            gap: 0px; /* Reduce the gap between buttons */
+        }
+        
+        .language-toggle button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: black;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .language-toggle button.active {
+            color: hsl(234, 12%, 47%);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 200px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            header {
+                left: 0;
+                width: 100%;
+            }
+            .container {
+                margin-left: 0;
+            }
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .content,
+            .image {
+                text-align: center;
+            }
+            .content {
+                order: 2;
+            }
+            h2 {
+                margin: 0;
+            }
+            .sidebar ul li a {
+                text-decoration: none;
+                color: #007bff;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="sidebar">
+        <a href="index.html">
+            <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
+        </a>
+        <ul>
+            <li onclick="toggleSubmenu('submenu1')">Basics of high-energy physics</li>
+            <ul id="submenu1" class="submenu">
+                <li><a href="#" onclick="updateContent('Complexity Models')">1. Complexity Models</a></li>
+                <li><a href="#" onclick="updateContent('Computer Architecture')">2. Computer Architecture</a></li>
+                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
+                <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
+                <li><a href="#" onclick="updateContent('Profiling')">5. Profiling</a></li>
+                <li><a href="#" onclick="switchHeader(); showTriggerContent();">6. Trigger</a></li>
+            </ul>
+            <li onclick="toggleSubmenu('submenu2')">Experimental high-energy physics</li>
+            <ul id="submenu2" class="submenu">
+                <li><a href="#" onclick="updateContent('Particle Physics Basics')">1. Particle Physics Basics</a></li>
+                <li><a href="#" onclick="updateContent('Quantum Mechanics Insights')">2. Quantum Mechanics Insights</a></li>
+                <li><a href="#" onclick="updateContent('Latest Discoveries in Physics')">3. Latest Discoveries in Physics</a></li>
+            </ul>
+            <li onclick="toggleSubmenu('submenu1')">Miscellaneous</li>
+            <ul id="submenu1" class="submenu">
+                <li><a href="#" onclick="updateContent('Complexity Models')">1. Complexity Models</a></li>
+                <li><a href="#" onclick="updateContent('Computer Architecture')">2. Computer Architecture</a></li>
+                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
+                <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
+                <li><a href="#" onclick="updateContent('Profiling')">5. Profiling</a></li>
+                <li><a href="#" onclick="switchHeader(); showTriggerContent();">6. Trigger</a></li>
+            </ul>
+        </ul>
+    </nav>
+
+    <header id="header">
+        <div class="left">
+            <ul>
+                <li><i class="fas fa-bars icon" title="Menu"></i></li>
+                <li><i class="fas fa-adjust icon" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()"></i></li>
+                <li><i class="fas fa-search icon" title="Search"></i></li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+                <li><i class="fas fa-print icon" title="Print" onclick="window.print()"></i></li>
+                <li><a href="https://github.com" target="_blank"><i class="fab fa-github icon" title="GitHub"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container" id="main-container">
+        <h2 id="page-title">Dummy's Guide to Particle Physics</h2>
+        <div class="main-content">
+            <div class="content">
+                <h1 id="main-heading">Hi! I'm Saskia, and this is a website for anyone interested in particle physics.</h1>
+                <p id="description">These materials have been compiled throught my ex</p>
+            </div>
+            <div class="image">
+                <div class="profile-image">
+                    <img src="profile.PNG" alt="Profile Image">
+                </div>
+                <div class="social-icons">
+                    <a href="mailto:saskia.poldmaa@gmail.com" style="color: rgb(139, 139, 189);" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://ee.linkedin.com/in/saskia-p%C3%B5ldmaa-2a3b72266" style="color: rgb(139, 139, 189);" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>Copyright 2024-2025 Saskia Põldmaa</footer>
+
+    <script>
+        let isDarkMode = false;
+
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle("dark", isDarkMode);
+            document.getElementById("sidebar").classList.toggle("dark", isDarkMode);
+            document.querySelector("header").classList.toggle("dark", isDarkMode);
+        }
+
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+
+        function showTriggerContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Trigger</h1>
+                    <p id="description">Not everything that a detector measures is actually a signal from an event that we're interested in (like a muon passing a scintillator). One way to filter out the junk is by data analysis, this is called triggerless DAQ (data acquisition). This entails noting down all datapoints you were ever able to measure. The data analysis method is actually too overpowered in this case, because the bulk of the junk data can be eliminated with something a lot simpler, like a relay logic. This is especially nice because we aren't wasting storage space on useless information. The relay logic or relay system can also be referred to as the umbrella term trigger logic (trigger system). This method, also known as synchronous DAQ is the main competitor of the triggerless DAQ.</p>
+                    <img src="/DAQtypes.png" alt="image" width="100%" height="auto">
+                    <h3 id="faq">FAQ</h3>
+                    <h3 id="bug">Bug/Typo Fixes</h3>
+                    <p id="bugContent">If you spot an error on any page, please do one of these — in the order of preference:</p>
+                    <ul>
+                        <li id="fix1">Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or by modifying the page directly on GitHub (link to the source is also on the top right).</li>
+                        <li id="fix2">Create an issue on GitHub.</li>
+                        <li id="fix3">Tell me about it directly.</li>
+                    </ul>
+                </div>`;
+        }
+
+        function switchHeader() {
+            document.querySelector('header').outerHTML = `
+                <header>
+                    <div class="language-toggle">
+                        <i class="fas fa-adjust icon" title="Toggle Dark Mode" onclick="toggleDarkMode()"></i>
+                        <button id="btn-en" class="active" onclick="setLanguage('en')">English/</button>
+                        <button id="btn-et" onclick="setLanguage('et')">Estonian</button>
+                    </div>
+
+                    <div>
+                        <a class="fas fa-print icon" title="Print" onclick="window.print()"></a>
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github icon github" title="GitHub"></i></a>
+                    </div>
+                </header>`;
+        }
+
+        function setLanguage(lang) {
+            const elements = {
+                en: {
+                    "main-title": "Trigger",
+                    description: "This is an upcoming high-performance computing book titled \"Algorithms for Modern Hardware\" by Sergey Slotin.",
+                    content1: "Its intended audience is everyone from performance engineers and practical algorithm researchers to undergraduate computer science students who have just finished an advanced algorithms course and want to learn more practical ways to speed up a program than by going from O(n log n) to O(n log log n).",
+                    content2: "All book materials are hosted on GitHub, with code in a separate repository. This isn't a collaborative project, but any contributions and feedback are very much welcome.",
+                    faq: "FAQ",
+                    bug: "Bug/Typo Fixes",
+                    bugContent: "If you spot an error on any page, please do one of these — in the order of preference:",
+                    fix1: "Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or by modifying the page directly on GitHub (link to the source is also on the top right).",
+                    fix2: "Create an issue on GitHub.",
+                    fix3: "Tell me about it directly."
+                },
+                et: {
+                    "main-title": "Trigger",
+                    description: "See on eelseisev suure jõudlusega arvutamise raamat pealkirjaga \"Algoritmid moodsa riistvara jaoks\", autor Sergey Slotin.",
+                    content1: "Selle sihtrühmaks on kõik, alates jõudlusinseneridest ja praktilistest algoritmide uurijatest kuni arvutiteaduse üliõpilasteni, kes on just lõpetanud edasijõudnute algoritmide kursuse ja tahavad õppida praktilisemaid viise programmi kiirendamiseks kui minna O(n log n)-st O(n log log n)-ni.",
+                    content2: "Kõik raamatu materjalid on hostitud GitHubis, kood eraldi hoidlas. See ei ole koostööprojekt, kuid kõik panused ja tagasiside on väga teretulnud.",
+                    faq: "KKK",
+                    bug: "Veateated",
+                    bugContent: "Kui märkate mõne lehe viga, tehke üks järgmistest — eelistuste järjekorras:",
+                    fix1: "Parandage see kohe, klõpsates mõnel lehel paremas ülanurgas pliiatsi ikoonil (avaneb Prose redaktor) või muutes lehte otse GitHubis (allikas on samuti paremas ülanurgas).",
+                    fix2: "Looge GitHubis probleem.",
+                    fix3: "Rääkige mulle sellest otse."
+                }
+            };
+
+            const translations = elements[lang];
+            if (translations) {
+                Object.keys(translations).forEach(id => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.innerText = translations[id];
+                    }
+                });
+            }
+
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-et').classList.toggle('active', lang === 'et');
+        }
+
+        document.querySelectorAll('#submenu1 li a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                if (!this.href.includes("new.html")) {
+                    event.preventDefault();
+                }
+
+                document.querySelectorAll('#submenu1 li a').forEach(el => el.classList.remove('clicked'));
+                this.classList.add('clicked');
+            });
+        });
+    </script>
+</body>
+
+</html>
