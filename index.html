@@ -252,12 +252,9 @@
         <ul>
             <li onclick="toggleSubmenu('submenu1')">Basics of high-energy physics</li>
             <ul id="submenu1" class="submenu">
-                <li><a href="#" onclick="updateContent('Complexity Models')">1. Complexity Models</a></li>
-                <li><a href="#" onclick="updateContent('Computer Architecture')">2. Computer Architecture</a></li>
-                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
-                <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
-                <li><a href="#" onclick="switchHeader(); showDWCContent();">5. DWC</a></li>
-                <li><a href="#" onclick="switchHeader(); showTriggerContent();">6. Trigger</a></li>
+                <li><a href="#" onclick="switchHeader(); showTriggerContent();">1. Trigger</a></li>
+                <li><a href="#" onclick="switchHeader(); showQDCContent();">2. QDC</a></li>
+                <li><a href="#" onclick="switchHeader(); showDWCContent();">3. DWC</a></li>
             </ul>
             <li onclick="toggleSubmenu('submenu2')">Experimental high-energy physics</li>
             <ul id="submenu2" class="submenu">
@@ -361,16 +358,34 @@
                     
                     Do signals usually come in bunches or are they more-or-less equally spaced? Well, as it turns out, there is a mathematical reason for them to come in bunches. For events that are both stochastic (random) and memoryless, the probability of an event happening is always highest at the current moment. <img src="/img/time_between.png" alt="image" width="100%" height="auto">
 
-                    <h3 id="faq">FAQ</h3>
-                    <h3 id="bug">Bug/Typo Fixes</h3>
-                    <p id="bugContent">If you spot an error on any page, please do one of these — in the order of preference:</p>
-                    <ul>
-                        <li id="fix1">Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or by modifying the page directly on GitHub (link to the source is also on the top right).</li>
-                        <li id="fix2">Create an issue on GitHub.</li>
-                        <li id="fix3">Tell me about it directly.</li>
-                    </ul>
                 </div>`;
         }
+
+        function showQDCContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Charge to Digital COnverter</h1>
+                    QDC a.k.a a charge to digital converter allows you to measure the charge that passes through it. It comes in all shapes and sizes ranging from an electrical component to the impressive CAEN v792AC (see picture below) that we are using.
+
+                    ![](/docs/assets/qdc1.jpeg)
+                    
+                    Now let's look at the current at the QDC's input. 
+                    
+                    ![](/docs/assets/images/qdc2.png)
+                    
+                    As you can see, there is a very strong background in addition to the current signal caused by a detector. For the noise to contribute as little as possible to our reading, and also to not lose any of the actual signal, we must pick a very specific integration window. On the picture you can see the thought process behind why the specific $t_{start}$ and $t_{end}$ were chosen. The same situation but in real life (and with voltage not current), on an oscilloscope...
+                    
+                    ![](/docs/assets/images/qdc3.png)
+                    The green signal here is known as a `GATE` signal. The gate carries the information about $t_{start}$ and $t_{end}$. When the gate goes `LOW`, our switch closes and current begins flowing onto one plate of the capacitor. To open the switch, the gate must become `HIGH` again. An uncharged capacitor initially acts as a wire, so a short-enough current signal that has just been let though the gate, will just go through the capacitor unbothered. Although it does not actually flow *through* it, instead the capacitor is being charged but the changing electric field creates a displacement current between the capacitor plates. Anyways, when the gate closes and the capacitor has just reached its maximum voltage, the ADC chimes in and measures the maximum voltage (and hence maximum charge on the capacitor) that was achieved during this cycle.
+                    
+                    ![](/docs/assets/images/qdc4.png)
+                    The inner workings of a QDC.
+                    
+                    What opens and closes the gate? It's a so-called gate generator that receives the signal slightly earlier than the other components. This is because the other elements have a delay line attached to them, but the gate does not. When the gate generator detects a rise in current, it opens the gate just in time for the signal to arrive at the gate.
+                </div>`;
+        }
+        
         
         function showDWCContent() {
             const container = document.getElementById('main-container');
