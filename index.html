@@ -250,16 +250,29 @@
             <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
         </a>
         <ul>
-            <li onclick="toggleSubmenu('submenu1')">Basics of High-Energy Physics</li>
+            <li onclick="toggleSubmenu('submenu1')">Basics of high-energy physics</li>
             <ul id="submenu1" class="submenu">
-                <li><a href="#" onclick="showArticleContent('Complexity Models')">1. Complexity Models</a></li>
-                <li><a href="#" onclick="showArticleContent('Computer Architecture')">2. Computer Architecture</a></li>
-                <li><a href="#" onclick="showArticleContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
-                <li><a href="#" onclick="showArticleContent('Compilation')">4. Compilation</a></li>
+                <li><a href="#" onclick="updateContent('Complexity Models')">1. Complexity Models</a></li>
+                <li><a href="#" onclick="updateContent('Computer Architecture')">2. Computer Architecture</a></li>
+                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
+                <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
+                <li><a href="#" onclick="updateContent('Profiling')">5. Profiling</a></li>
+                <li><a href="#" onclick="switchHeader(); showTriggerContent();">6. Trigger</a></li>
             </ul>
-            <li onclick="toggleSubmenu('submenu2')">Experimental High-Energy Physics</li>
+            <li onclick="toggleSubmenu('submenu2')">Experimental high-energy physics</li>
             <ul id="submenu2" class="submenu">
-                <li><a href="#" onclick="showArticleContent('Trigger')">1. Trigger Systems</a></li>
+                <li><a href="#" onclick="updateContent('Particle Physics Basics')">1. Particle Physics Basics</a></li>
+                <li><a href="#" onclick="updateContent('Quantum Mechanics Insights')">2. Quantum Mechanics Insights</a></li>
+                <li><a href="#" onclick="updateContent('Latest Discoveries in Physics')">3. Latest Discoveries in Physics</a></li>
+            </ul>
+            <li onclick="toggleSubmenu('submenu1')">Miscellaneous</li>
+            <ul id="submenu1" class="submenu">
+                <li><a href="#" onclick="updateContent('Complexity Models')">1. Complexity Models</a></li>
+                <li><a href="#" onclick="updateContent('Computer Architecture')">2. Computer Architecture</a></li>
+                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
+                <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
+                <li><a href="#" onclick="updateContent('Profiling')">5. Profiling</a></li>
+                <li><a href="#" onclick="switchHeader(); showTriggerContent();">6. Trigger</a></li>
             </ul>
         </ul>
     </nav>
@@ -362,54 +375,7 @@
                     </ul>
                 </div>`;
         }
-        function showArticleContent(articleName) {
-                    const container = document.getElementById('main-container');
-        
-                    let content = '';
-                    switch (articleName) {
-                        case 'Complexity Models':
-                            content = `
-                                <div class="content">
-                                    <h1>Complexity Models</h1>
-                                    <p>Explore the fundamentals of complexity models and their applications in physics.</p>
-                                </div>`;
-                            break;
-                        case 'Computer Architecture':
-                            content = `
-                                <div class="content">
-                                    <h1>Computer Architecture</h1>
-                                    <p>Learn how computer architecture impacts high-energy physics computations.</p>
-                                </div>`;
-                            break;
-                        case 'Instruction-Level Parallelism':
-                            content = `
-                                <div class="content">
-                                    <h1>Instruction-Level Parallelism</h1>
-                                    <p>Dive into instruction-level parallelism and its role in optimizing computational tasks.</p>
-                                </div>`;
-                            break;
-                        case 'Compilation':
-                            content = `
-                                <div class="content">
-                                    <h1>Compilation</h1>
-                                    <p>Understand the process of compilation and its importance in scientific computing.</p>
-                                </div>`;
-                            break;
-                        case 'Trigger':
-                            content = `
-                                <div class="content">
-                                    <h1>Trigger Systems</h1>
-                                    <p>Explore trigger systems and their role in filtering and managing high-energy physics data.</p>
-                                </div>`;
-                            break;
-                        default:
-                            content = `
-                                <div class="content">
-                                    <h1>Article Not Found</h1>
-                                    <p>The requested article could not be found. Please select a valid option from the menu.</p>
-                                </div>`;
-                    }
-        
+
         function switchHeader() {
             document.querySelector('header').outerHTML = `
                 <header>
