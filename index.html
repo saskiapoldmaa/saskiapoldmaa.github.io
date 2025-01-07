@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dummy's Guide to Particle Physics</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'DM Serif Text', sans-serif;
             background-color: #ffffff;
             transition: background-color 0.3s, color 0.3s;
         }
@@ -257,6 +257,7 @@
                 <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
                 <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
                 <li><a href="#" onclick="updateContent('Profiling')">5. Profiling</a></li>
+                <li><a href="#" onclick="switchHeader(); showDWCContent();">6. Trigger</a></li>
                 <li><a href="#" onclick="switchHeader(); showTriggerContent();">6. Trigger</a></li>
             </ul>
             <li onclick="toggleSubmenu('submenu2')">Experimental high-energy physics</li>
@@ -330,6 +331,23 @@
         }
 
         function showTriggerContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Trigger</h1>
+                    <p id="description">Not everything that a detector measures is actually a signal from an event that we're interested in (like a muon passing a scintillator). One way to filter out the junk is by data analysis, this is called triggerless DAQ (data acquisition). This entails noting down all datapoints you were ever able to measure. The data analysis method is actually too overpowered in this case, because the bulk of the junk data can be eliminated with something a lot simpler, like a relay logic. This is especially nice because we aren't wasting storage space on useless information. The relay logic or relay system can also be referred to as the umbrella term trigger logic (trigger system). This method, also known as synchronous DAQ is the main competitor of the triggerless DAQ.</p>
+                    <img src="/DAQtypes.png" alt="image" width="100%" height="auto">
+                    <h3 id="faq">FAQ</h3>
+                    <h3 id="bug">Bug/Typo Fixes</h3>
+                    <p id="bugContent">If you spot an error on any page, please do one of these — in the order of preference:</p>
+                    <ul>
+                        <li id="fix1">Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or by modifying the page directly on GitHub (link to the source is also on the top right).</li>
+                        <li id="fix2">Create an issue on GitHub.</li>
+                        <li id="fix3">Tell me about it directly.</li>
+                    </ul>
+                </div>`;
+        }
+        function showDWCContent() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
                 <div class="content">
