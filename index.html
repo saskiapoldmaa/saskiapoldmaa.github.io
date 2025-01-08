@@ -352,16 +352,23 @@
             container.innerHTML = `
                 <div class="content">
                     <h1 id="main-title">Trigger</h1>
-                    <p id="description">Not everything that a detector measures is actually a signal from an event that we're interested in (like a muon passing a scintillator). One way to filter out the junk is by data analysis, this is called triggerless DAQ (data acquisition). This entails noting down all datapoints you were ever able to measure. The data analysis method is actually too overpowered in this case, because the bulk of the junk data can be eliminated with something a lot simpler, like a relay logic. This is especially nice because we aren't wasting storage space on useless information. The relay logic or relay system can also be referred to as the umbrella term trigger logic (trigger system). This method, also known as synchronous DAQ is the main competitor of the triggerless DAQ.</p>
-                    <img src="/DAQtypes.png" alt="image" width="100%" height="auto">
-                    <h3 id="faq">FAQ</h3>
-                    <h3 id="bug">Bug/Typo Fixes</h3>
-                    <p id="bugContent">If you spot an error on any page, please do one of these — in the order of preference:</p>
-                    <ul>
-                        <li id="fix1">Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or by modifying the page directly on GitHub (link to the source is also on the top right).</li>
-                        <li id="fix2">Create an issue on GitHub.</li>
-                        <li id="fix3">Tell me about it directly.</li>
-                    </ul>
+                    <p>For more technical questions on the DWC, refer <a href="https://cds.cern.ch/record/702443/files/sl-note-98-023.pdf">here</a></p>
+                    <p>DWCs a.k.a delay wire chambers are gas-filled rectangular chambers that help you track a particle - or at least get their position at the moment they pass the detector. They work like this: a particle passes the gas-filled (argon &amp; $CO_2$) chamber. If the particle is charged, it will ionize the gas inside. In the chamber there are multiple layers of parallel wires, each layer acting as an electrode with neighbouring layers being oppositely charged. 
+                    The positive ions and electrons, which were created in the ionization, will start to move towards their respective electrodes (electrons towards anode and ions towards cathodes). They&#39;re not only moving towards the electrodes, they are also accelerating due to the Coulomb force – especially electrons, which reach such a high velocity, that they start to ionize the surrounding gas even further, creating an avalanche (more specifically a Townsend avalanche). Eventually all of the kicked out electrons reach the anode and cause a great current in it. This current in the anode (more specifically its magnetic field) will go on to create an image current* in the cathode. This step is important, because it&#39;s not the anode current that we are measuring, it&#39;s instead the image current in the cathode. Also, the current will be produced in 2-3 neighbouring cathode wires at a time.</p>
+                    <h3 id="dwc-readout">DWC readout</h3>
+                    <p>Neighbouring cathode wires are connected to each other with little delay lines. The two edgemost wires are connected to a sensor. The current from the edgemost wires has a characteristic shape: it&#39;s like a mountain composed of tiy steps. </p>
+                    <p><details></p>
+                    <p><summary>Image current*</summary>
+                    <br>
+                    ... also known as mirror current, in this context, is just the current which the magnetic field of the neighbouring anode produced in our cathode. The words &quot;image&quot; or &quot;mirror&quot; are used because it turns out that as far as the magnetic field is concerned, the current inside our electrode can be modelled as a reflection of the anode, where the mirror is the surface of our cathode.
+                    </details>
+                    Each tiny step is the contribution from a single wire. They add up consecutively thanks to the delay lines between the wires, but this is not really the important part. The delay lines are actually there so that the little current mountain would reach the two edges of the cathode, where the detectors are, at different times. The moment when the signal is detected in the sensor is at the rising edge. The detector is a TDC, time to digital converter. This is like a very precise stopwatch that measures the time from the trigger until a signal. The delay lines made it so that the time measured by the two TDCs is not equal. It&#39;s actually the difference in the times that gives us the position along one axis. 
+                    $$ \text{time difference}=\text{time(Left)}-\text{time(Right)}$$
+                    $$ X=A\cdot \left(\text{time difference}\right) + B $$
+                    where the A and B are constants that were measured during the calibration. More specifically, A is the slope and B is the offset.</p>
+                    <p>During calibration, a test generator is used to create electrical signals in the chamber. Though two signals are needed to find the two variables $A$ and $B$, it is standard practice to use three. Those three test point must lie on the same straight line. </p>
+                    <h3 id="tdc-vs-scaler">TDC vs Scaler</h3>
+                    <p>So a TDC is in essence just a stopwatch. And so is the scaler, but the scaler isn&#39;t controlled by the trigger, so this is one of the only detectors that is always just doing its own thing – measuring the time of every hit, no matter whether the TDAQ is <code>BUSY</code> or not. </p>
                 </div>`;
         }
 
