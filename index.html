@@ -257,7 +257,10 @@
                 <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
                 <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
                 <li><a href="#" onclick="updateContent('Profiling')">5. Profiling</a></li>
-                <li><a href="#" onclick="switchHeader(); showDWCContent();">6. Trigger</a></li>
+                <li><a href="#" onclick="switchHeader(); showVaria();">6. Varia</a></li>
+                <li><a href="#" onclick="switchHeader(); showCherenkov();">6. Cherenkov</a></li>
+                <li><a href="#" onclick="switchHeader(); showQDCContent();">6. QDC</a></li>
+                <li><a href="#" onclick="switchHeader(); showDWCContent();">6. DWC</a></li>
                 <li><a href="#" onclick="switchHeader(); showTriggerContent();">6. Trigger</a></li>
             </ul>
             <li onclick="toggleSubmenu('submenu2')">Experimental high-energy physics</li>
@@ -369,6 +372,64 @@
                     <p>During calibration, a test generator is used to create electrical signals in the chamber. Though two signals are needed to find the two variables $A$ and $B$, it is standard practice to use three. Those three test point must lie on the same straight line. </p>
                     <h3 id="tdc-vs-scaler">TDC vs Scaler</h3>
                     <p>So a TDC is in essence just a stopwatch. And so is the scaler, but the scaler isn&#39;t controlled by the trigger, so this is one of the only detectors that is always just doing its own thing – measuring the time of every hit, no matter whether the TDAQ is <code>BUSY</code> or not. </p>
+                </div>`;
+        }
+        function shownothing() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Nothing</h1>
+                    
+                </div>`;
+        }
+        function showCherenkov() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Nothing</h1>
+                    <p><img src="/docs/assets/xcet.gif" alt="Basic Cherenkov"></p>
+                    <p>Cherenkov detectors, also known by the abbreviation XCET in our experiment, are gas-filled detectors designed to determinine if a charged particle passing through them exceeds a specific cutoff momentum. If the particle is faster than the phase velocity of light in that gas, the gas will emit light (the principle that nothing can be faster than light only applies to the group velocity of light, not the phase velocity).</p>
+                    <p>The threshold momentum is regulated by the pressure in the detector. The higher the pressure, the higher is the refractive index and the slower does light travel in that medium. Hence, to raise the threshold momentum for particles, you need to decrease the pressure (so increase to decrease!).</p>
+                    <p>By using two Cherenkov detectors at different pressures, with two distinct momentum cutoffs for light emission, you can identify all particles within the momentum range defined by the cutoff momenta of each detector. A particle will fall into this momentum range if it emits light in one Cherenkov detector but not in the other.</p>
+                    <p>To map the momentum of all particles in the beam, i.e. to measure the particles&#39; spectrum, you need to perform a so-called pressure scan. For this, only one Cherenkov detector is necessary, but you need to vary the pressure in it from maximum to minimum. This can be done by initially pumping the detector full of gas and taking measurements while it gradually depressurizes.</p>
+                    <p>The results of pressure scans are usually given by # of particles in a spill that made the medium emit light. You get an idea of what fraction of particles emitted light by comparing this to the trigger rate - the total number of particles in a spill. This is a sample pressure scan from our testbeam:
+                    <img src="/docs/assets/che.png" alt="Pressure scan"></p>
+                    <p>Here, the x-axis represents the pressure in the Cherenkov detector in bars. On the y-axis is the Cherenkov efficiency.
+                    The efficiency of a Cherenkov detector is truly not an efficiency; it is actually the fraction of particles that emit light or</p>
+                    <p>$\eta=\frac{\text{Light-emitting particles per spill}}{\text{Trigger rate}}$</p>
+                    <p>As you can see from the previous picture, at low pressure the threshold momentum is very high, so there are few particles that actually get detected, but as the pressure increases, the momentum becomes less and less discriminating, so more particles are detected.</p>
+                    <p>Pressure scans are more useful after you&#39;ve translated the x-axis from pressure to threshold momentum.Because particle energies usually follow a normal distribution, the 50% efficiency usually responds to the peak of the spectrum.
+                    <img src="/docs/assets/pre.png" alt="Pressure scan after calculations"></p>
+                </div>`;
+        }
+        function showVaria() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Nothing</h1>
+                    <p>CESAR is a software that deals with the beam configuration and also does measurements on a spill level. This means that it can identify the no. of particles in a spill that were counted by xyz detector but it cannot measure anything on a particle level. Hence, in CERN context this is not considered a DAQ (data acquisition system).
+                    TDAQ is a trigger and data acquisition system. This one can do measurements on the particle level.
+                    The no. of particles that you have in the beam is given by two numbers: the event and the trigger rate. Event rate is the one measured by CESAR and this can be taken as the de facto number of particles in a spill. Trigger rate, however, is the number you are actually able to measure with the TDAQ (readout takes some time).
+                    <code>&amp;</code> means coincidence, for example <code>S0&amp;S1&amp;XCET040</code> is scintillators 0 and 1 set into coincidence with each other and the Cherenkov 40. 
+                    NIM - nuclear instrumentation module </p>
+                </div>`;
+        }
+        function showQDCContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Nothing</h1>
+                    <p>QDC a.k.a a charge to digital converter allows you to measure the charge that passes through it. It comes in all shapes and sizes ranging from an electrical component to the impressive CAEN v792AC (see picture below) that we are using.</p>
+                    <p><img src="/docs/assets/qdc1.jpeg" alt=""></p>
+                    <p>Now let&#39;s look at the current at the QDC&#39;s input. </p>
+                    <p><img src="/docs/assets/images/qdc2.png" alt=""></p>
+                    <p>As you can see, there is a very strong background in addition to the current signal caused by a detector. For the noise to contribute as little as possible to our reading, and also to not lose any of the actual signal, we must pick a very specific integration window. On the picture you can see the thought process behind why the specific $t<em>{start}$ and $t</em>{end}$ were chosen. The same situation but in real life (and with voltage not current), on an oscilloscope...</p>
+                    <p><img src="/docs/assets/images/qdc3.png" alt="">
+                    The green signal here is known as a <code>GATE</code> signal. The gate carries the information about $t<em>{start}$ and $t</em>{end}$. When the gate goes <code>LOW</code>, our switch closes and current begins flowing onto one plate of the capacitor. To open the switch, the gate must become <code>HIGH</code> again. An uncharged capacitor initially acts as a wire, so a short-enough current signal that has just been let though the gate, will just go through the capacitor unbothered. Although it does not actually flow <em>through</em> it, instead the capacitor is being charged but the changing electric field creates a displacement current between the capacitor plates. Anyways, when the gate closes and the capacitor has just reached its maximum voltage, the ADC chimes in and measures the maximum voltage (and hence maximum charge on the capacitor) that was achieved during this cycle.</p>
+                    <p><img src="/docs/assets/images/qdc4.png" alt="">
+                    The inner workings of a QDC.</p>
+                    <p>What opens and closes the gate? It&#39;s a so-called gate generator that receives the signal slightly earlier than the other components. This is because the other elements have a delay line attached to them, but the gate does not. When the gate generator detects a rise in current, it opens the gate just in time for the signal to arrive at the gate.</p>
+                    <p>By the way, more often than not, the current entering a QDC is not only $I(t)$, our signal. There is also a pedestal current $I_{PED}$ – a constant current which is generated inside a QDC by default. Its purpose is to reduce the relative error on the ADC reading (I&#39;m not sure why this is important, since after subtracting the pedestal current in data analysis, the relative error will still be the same) and to bring the capacitor into a mode where it is working linearly, meaning the real capacitance coincides with the nominal one. The pedestal current also depends on the wires being used, so it must always be determined experimentally (and separately for every channel!). It is common practice to not deduct your pedestal current from the measurement results, but in an ideal world this deduction is always made.</p>
                 </div>`;
         }
 
