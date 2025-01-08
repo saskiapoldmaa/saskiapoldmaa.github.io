@@ -264,18 +264,15 @@
             </ul>
             <li onclick="toggleSubmenu('submenu2')">Basics</li>
             <ul id="submenu2" class="submenu">
-                <li><a href="#" onclick="updateContent('Particle Physics Basics')">1. Particle Physics Basics</a></li>
-                <li><a href="#" onclick="updateContent('Quantum Mechanics Insights')">2. Quantum Mechanics Insights</a></li>
-                <li><a href="#" onclick="updateContent('Latest Discoveries in Physics')">3. Latest Discoveries in Physics</a></li>
+                <li><a href="#" onclick="switchHeader(); showFeynmanDiagramsContent();">1. Feynman Diagrams</a></li>
+                <li><a href="#" onclick="switchHeader(); showHiggsBosonDiscoveryContent();">2. Higgs Boson Discovery</a></li>
+                <li><a href="#" onclick="switchHeader(); showParticlePhysicsLagrangianContent();">3. That Famous Equation</a></li>
             </ul>
             <li onclick="toggleSubmenu('submenu1')">Miscellaneous</li>
             <ul id="submenu1" class="submenu">
-                <li><a href="#" onclick="updateContent('Complexity Models')">1. Complexity Models</a></li>
-                <li><a href="#" onclick="updateContent('Computer Architecture')">2. Computer Architecture</a></li>
-                <li><a href="#" onclick="updateContent('Instruction-Level Parallelism')">3. Instruction-Level Parallelism</a></li>
-                <li><a href="#" onclick="updateContent('Compilation')">4. Compilation</a></li>
-                <li><a href="#" onclick="updateContent('Profiling')">5. Profiling</a></li>
-                <li><a href="#" onclick="switchHeader(); showTriggerContent();">6. Trigger</a></li>
+                <li><a href="#" onclick="switchHeader(); showFeynmanDiagramsContent();">1. Feynman Diagrams</a></li>
+                <li><a href="#" onclick="switchHeader(); showHiggsBosonDiscoveryContent();">2. Higgs Boson Discovery</a></li>
+                <li><a href="#" onclick="switchHeader(); showParticlePhysicsLagrangianContent();">3. That Famous Equation</a></li>
             </ul>
         </ul>
     </nav>
@@ -403,6 +400,61 @@
                     <p>A busy logic is very intuitive: if your system says it&#39;s &#39;BUSY&#39;, then it&#39;s unaccepting of new signals because it has other stuff to do. It is ready to take on a new signal once it goes into &#39;NOT BUSY&#39; mode.
                     The most comprehensive <a href="https://indico.cern.ch/event/1337180/contributions/5629322/attachments/2880440/5046367/isotdaq24.Negri.DaqIntro.pdf">presentation</a> on this topic.</p>
                     <p>Do signals usually come in bunches or are they more-or-less equally spaced? Well, as it turns out, there is a mathematical reason for them to come in bunches. For events that are both stochastic (random) and memoryless, the probability of an event happening is always highest at the current moment. <img src="/img/time_between.png" alt="image" width="100%" height="auto"></p>
+                </div>`;
+        }
+        function showFeynmanDiagramsContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Feynman Diagrams</h1>
+                    <p>Feynman diagrams are a graphical representation of the interactions between subatomic particles. They were introduced by physicist Richard Feynman to simplify complex mathematical equations in quantum field theory.</p>
+                    <p><img src="/feynman1.jpeg" alt=""></p>
+                    <p>Each line and vertex in a Feynman diagram has a specific meaning. Straight lines represent fermions like electrons and quarks, while wavy or dashed lines represent force carriers such as photons or gluons.</p>
+                    <p><img src="/feynman2.png" alt=""></p>
+                    <p>In the image above, an electron and a positron annihilate to produce a photon, which subsequently decays into a new electron-positron pair. The diagram simplifies this process, making it easier to calculate probabilities and cross-sections.</p>
+                    <p>Feynman diagrams are not just visual tools; they are a powerful method to predict the outcomes of particle interactions and have become a cornerstone of modern particle physics.</p>
+                </div>`;
+        }
+        
+        function showCMSExperimentContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">The CMS Experiment</h1>
+                    <p>The Compact Muon Solenoid (CMS) is one of the large experiments at the Large Hadron Collider (LHC). It is designed to investigate a wide range of physics phenomena, including the search for the Higgs boson and evidence of dark matter.</p>
+                    <p><img src="/cms1.jpeg" alt=""></p>
+                    <p>CMS uses a powerful solenoid magnet to bend the paths of charged particles, allowing their momenta to be measured. Its detectors can identify particles with incredible precision, helping to reconstruct complex particle collisions.</p>
+                    <p><img src="/cms2.png" alt=""></p>
+                    <p>The above image shows the layered structure of CMS, which includes a silicon tracker, electromagnetic and hadron calorimeters, and muon detectors. Each layer is optimized for detecting specific particles and their energies.</p>
+                    <p>CMS played a crucial role in the discovery of the Higgs boson in 2012, confirming the mechanism that gives mass to elementary particles. It continues to be a vital tool for exploring the unknowns of the universe.</p>
+                </div>`;
+        }
+        
+        function showHiggsBosonDiscoveryContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Higgs Boson Discovery</h1>
+                    <p>The discovery of the Higgs boson in 2012 was a monumental achievement in physics, completing the Standard Model of particle physics. The Higgs boson is associated with the Higgs field, which gives mass to elementary particles.</p>
+                    <p><img src="/higgs1.jpeg" alt=""></p>
+                    <p>The search for the Higgs boson required the use of high-energy particle collisions at the Large Hadron Collider (LHC). Detectors like CMS and ATLAS observed the rare decay signatures of the Higgs boson, confirming its existence.</p>
+                    <p><img src="/higgs2.png" alt=""></p>
+                    <p>As shown in the image above, the Higgs boson is often detected through its decay into other particles, such as photons or leptons. These decay patterns match the predictions of the Standard Model, providing strong evidence for the Higgs mechanism.</p>
+                    <p>The discovery opened new avenues of research, including studies of the Higgs boson’s properties and its role in the early universe.</p>
+                </div>`;
+        }
+        
+        function showParticlePhysicsLagrangianContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">The Famous Particle Physics Lagrangian</h1>
+                    <p>The Lagrangian of the Standard Model is a mathematical expression that encapsulates all the known particles and their interactions. It is a concise summary of the fundamental forces (except gravity) that govern the universe.</p>
+                    <p><img src="/lagrangian1.jpeg" alt=""></p>
+                    <p>Each term in the Lagrangian represents a specific interaction. For example, it includes terms for electromagnetic interactions (via photons), weak interactions (via W and Z bosons), and strong interactions (via gluons).</p>
+                    <p><img src="/lagrangian2.png" alt=""></p>
+                    <p>The Higgs mechanism, which gives particles their mass, is also embedded in the Lagrangian. This elegant formulation is a triumph of theoretical physics, connecting abstract mathematics with experimental observations.</p>
+                    <p>While comprehensive, the Standard Model Lagrangian leaves questions unanswered, such as the nature of dark matter and the inclusion of gravity. Efforts to expand beyond this framework drive much of today’s research in theoretical physics.</p>
                 </div>`;
         }
         function showDWCContent() {
