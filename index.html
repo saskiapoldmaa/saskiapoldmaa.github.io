@@ -256,7 +256,11 @@
                 <li><a href="#" onclick="switchHeader(); showCherenkov();">2. Cherenkov detectors</a></li>
                 <li><a href="#" onclick="switchHeader(); showQDCContent();">3. QDC</a></li>
                 <li><a href="#" onclick="switchHeader(); showDWCContent();">4. DWC</a></li>
-                <li><a href="#" onclick="switchHeader(); showVaria();">5. Miscellaneous</a></li>
+                <li><a href="#" onclick="switchHeader(); showDAQContent();">5. DAQ systems</a></li>
+                <li><a href="#" onclick="switchHeader(); showNIMContent();">6. NIM</a></li>
+                <li><a href="#" onclick="switchHeader(); showBubbleChamberContent();">7. Bubble Chamber</a></li>
+                <li><a href="#" onclick="switchHeader(); showVaria();">8. Miscellaneous</a></li>
+
             </ul>
             <li onclick="toggleSubmenu('submenu2')">Basics</li>
             <ul id="submenu2" class="submenu">
@@ -326,6 +330,53 @@
         function toggleSubmenu(id) {
             const submenu = document.getElementById(id);
             submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+        function showNIMContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">NIM Crates</h1>
+                    <p>NIM (Nuclear Instrumentation Module) crates serve as the backbone of many laboratory setups in nuclear and particle physics experiments. These crates provide the standardized framework and power supply necessary to house and connect various NIM modules.</p>
+                    <p><img src="/nim_crate1.jpeg" alt=""></p>
+                    <p>The modules plugged into a NIM crate perform tasks like signal amplification, timing, logic processing, and more. Each module adheres to the NIM standard, ensuring compatibility across different systems.</p>
+                    <p><img src="/nim_crate2.png" alt=""></p>
+                    <p>Power distribution is a crucial feature of NIM crates. Each slot provides regulated power to the modules, ensuring stable operation. The above image shows the internal wiring layout of a standard NIM crate.</p>
+                    <p>One notable use of NIM crates is in coincidence measurements. For example, when studying the simultaneous detection of particles in multiple detectors, the signals from each detector pass through NIM modules that generate precise timing and logic outputs.</p>
+                    <p><img src="/nim_crate3.png" alt=""></p>
+                    <p>The NIM standard was developed to facilitate modularity, and it remains widely used despite newer systems like VME and CAMAC being introduced. The simplicity and robustness of NIM crates make them invaluable for small-scale and prototype experiments.</p>
+                </div>`;
+        }
+        
+        function showDAQContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Data Acquisition (DAQ) Systems</h1>
+                    <p>Data Acquisition systems, or DAQs, are the heart of modern experimental setups. They gather, process, and store data from detectors, allowing researchers to analyze experimental results in real time or offline.</p>
+                    <p><img src="/daq1.jpeg" alt=""></p>
+                    <p>A typical DAQ system includes components like digitizers, triggers, and data storage units. The digitizer converts analog signals from detectors into digital data that can be processed by computers.</p>
+                    <p><img src="/daq2.png" alt=""></p>
+                    <p>The image above illustrates the flow of data within a DAQ system. Detectors produce signals that are digitized, filtered, and stored for analysis. Timing synchronization is critical, and DAQ systems often include precise clocks to ensure accurate event reconstruction.</p>
+                    <p><img src="/daq3.png" alt=""></p>
+                    <p>Modern DAQ systems use software frameworks to manage data flow and enable user-friendly configuration. For example, the CAEN SY5527 system allows seamless integration with custom analysis software, as shown above.</p>
+                    <p>Whether in high-energy physics or medical imaging, DAQs play an essential role in extracting meaningful information from complex experiments.</p>
+                </div>`;
+        }
+        
+        function showBubbleChamberContent() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Bubble Chambers</h1>
+                    <p>A bubble chamber is a type of particle detector that visualizes the paths of charged particles as they pass through a superheated liquid. This ingenious device was widely used in the mid-20th century for studying subatomic particles.</p>
+                    <p><img src="/bubble_chamber1.jpeg" alt=""></p>
+                    <p>The liquid inside a bubble chamber is kept just below its boiling point. When a charged particle travels through the liquid, it ionizes the molecules along its path. A sudden pressure drop causes the ionized paths to form bubbles, making the particle's trajectory visible.</p>
+                    <p><img src="/bubble_chamber2.png" alt=""></p>
+                    <p>As shown in the image above, magnetic fields are often applied to the chamber, causing charged particles to curve. The curvature allows researchers to determine the particle's momentum and charge.</p>
+                    <p><img src="/bubble_chamber3.png" alt=""></p>
+                    <p>Photographs of bubble chamber events, like the one above, have provided insights into particle interactions, including the discovery of several exotic particles. Though replaced by modern detectors like wire chambers and silicon trackers, bubble chambers remain iconic symbols of experimental physics.</p>
+                    <p>Their legacy lives on, inspiring new generations of physicists and engineers in the quest to understand the universe.</p>
+                </div>`;
         }
 
         function showTriggerContent() {
