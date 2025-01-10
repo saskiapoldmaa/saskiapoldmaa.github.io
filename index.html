@@ -424,14 +424,51 @@
             container.innerHTML = `
                 <div class="content">
                     <h1 id="main-title">Feynman Diagrams</h1>
-                    <p>Feynman diagrams are a graphical representation of the interactions between subatomic particles. They were introduced by physicist Richard Feynman to simplify complex mathematical equations in quantum field theory.</p>
-                    <p><img src="/feynman1.jpeg" alt=""></p>
-                    <p>Each line and vertex in a Feynman diagram has a specific meaning. Straight lines represent fermions like electrons and quarks, while wavy or dashed lines represent force carriers such as photons or gluons.</p>
-                    <p><img src="/feynman2.png" alt=""></p>
-                    <p>In the image above, an electron and a positron annihilate to produce a photon, which subsequently decays into a new electron-positron pair. The diagram simplifies this process, making it easier to calculate probabilities and cross-sections.</p>
-                    <p>Feynman diagrams are not just visual tools; they are a powerful method to predict the outcomes of particle interactions and have become a cornerstone of modern particle physics.</p>
+                    <p>Feynman diagrams are an incredible tool for visualizing interactions in quantum field theory. Whether you’re a beginner or looking for a rigorous understanding, there’s a level of explanation here for you!</p>
+                
+                    <div class="level">
+                        <h2>Quick Overview</h2>
+                        <p>If you’re in a rush or just curious, here’s what you need to know:</p>
+                        <ul>
+                            <li>Feynman diagrams represent particle interactions using lines and vertices.</li>
+                            <li><strong>Lines:</strong> Straight lines are fermions (like electrons), wavy or dashed lines are bosons (like photons or gluons).</li>
+                            <li><strong>Vertices:</strong> Points where lines meet represent interactions (e.g., an electron emitting a photon).</li>
+                            <li>Time usually flows from left to right or bottom to top.</li>
+                        </ul>
+                        <p class="image-suggestion">Suggested image: A simple Feynman diagram of an electron emitting a photon (one vertex).</p>
+                    </div>
+                
+                    <div class="level">
+                        <h2>For an Interested Reader</h2>
+                        <p>Let’s dig a bit deeper:</p>
+                        <ul>
+                            <li>Feynman diagrams are a shorthand for complicated mathematical expressions in quantum mechanics.</li>
+                            <li><strong>External lines:</strong> Lines starting or ending without connecting to another particle represent incoming or outgoing particles (e.g., initial electrons, final photons).</li>
+                            <li><strong>Internal lines:</strong> Lines that start and end at vertices represent virtual particles, which exist briefly during the interaction.</li>
+                            <li>Each vertex follows specific rules based on the theory’s Lagrangian, which describes the physics of the system.</li>
+                        </ul>
+                        <p>You can think of these diagrams as a roadmap of "who interacts with whom" and "how energy and momentum flow."</p>
+                        <p class="image-suggestion">Suggested image: A slightly more complex diagram showing an electron-positron annihilation into a photon and back into an electron-positron pair.</p>
+                    </div>
+                
+                    <div class="level">
+                        <h2>I'm Looking for Something Rigorous</h2>
+                        <p>For those ready to dive into the formalities:</p>
+                        <ul>
+                            <li>Each diagram corresponds to a term in the perturbative expansion of the scattering amplitude, calculated using Feynman rules.</li>
+                            <li>Each <strong>line</strong> (propagator) has a mathematical representation depending on the particle’s type (e.g., fermion propagators vs. boson propagators).</li>
+                            <li>Each <strong>vertex</strong> includes a factor determined by the interaction type (e.g., coupling constants).</li>
+                            <li>Conservation laws (e.g., energy, momentum) are enforced at each vertex.</li>
+                            <li>Loop diagrams, representing higher-order corrections, involve integration over all possible internal momenta, leading to divergence that requires regularization and renormalization.</li>
+                        </ul>
+                        <p>Understanding Feynman diagrams rigorously often involves studying quantum field theory textbooks and practice in applying the rules to specific problems.</p>
+                        <p class="image-suggestion">Suggested image: A loop diagram (e.g., electron self-energy correction) and its associated mathematical expression.</p>
+                    </div>
+                
+                    <p>That’s it! Whether you’re just starting or diving deep, Feynman diagrams are a gateway to understanding the quantum world. Happy exploring!</p>
                 </div>`;
         }
+
         
         function showCMSExperimentContent() {
             const container = document.getElementById('main-container');
