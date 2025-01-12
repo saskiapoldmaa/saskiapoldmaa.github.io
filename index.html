@@ -289,7 +289,7 @@
             <ul id="submenu3" class="submenu">
                 <li><a href="#" onclick="switchHeader(); showstrato();">1. Ballooning</a></li>
                 <li><a href="#" onclick="switchHeader(); showbeginning();">2. First Few Days</a></li>
-                <li><a href="#" onclick="switchHeader(); showParticlePhysicsLagrangianContent();">3. That Famous Equation</a></li>
+                <li><a href="#" onclick="switchHeader(); showfirst();">3. Training</a></li>
             </ul>
         </ul>
     </nav>
@@ -568,6 +568,31 @@
                 <div class="content">
                     <h1 id="main-title">Nothing</h1>
                     
+                </div>`;
+        }
+        function showfirst() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Getting Adjusted</h1>
+                    <p>Kuna CERN on turvalisuse poolt üsna range, eriti range tudengite puhul ja eriti-eriti range kooliõpilaste puhul, siis oli meie programmis lausa terve päev pühendatud turvalisusele. No jah, pole meie lemmikteema, aga kuna see oli meie esimene CERNi täispäev, siis olime siiski mega <em>excited</em>.</p>
+                    <p>Hommik algas sellega, et tutvusime sööklahindadega. Meie poiste Ralfi ja Mihkli jaoks oli see korralik löök, sest nende hommikusöök küündis 29 frangini (1 frank $\approx$ 1 euro), päevaks oli ette nähtud aga 40 franki. </p>
+                    <p>Seejärel järgnesid erinevad loengud tuleohutuse, keskkonnakaitse ja elektri käitlemise teemal. Mina tõtt-öelda vaatasin rohkem, mis loom see CERNi töötaja on: meie esinejad olid (enamasti) noored eurooplased super inglise keelega ja kilomeetripikkuste esitlustega. Akronüümide kogus oli lausa absurdne, näiteks jäi silma akronüüm ALARA ehk <em>as low as reasonably achievable</em> – see oli siis keskkonnamõjude vähendamise teemal. See, et iga neljas sõna lauses on lühend, esinejaid häirivat ei tundunud, aga meie vaikselt itsitasime iga uue lühendi üle.
+                    Üllatav oli ka CERNi ohutuse <em>slogan</em>: &quot;Do not touch what you do not know&quot;.</p>
+                    <p>Krüogeenide loengu keskel (seal tehti meile teadusteatrit ka, aga ma neid konkreetseid katseid polnudki näinud tglt) hakkas lugeja abiline äkitselt eesti keeles rääkima. Me olime kõik soki äärel, olime ju ometi harjunud, et eesti keeles võib vabalt ükskõik mida-keda arutada, keegi niikuinii ju ei mõista – aga ei. Vahetasime kontakte ja otsustasime meie eestlasega lõunal kokku saada.</p>
+                    <p>Enne läbisime turvakursused. CERNil on palju enda tarkvarasid, veebilehti jms. Samamoodi oli ka neil erinevate sertifikaatide saamiseks platform, kus alguses pidid läbi tegema interaktiivse esitluse ja pärast väikse testi. Esitlused olid täitsa omaette lugu, nende all pidi ikka miljon alla minema, kuna need olid tehtud justkui arvutimängu vormi. Nt &quot;evakueeru hoonest&quot; või &quot;mida teha, kui su naaberkabinet on radioaktiivne&quot;. Muide, CERNis on iga turvaprobleemi lahendus kuulus 744444 ehk tuletõrje. Kuna need juhtumid, millega CERNi tuletõrjujatel rinda tuleb pista, on tavaelust nii kauged, on CERN pannud kokku enda tuletõrjebrigaadi. </p>
+                    <p>Lõunatasime Ottiga ning saime selle käigus veidi rohkem aimu CERNi siseelust. CERNi hierarhia on selline: praktikant (ehk ujuv lepingu pikkus), suvetudeng, tehniline tudeng. CERNi kommuun saab omavahel kokku reede õhtuti kampuse enda sööklas. Aga tegelt on see mõistetav: söökla on <em>go-to</em> koht miliganes hängimiseks, töötamiseks ja vahel ka söömiseks. Kuigi toit lakkab 20.30-st, siis jooke saab 22-ni ja ka oma jookidega kohale ilmumine on vägagi tolereeritud. Riina Murulaiu väide, et CERNi õhkkond on nooruslik ja liberaalne, peab seega suurepäraselt paika. Ott ise on bakakraadiga ning uurib nüüd CERNis krüogeene. </p>
+                    <p>Pärastlõunal oli taaskord aega vaid selleks, et käia korraks toas ja endale paaniliselt soojemaid riideid otsida ja siis bussi peale hüpata. Sõitsime Meyrin kampuselt välja Prantsusmaale, kus neil on Safety Training Centre, ehk konteineritega ala, mille sisemus imiteerib CERNi ruume nt LHC-d. Seal sain mina esimest korda elus tulekustutit proovida ning see oli oluliselt lihtsam, kui arvata oleks võinud. 
+                    Õhtul tegime väikse kampuse tundmaõppimise aardejahi abil: nägime ära raamatukogu, meie pisut nukra (seda siis ümbritsevaga võrreldes) koosolekuruumi, <a href="https://computer-animal-shelter.web.cern.ch/index.shtml">loomade varjupaige</a>, East Area ja WWW leiutamise kabineti.
+                    Lõpuks jõudsime (mööda Route Maxwelli!) itaalia restorani, kus saime kogu BL4S osalistega üheskoos õhtustada. </p>
+                    <p>Esimese päeva lõpuks olime saanud haistu ninna sellest, mismoodi CERN hakkab välja nägema.
+                    Suurimad üllatused olid:</p>
+                    <ul>
+                    <li>Kogukonna suurus. Ma ei teadnud, et kogu Prantsusmaa peale leiduks üldse nii palju inglise keelt kõnelevaid inimesi, kui palju prantslasi ma CERN-is nägin. Ja siia saamiseks pidid nad oskama ju mitte ainult inglise keelt, vaid olema ka oma valdkonnas kohutavalt asjalikud. </li>
+                    <li>Kampus pole seespoolt sugugi nii modernne kui see, kuidas CERN-i väliselt esitletakse. Enamus hooneid pärinevad 50/60ndatest. Aga see on minu arust väga hea märk, sest prioriteedid on järelikult paigas ja raha kulub maa-alusele.</li>
+                    <li>Enamik nägusid tundusid nii noored
+                    See, et enamik CERN-is ringi sagivaid inimesi tundusid meist vaid paar aastat vanemad, oli meie jaoks nii suur üllatus, et kui õhtul kahele CERN-i kohalikule peale sattusime, küsisime neilt otse, et mis siin ikkagi toimub. Mida kõik need noored siin teevad? Tuli välja, et kõik need on ilmselt CERN-is õpilaseprogrammiga, samamoodi nagu ka need kaks noort, kes seda meile seletasid: Alex ja Oliver. </li>
+                    </ul>
                 </div>`;
         }
         function showbeginning() {
