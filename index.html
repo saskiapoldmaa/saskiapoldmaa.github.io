@@ -282,7 +282,7 @@
             <li onclick="toggleSubmenu('submenu2')">Basics</li>
             <ul id="submenu2" class="submenu">
                 <li><a href="#" onclick="switchHeader(); showFeynmanDiagramsContent();">1. Feynman Diagrams</a></li>
-                <li><a href="#" onclick="switchHeader(); showHiggsBosonDiscoveryContent();">2. Higgs Boson Discovery</a></li>
+                <li><a href="#" onclick="switchHeader(); showROOT();">2. Why ROOT</a></li>
                 <li><a href="#" onclick="switchHeader(); showParticlePhysicsLagrangianContent();">3. That Famous Equation</a></li>
             </ul>
             <li onclick="toggleSubmenu('submenu3')">A Few Stories</li>
@@ -351,6 +351,16 @@
             const submenu = document.getElementById(id);
             submenu.style.display = submenu.style.display === "block" ? "none" : "block";
         }
+        function showROOT) {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">ROOT</h1>
+                    <img src="/branches.png" alt="image" width="100%" height="auto"></p>
+                    <p>On this picture, each branch is data, which we get from a detector or a single output of some detector. The entries in multiple branches were concurrent if they are in the same entry.</p>
+                </div>`;
+        }
+                   
         function showNIMContent() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
@@ -358,6 +368,9 @@
                     <h1 id="main-title">NIM Crates</h1>
                     <p>NIM (Nuclear Instrumentation Module) crates serve as the backbone of many laboratory setups in nuclear and particle physics experiments. These crates provide the standardized framework and power supply necessary to house and connect various NIM modules.</p>
                     <p><img src="/nim_crate1.jpeg" alt=""></p>
+                    <p>The discriminator works just like a comparator. It's output is used as a reference point for when to take measurements. Thanks to the delay component, the comparator's output transition (from 'high' to 'low' or vice versa) occurs precisely when the signal reaches the ADC. The second transition, which signifies the end of the measurement, occurs as the tail end of the signal passes the ADC.
+                    <img src="/discriminator.png" alt="image" width="100%" height="auto"></p>
+                    <p>Here you see the output of a dicriminator and its appearance on a NIM.</p>
                     <p>The modules plugged into a NIM crate perform tasks like signal amplification, timing, logic processing, and more. Each module adheres to the NIM standard, ensuring compatibility across different systems.</p>
                     <p><img src="/nim_crate2.png" alt=""></p>
                     <p>Power distribution is a crucial feature of NIM crates. Each slot provides regulated power to the modules, ensuring stable operation. The above image shows the internal wiring layout of a standard NIM crate.</p>
@@ -404,32 +417,40 @@
             container.innerHTML = `
                 <div class="content">
                     <h1 id="main-title">Trigger</h1>
-                    <p> Triggers are truly the magic behind particle physics – so buckle up, it's gonna be important. </p>
-                    <p>Particle detectors are not some miracle devices. The detectors actually go off all the time due to ambient light, radiation or just electrical noise. Imagine yourself in a dreamland, floating around in empty space. Everywhere around you, you can see little sparks constantly lighting up. But sometimes, these sparks seem to be suspiciously synchronized, even forming distinctive lines.</p>
+                    <p> Triggers are truly the magic behind particle physics – so buckle up, there's truly no way around this. </p>
+                    <p>Particle detectors are not some miracle devices. The detectors actually go off all the time due to ambient light, radiation or just electrical noise. To understand how this amounts to detecting particles, imagine yourself in a dreamland, floating around in empty space. Everywhere around you, you can see little sparks constantly lighting up. But occassionally, these sparks seem to be suspiciously synchronized, even forming distinct lines.</p>
                     <p>This is identical to what the detectors see. At whatever instant, there seems to be something going on. But when an array of detectors seems to go off simultaneously, then you have found yourself a particle!</p>
                     <p>Such events can be detected both via data analysis, like I had done with my DIY detector (this is called a triggerless DAQ), or through the much simpler method of using AND gates. Once the AND gate gets a signal, indicating that multiple detectors got a hit simultaneously, the info is quickly spread to all other detectors: "Quick! Write that down!", and so the readings of all the detectors get grouped together into a single <i>event</i>.<p>
-                    <p><img src="/DAQtypes.png" alt="image" width="100%" height="auto"></p>
-                    <p>Electronic triggers are especially fundamental for more sophisticated experiments, like the LHC ones, which would be physically incapable of recording all of the data that they would otherwise produce (50 TB/s!). In this context, it's slightly more complex: not only is it necessary to filter out data which originate from collisions –– most collisions are actually not of interest, because they don't carry with them any novel information. For this, the trigger is composed of both electronics (level-1 trigger) and custom CPUs (high level trigger).</p>
+                    <figure>
+                        <img src="/DAQtypes.png" alt="image" width="100%" height="auto">
+                        <figcaption>
+                            Each event corresponds to a single particle.
+                        </figcaption>
+                    </figure>
+                    <p>Electronic triggers are especially fundamental for more sophisticated experiments, like the LHC ones, which would be physically incapable of recording all of the data that they would otherwise produce (50 TB/s!). In this context, trigger systems are slightly more complex: not only is it necessary to filter out data that originates from collisions – most collisions are actually not of interest, because they don't carry any novel information with them. For this, the trigger is composed of both electronics (level-1 trigger) and custom CPUs (high level trigger), which filter out common phenomena.</p>
                     <figure>
                         <img src="/ATLAS_trigger.jpg" alt="image" width="100%" height="auto">
                         <figcaption>
-                            One of the ATLAS trigegrs. Photo by <a href="https://cds.cern.ch/record/2309423" target="_blank">CERN</a>.
+                            One of the ATLAS trigegrs. Photo by <a href="https://cds.cern.ch/record/2309423" target="_blank">CERN</a>. Want to read more? I recommend the <a href="https://cms-opendata-workshop.github.io/workshop2021-lesson-introtrigger/01-introduction/index.html" target="_blank">CMS trigger</a>.
                         </figcaption>
                     </figure>
-                    <img src="/branches.png" alt="image" width="100%" height="auto"></p>
-                    <p>On this picture, each branch is data, which we get from a detector or a single output of some detector. The entries in multiple branches were concurrent if they are in the same entry.</p>
-                    <p>For example, a trigger system that I should&#39;ve used previously, but didn&#39;t, is recording  voltage signals only if they exceed some threshold voltage. How I did this was by requiring the Arduino to measure the voltage at every moment, but note it down only if it exceeds a threshold. This is not a trigger system, because the signal wasn&#39;t filtered BEFORE reaching the detector (Arduino&#39;s ADC). The trigger system that should&#39;ve been attached before the ADC is given on the following picture.
-                    <img src="/easy_trigger.png" alt="image" width="30%" height="auto"></p>
-                    <p>The discriminator works just like a comparator. It&#39;s output is used as a reference point for when to take measurements. Thanks to the delay component, the comparator&#39;s output transition (from &#39;high&#39; to &#39;low&#39; or vice versa) occurs precisely when the signal reaches the ADC. The second transition, which signifies the end of the measurement, occurs as the tail end of the signal passes the ADC.
-                    <img src="/discriminator.png" alt="image" width="100%" height="auto"></p>
-                    <p>Here you see the output of a dicriminator and its appearance on a NIM.</p>
+                    <h3>A detailed view of a simple trigger</h3>
+                    <p>You might already be wondering whether the oscilloscope's trigger has anything to do with this – yes it does! 
+                    <p>Similar to the oscilloscope, a basic trigger system is also based on threshold voltages: once the voltage exceeds the threshold, the measurement is started. But wouldn't we lose the first portion of the signal? We would, were it not for the delay. 
+                    <figure>
+                        <img src="/easy_trigger.png" alt="image" width="30%" height="auto">
+                        <figcaption>
+                            A beta detector.
+                        </figcaption>
+                    </figure>
+                    <p>The figure shows a simple beta radiation detector. Since the voltmeter (ADC) is delayed with respect to the trigger, we can record the signal in its entire length.</p>
                     <p>In synchronous DAQ, events are never perfectly synchronous. Delays from wires of different lengths can be on the order of 100ns. Additionally, the time difference caused by a particle hitting two detectors is 3.3ns per meter. In our 6m testing area, this results in a delay of up to 20ns between the detectors. Both factors cause signals to arrive at different times. This delay between the arrivals is the reason why coincidence modules have a regulatable signal width. </p>
-                    <p>If we need to set three signals in coincidence, we should first set two of the signals in coincidence with each other and then set that signal into another coincidence with the 3rd signal. If we just set all of them into one big coincidence, then we could find that the some signal hasn&#39;t even arrived before another signal is already gone. This is because of the delays previously discussed, but also because the discriminator signals have an arbitrary (user-defined) length. It is easier for us to elongate the coincidence signal of inputs 1 &amp; 2, in a way that signal 3 would aso fit in the coincidence window, then it is to elongate 2 discriminator signals. 
+                    <p>If we need to set three signals in coincidence, we should first set two of the signals in coincidence with each other and then set that signal into another coincidence with the 3rd signal. If we just set all of them into one big coincidence, then we could find that the some signal hasn't even arrived before another signal is already gone. This is because of the delays previously discussed, but also because the discriminator signals have an arbitrary (user-defined) length. It is easier for us to elongate the coincidence signal of inputs 1 &amp; 2, in a way that signal 3 would aso fit in the coincidence window, then it is to elongate 2 discriminator signals. 
                     <img src="/coincidence_better.png" alt="image" width="100%" height="auto"></p>
                     <p>Trigger systems can become very complicated, for example an extra layer of complexity is added if we take two previously explained trigger systems and combine the outputs of our two discriminators with an AND gate. This results in the coincidence method: if the voltage is above a treshold at both detectors simultaneously, then we know to take measurements. 
                     There is a short yet not infinitesimal time frame in which the signal needs to pass through the detector and other components until it gets stored on the disk. On the image, this time frame is 1ms. We cannot have a new trigger go off during that same time, since the processing of the previous one has still not yet finished, so we need to ignore all incoming signal for that time period. This is done by a busy logic.
                     <img src="/my_trigger.png" alt="image" width="80%" height="auto"></p>
-                    <p>A busy logic is very intuitive: if your system says it&#39;s &#39;BUSY&#39;, then it&#39;s unaccepting of new signals because it has other stuff to do. It is ready to take on a new signal once it goes into &#39;NOT BUSY&#39; mode.
+                    <p>A busy logic is very intuitive: if your system says it's 'BUSY', then it's unaccepting of new signals because it has other stuff to do. It is ready to take on a new signal once it goes into 'NOT BUSY' mode.
                     The most comprehensive <a href="https://indico.cern.ch/event/1337180/contributions/5629322/attachments/2880440/5046367/isotdaq24.Negri.DaqIntro.pdf">presentation</a> on this topic.</p>
                     <p>Do signals usually come in bunches or are they more-or-less equally spaced? Well, as it turns out, there is a mathematical reason for them to come in bunches. For events that are both stochastic (random) and memoryless, the probability of an event happening is always highest at the current moment. <img src="/img/time_between.png" alt="image" width="100%" height="auto"></p>
                 </div>`;
@@ -485,20 +506,6 @@
                 </div>`;
         }
         
-        function showHiggsBosonDiscoveryContent() {
-            const container = document.getElementById('main-container');
-            container.innerHTML = `
-                <div class="content">
-                    <h1 id="main-title">Higgs Boson Discovery</h1>
-                    <p>The discovery of the Higgs boson in 2012 was a monumental achievement in physics, completing the Standard Model of particle physics. The Higgs boson is associated with the Higgs field, which gives mass to elementary particles.</p>
-                    <p><img src="/higgs1.jpeg" alt=""></p>
-                    <p>The search for the Higgs boson required the use of high-energy particle collisions at the Large Hadron Collider (LHC). Detectors like CMS and ATLAS observed the rare decay signatures of the Higgs boson, confirming its existence.</p>
-                    <p><img src="/higgs2.png" alt=""></p>
-                    <p>As shown in the image above, the Higgs boson is often detected through its decay into other particles, such as photons or leptons. These decay patterns match the predictions of the Standard Model, providing strong evidence for the Higgs mechanism.</p>
-                    <p>The discovery opened new avenues of research, including studies of the Higgs boson’s properties and its role in the early universe.</p>
-                </div>`;
-        }
-        
         function showParticlePhysicsLagrangianContent() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
@@ -519,21 +526,21 @@
                     <h1 id="main-title">Delay Wire Chambers</h1>
                     <p>For more technical questions on the DWC, refer <a href="https://cds.cern.ch/record/702443/files/sl-note-98-023.pdf">here</a></p>
                     <p>DWCs a.k.a delay wire chambers are gas-filled rectangular chambers that help you track a particle - or at least get their position at the moment they pass the detector. They work like this: a particle passes the gas-filled (argon &amp; $CO_2$) chamber. If the particle is charged, it will ionize the gas inside. In the chamber there are multiple layers of parallel wires, each layer acting as an electrode with neighbouring layers being oppositely charged. 
-                    The positive ions and electrons, which were created in the ionization, will start to move towards their respective electrodes (electrons towards anode and ions towards cathodes). They&#39;re not only moving towards the electrodes, they are also accelerating due to the Coulomb force – especially electrons, which reach such a high velocity, that they start to ionize the surrounding gas even further, creating an avalanche (more specifically a Townsend avalanche). Eventually all of the kicked out electrons reach the anode and cause a great current in it. This current in the anode (more specifically its magnetic field) will go on to create an image current* in the cathode. This step is important, because it&#39;s not the anode current that we are measuring, it&#39;s instead the image current in the cathode. Also, the current will be produced in 2-3 neighbouring cathode wires at a time.</p>
+                    The positive ions and electrons, which were created in the ionization, will start to move towards their respective electrodes (electrons towards anode and ions towards cathodes). They're not only moving towards the electrodes, they are also accelerating due to the Coulomb force – especially electrons, which reach such a high velocity, that they start to ionize the surrounding gas even further, creating an avalanche (more specifically a Townsend avalanche). Eventually all of the kicked out electrons reach the anode and cause a great current in it. This current in the anode (more specifically its magnetic field) will go on to create an image current* in the cathode. This step is important, because it's not the anode current that we are measuring, it's instead the image current in the cathode. Also, the current will be produced in 2-3 neighbouring cathode wires at a time.</p>
                     <h3 id="dwc-readout">DWC readout</h3>
-                    <p>Neighbouring cathode wires are connected to each other with little delay lines. The two edgemost wires are connected to a sensor. The current from the edgemost wires has a characteristic shape: it&#39;s like a mountain composed of tiy steps. </p>
+                    <p>Neighbouring cathode wires are connected to each other with little delay lines. The two edgemost wires are connected to a sensor. The current from the edgemost wires has a characteristic shape: it's like a mountain composed of tiy steps. </p>
                     <p><details></p>
                     <p><summary>Image current*</summary>
                     <br>
                     ... also known as mirror current, in this context, is just the current which the magnetic field of the neighbouring anode produced in our cathode. The words &quot;image&quot; or &quot;mirror&quot; are used because it turns out that as far as the magnetic field is concerned, the current inside our electrode can be modelled as a reflection of the anode, where the mirror is the surface of our cathode.
                     </details>
-                    Each tiny step is the contribution from a single wire. They add up consecutively thanks to the delay lines between the wires, but this is not really the important part. The delay lines are actually there so that the little current mountain would reach the two edges of the cathode, where the detectors are, at different times. The moment when the signal is detected in the sensor is at the rising edge. The detector is a TDC, time to digital converter. This is like a very precise stopwatch that measures the time from the trigger until a signal. The delay lines made it so that the time measured by the two TDCs is not equal. It&#39;s actually the difference in the times that gives us the position along one axis. 
+                    Each tiny step is the contribution from a single wire. They add up consecutively thanks to the delay lines between the wires, but this is not really the important part. The delay lines are actually there so that the little current mountain would reach the two edges of the cathode, where the detectors are, at different times. The moment when the signal is detected in the sensor is at the rising edge. The detector is a TDC, time to digital converter. This is like a very precise stopwatch that measures the time from the trigger until a signal. The delay lines made it so that the time measured by the two TDCs is not equal. It's actually the difference in the times that gives us the position along one axis. 
                     $$ \text{time difference}=\text{time(Left)}-\text{time(Right)}$$
                     $$ X=A\cdot \left(\text{time difference}\right) + B $$
                     where the A and B are constants that were measured during the calibration. More specifically, A is the slope and B is the offset.</p>
                     <p>During calibration, a test generator is used to create electrical signals in the chamber. Though two signals are needed to find the two variables $A$ and $B$, it is standard practice to use three. Those three test point must lie on the same straight line. </p>
                     <h3 id="tdc-vs-scaler">TDC vs Scaler</h3>
-                    <p>So a TDC is in essence just a stopwatch. And so is the scaler, but the scaler isn&#39;t controlled by the trigger, so this is one of the only detectors that is always just doing its own thing – measuring the time of every hit, no matter whether the TDAQ is <code>BUSY</code> or not. </p>
+                    <p>So a TDC is in essence just a stopwatch. And so is the scaler, but the scaler isn't controlled by the trigger, so this is one of the only detectors that is always just doing its own thing – measuring the time of every hit, no matter whether the TDAQ is <code>BUSY</code> or not. </p>
                 </div>`;
         }
         function shownothing() {
@@ -553,14 +560,14 @@
                     <p>Cherenkov detectors, also known by the abbreviation XCET in our experiment, are gas-filled detectors designed to determinine if a charged particle passing through them exceeds a specific cutoff momentum. If the particle is faster than the phase velocity of light in that gas, the gas will emit light (the principle that nothing can be faster than light only applies to the group velocity of light, not the phase velocity).</p>
                     <p>The threshold momentum is regulated by the pressure in the detector. The higher the pressure, the higher is the refractive index and the slower does light travel in that medium. Hence, to raise the threshold momentum for particles, you need to decrease the pressure (so increase to decrease!).</p>
                     <p>By using two Cherenkov detectors at different pressures, with two distinct momentum cutoffs for light emission, you can identify all particles within the momentum range defined by the cutoff momenta of each detector. A particle will fall into this momentum range if it emits light in one Cherenkov detector but not in the other.</p>
-                    <p>To map the momentum of all particles in the beam, i.e. to measure the particles&#39; spectrum, you need to perform a so-called pressure scan. For this, only one Cherenkov detector is necessary, but you need to vary the pressure in it from maximum to minimum. This can be done by initially pumping the detector full of gas and taking measurements while it gradually depressurizes.</p>
+                    <p>To map the momentum of all particles in the beam, i.e. to measure the particles' spectrum, you need to perform a so-called pressure scan. For this, only one Cherenkov detector is necessary, but you need to vary the pressure in it from maximum to minimum. This can be done by initially pumping the detector full of gas and taking measurements while it gradually depressurizes.</p>
                     <p>The results of pressure scans are usually given by # of particles in a spill that made the medium emit light. You get an idea of what fraction of particles emitted light by comparing this to the trigger rate - the total number of particles in a spill. This is a sample pressure scan from our testbeam:
                     <img src="/che.png" width="100%" alt="Pressure scan"></p>
                     <p>Here, the x-axis represents the pressure in the Cherenkov detector in bars. On the y-axis is the Cherenkov efficiency.
                     The efficiency of a Cherenkov detector is truly not an efficiency; it is actually the fraction of particles that emit light or</p>
                     <p>$\eta=\frac{\text{Light-emitting particles per spill}}{\text{Trigger rate}}$</p>
                     <p>As you can see from the previous picture, at low pressure the threshold momentum is very high, so there are few particles that actually get detected, but as the pressure increases, the momentum becomes less and less discriminating, so more particles are detected.</p>
-                    <p>Pressure scans are more useful after you&#39;ve translated the x-axis from pressure to threshold momentum.Because particle energies usually follow a normal distribution, the 50% efficiency usually responds to the peak of the spectrum.
+                    <p>Pressure scans are more useful after you've translated the x-axis from pressure to threshold momentum.Because particle energies usually follow a normal distribution, the 50% efficiency usually responds to the peak of the spectrum.
                     <img src="/pre.png" alt="Pressure scan after calculations"></p>
                 </div>`;
         }
@@ -583,15 +590,15 @@
                     <h1 id="main-title">Charge to Digital Converters</h1>
                     <p>QDC a.k.a a charge to digital converter allows you to measure the charge that passes through it. It comes in all shapes and sizes ranging from an electrical component to the impressive CAEN v792AC (see picture below) that we are using.</p>
                     <p><img src="/qdc1.jpeg" alt=""></p>
-                    <p>Now let&#39;s look at the current at the QDC&#39;s input. </p>
+                    <p>Now let's look at the current at the QDC's input. </p>
                     <p><img src="/qdc2.png" alt=""></p>
                     <p>As you can see, there is a very strong background in addition to the current signal caused by a detector. For the noise to contribute as little as possible to our reading, and also to not lose any of the actual signal, we must pick a very specific integration window. On the picture you can see the thought process behind why the specific $t<em>{start}$ and $t</em>{end}$ were chosen. The same situation but in real life (and with voltage not current), on an oscilloscope...</p>
                     <p><img src="/qdc3.png" alt=""></p>
                     The green signal here is known as a <code>GATE</code> signal. The gate carries the information about $t<em>{start}$ and $t</em>{end}$. When the gate goes <code>LOW</code>, our switch closes and current begins flowing onto one plate of the capacitor. To open the switch, the gate must become <code>HIGH</code> again. An uncharged capacitor initially acts as a wire, so a short-enough current signal that has just been let though the gate, will just go through the capacitor unbothered. Although it does not actually flow <em>through</em> it, instead the capacitor is being charged but the changing electric field creates a displacement current between the capacitor plates. Anyways, when the gate closes and the capacitor has just reached its maximum voltage, the ADC chimes in and measures the maximum voltage (and hence maximum charge on the capacitor) that was achieved during this cycle.</p>
                     <p><img src="/qdc4.png" width="100%" alt=""></p>
                     <p>The inner workings of a QDC.</p>
-                    <p>What opens and closes the gate? It&#39;s a so-called gate generator that receives the signal slightly earlier than the other components. This is because the other elements have a delay line attached to them, but the gate does not. When the gate generator detects a rise in current, it opens the gate just in time for the signal to arrive at the gate.</p>
-                    <p>By the way, more often than not, the current entering a QDC is not only $I(t)$, our signal. There is also a pedestal current $I_{PED}$ – a constant current which is generated inside a QDC by default. Its purpose is to reduce the relative error on the ADC reading (I&#39;m not sure why this is important, since after subtracting the pedestal current in data analysis, the relative error will still be the same) and to bring the capacitor into a mode where it is working linearly, meaning the real capacitance coincides with the nominal one. The pedestal current also depends on the wires being used, so it must always be determined experimentally (and separately for every channel!). It is common practice to not deduct your pedestal current from the measurement results, but in an ideal world this deduction is always made.</p>
+                    <p>What opens and closes the gate? It's a so-called gate generator that receives the signal slightly earlier than the other components. This is because the other elements have a delay line attached to them, but the gate does not. When the gate generator detects a rise in current, it opens the gate just in time for the signal to arrive at the gate.</p>
+                    <p>By the way, more often than not, the current entering a QDC is not only $I(t)$, our signal. There is also a pedestal current $I_{PED}$ – a constant current which is generated inside a QDC by default. Its purpose is to reduce the relative error on the ADC reading (I'm not sure why this is important, since after subtracting the pedestal current in data analysis, the relative error will still be the same) and to bring the capacitor into a mode where it is working linearly, meaning the real capacitance coincides with the nominal one. The pedestal current also depends on the wires being used, so it must always be determined experimentally (and separately for every channel!). It is common practice to not deduct your pedestal current from the measurement results, but in an ideal world this deduction is always made.</p>
                 </div>`;
         }
 
