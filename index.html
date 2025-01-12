@@ -456,8 +456,13 @@
                     <p>These delays must be especially fine-tuned when we want to base the trigger on multiple detectors: some detectors might be inherently slower, but it is also the cables that affect the delay. Delays from the different length wires in typical experiments can be on the order of 100 ns. Additionally, a particle, travelling at the speed of light, will actually hit one detector 3.3 ns earlier than the other detector, which is located a meter downstream. In our testing area, this amounts to the delay of a half a meter long cable. </p>
                     <p>These delays are fine-tuned by adding in electronics components or simply introducing new cables. </p> 
                     <p>Trigger systems can become very complicated, for example an extra layer of complexity is added if we take two previously explained trigger systems and combine the outputs of our two discriminators with an AND gate. This results in the coincidence method: if the voltage is above a treshold at both detectors simultaneously, then the detectors begin taking their measurements. </p>
-                    <p>There is a short yet not infinitesimal time frame in which the signal needs to pass through the detector and other components until it gets stored on the disk. On the image, this time frame is 1ms. We cannot have a new trigger go off during that same time, since the processing of the previous one has still not yet finished, so we need to ignore all incoming signal for that time period. This is done by a busy logic.
-                    <img src="/my_trigger.png" alt="image" width="80%" height="auto"></p>
+                    <p>There is a short yet not infinitesimal time frame in which the signal needs to pass through the detector and other components until it gets stored on the disk. On the image, this time frame is 1 ms. We cannot have a new trigger go off during that same time, since the processing of the previous one has still not yet finished, so we need to ignore all incoming signal for that time period. This is done by a busy logic.
+                    <figure>
+                        <img src="/my_trigger.png" alt="image" width="80%" height="auto"></p>
+                        <figcaption>
+                            Busy logic.
+                        </figcaption>
+                    </figure>
                     <p>A busy logic is very intuitive: if your system says it's 'BUSY', then it's unaccepting of new signals because it has other stuff to do. It is ready to take on a new signal once it goes into 'NOT BUSY' mode.
                     <p>If you want to learn more, I reccommend these presentations: <a href="https://indico.cern.ch/event/1337180/contributions/5629322/attachments/2880440/5046367/isotdaq24.Negri.DaqIntro.pdf">simpler triggers</a>, <a href="https://indico.fnal.gov/event/43762/contributions/192710/attachments/133065/163909/TriggerLecture_day1.pdf">bigger ones</a></p>
                 </div>`;
@@ -563,7 +568,27 @@
             container.innerHTML = `
                 <div class="content">
                     <h1 id="main-title">Cherenkov detectors</h1>
-                    <p><img src="/xcet.gif" alt="Basic Cherenkov"></p>
+                    <div style="display: flex; gap: 10px;">
+                        <img src="/diy_che.jpg" alt="DIY" style="width: 30%;">
+                        <img src="/kamiokande_che.png" alt="Kamiokande" style="width: 30%;">
+                        <img src="/xcet.gif" alt="XCET" style="width: 30%;">
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <div style="text-align: center;">
+                            <img src="/diy_che.jpg" style="width: 30%;">
+                            <p><a href="https://physicsopenlab.org/2016/06/20/diy-acrylic-cherenkov-detector/" target="_blank">DIY Detector</a></p>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="/kamiokande_che.png" alt="Description 2" style="width: 30%;">
+                            <p><a href="https://example.com/link2" target="_blank">Description 2</a></p>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="/xcet.gif" alt="Description 3" style="width: 30%;">
+                            <p><a href="https://example.com/link3" target="_blank">Description 3</a></p>
+                        </div>
+                    </div>
+
                     <p>Cherenkov detectors, also known by the abbreviation XCET in our experiment, are gas-filled detectors designed to determinine if a charged particle passing through them exceeds a specific cutoff momentum. If the particle is faster than the phase velocity of light in that gas, the gas will emit light (the principle that nothing can be faster than light only applies to the group velocity of light, not the phase velocity).</p>
                     <p>The threshold momentum is regulated by the pressure in the detector. The higher the pressure, the higher is the refractive index and the slower does light travel in that medium. Hence, to raise the threshold momentum for particles, you need to decrease the pressure (so increase to decrease!).</p>
                     <p>By using two Cherenkov detectors at different pressures, with two distinct momentum cutoffs for light emission, you can identify all particles within the momentum range defined by the cutoff momenta of each detector. A particle will fall into this momentum range if it emits light in one Cherenkov detector but not in the other.</p>
