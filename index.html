@@ -13,7 +13,13 @@
             background-color: #ffffff;
             transition: background-color 0.3s, color 0.3s;
         }
-        
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: "Courier New", monospace;
+        }
         body.dark {
             background-color: #121212;
             color: #f0f0f0;
@@ -398,9 +404,18 @@
             container.innerHTML = `
                 <div class="content">
                     <h1 id="main-title">Trigger</h1>
-                    <p>Not everything that a detector measures is actually a signal from an event that we&#39;re interested in (like a muon passing a scintillator). One way to filter out the junk is by data analysis, this is called triggerless DAQ (data acquisition). This entails noting down all datapoints you were ever able to measure. The data analysis method is actually too overpowered in this case, because the bulk of the junk data can be eliminated with something a lot simpler, like a relay logic. This is especially nice because we aren&#39;t wasting storage space on useless information. The relay logic or relay system can also be referred to as the umbrella term trigger logic (trigger system). This method, also known as synchronous DAQ is the main competitor of the triggerless DAQ.</p>
+                    <p> Triggers are truly the magic behind particle physics –– so buckle up, it's gonna be important. </p>
+                    <p>Particle detectors are not any miracle devices. The detectors actually go off constantly –– due to ambient light, radiation or just some false electrical signal in the cables. Imagine yourself in a dreamland: you're floating in empty space, where everywhere around you, little sparks constantly light up. But sometimes, there seems to be some kind of suspicious order to these sparks –– every so often, the sparks seem to form a straight line.</p>
+                    <p>This is identical to what happens in high-energy experiments: various detectors fill the room, and they are constantly going off. But when an array of detectors seems to go off simultaneously, then you have detected a particle!</p>
+                    <p>Such events can be searched out both via data analysis, like I had done with my DIY detector (this is the so-called triggerless DAQ), or through the much simpler method of using <pre><code> AND </code> </pre> gates, which I've been using ever since. Once the <pre><code> AND</code></pre> gate gets a signal, it basically screams to all the other detectors: "Quick! Write that down!" and so the readings of all the detectors get grouped together into a single <i>event</i>.<p>
                     <p><img src="/DAQtypes.png" alt="image" width="100%" height="auto"></p>
-                    <p>In the case of a synchronous DAQ, a trigger basically brushes through the signals like a haircomb: it organizes the signals into individual strands of hair (events), while brushing out all of the junk. Our data analysis software ROOT is built for handling data in events. 
+                    <p>Electronic triggers are especially fundamental for more sophisticated experiments, like the LHC ones, which would be physically incapable of recording all of the data that they would otherwise produce (50 TB/s!). In this context, it's slightly more complex: not only is it necessary to filter out data which originate from collisions –– most collisions are actually not of interest, because they don't carry with them any novel information. For this, the trigger is composed of both electronics (level-1 trigger) and custom CPUs (high level trigger).</p>
+                    <figure>
+                        <img src="/ATLAS_trigger.png" alt="image" width="100%" height="auto">
+                        <figcaption>
+                            One of the ATLAS trigegrs. Photo by <a href="https://cds.cern.ch/record/2309423" target="_blank">CERN</a>.
+                        </figcaption>
+                    </figure>
                     <img src="/branches.png" alt="image" width="100%" height="auto"></p>
                     <p>On this picture, each branch is data, which we get from a detector or a single output of some detector. The entries in multiple branches were concurrent if they are in the same entry.</p>
                     <p>For example, a trigger system that I should&#39;ve used previously, but didn&#39;t, is recording  voltage signals only if they exceed some threshold voltage. How I did this was by requiring the Arduino to measure the voltage at every moment, but note it down only if it exceeds a threshold. This is not a trigger system, because the signal wasn&#39;t filtered BEFORE reaching the detector (Arduino&#39;s ADC). The trigger system that should&#39;ve been attached before the ADC is given on the following picture.
