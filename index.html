@@ -483,27 +483,39 @@
                 
                     <div class="level">
                         <h3>Quick Overview</h3>
-                        <img src="QEDrules.png" alt="Photon emission" width="100%">
-                        <p>If you’re in a rush or just curious, here’s what you need to know:</p>
+                        <figure>
+                            <img src="/annihilation.png" alt="Electron-positron annihilation" width="70%">
+                        <p>Here's the quickest explanation:</p>
                         <ul>
-                            <li>Feynman diagrams represent particle interactions using lines and vertices.</li>
-                            <li><strong>Lines:</strong> Straight lines are fermions (like electrons), wavy or dashed lines are bosons (like photons or gluons).</li>
-                            <li><strong>Vertices:</strong> Points where lines meet represent interactions (e.g., an electron emitting a photon).</li>
-                            <li>Time usually flows from left to right or bottom to top.</li>
+                            <li>The pitfall I encountered was not knowing that the picture doesn't depict the x-y plane. Instead, it's dimensions are distance and time. Usually (ca. 70% of the time), distance is shown on the horizontal axis, and time on the vertical axis.</li>
+                            <li>Now that we've got this down – the diagrams themselves represent interactions through lines and vertices.</li>
+                            <li>Straight lines are fermions (like electrons), wavy or dashed lines are bosons (like photons or gluons). Vertices represent interctions.</li>
+                            <li>The arrows technically show the flow of the fermion number, but as a rule of thumb, the arrows point forward in time for regular matter, and backward in time for antimatter. </p>
                         </ul>
+                        <p>So, on the picture above, an electron and a positron approach each other. At some point in time, a fermion is exchanged between them. This particle is not actually observable, but it acts as a mediator, leading to an annihilation of the electron-positron pair, leaving behind only two photons. </p> 
                     </div>
                 
                     <div class="level">
-                        <h3>For an Interested Reader</h3>
-                        <img src="annihilation.png" alt="Electron-positron annihilation" width="100%">
-                        <p>Let’s dig a bit deeper:</p>
-                        <ul>
-                            <li>Feynman diagrams are a shorthand for complicated mathematical expressions in quantum mechanics.</li>
-                            <li><strong>External lines:</strong> Lines starting or ending without connecting to another particle represent incoming or outgoing particles (e.g., initial electrons, final photons).</li>
-                            <li><strong>Internal lines:</strong> Lines that start and end at vertices represent virtual particles, which exist briefly during the interaction.</li>
-                            <li>Each vertex follows specific rules based on the theory’s Lagrangian, which describes the physics of the system.</li>
-                        </ul>
-                        <p>You can think of these diagrams as a roadmap of "who interacts with whom" and "how energy and momentum flow."</p>
+                        <h3>Let's dig a bit deeper</h3>
+                        <p>The second pitfall I encountered, are loops.</p>
+                        <img src="/loop.png" alt="Electron-positron annihilation" width="30%">
+                        <p> You'd be right to think that this is the scattering of two electrons, where they also exchange a photon. But what happens with the photon midway?</p>
+                        <p> The loop shows that while the photon travels between the two electrons, it briefly splits into a virtual electron-positron pair. Yes, <i>virtual</i> is the correct term to use. The electron and positron cannot actually be seen or measured, but they still slightly affect the interaction. Hence, the loop is there to simply fine-tune the interaction.</p>
+                        <p>Oftentimes, you will encounter parallel lines in Feynman diagrams. This is used in the case of non-fundamental particles, where the dynamics of the quarks may (or may not) become important.</p>
+                        <figure>
+                            <img src="/kaon.jpg" alt="Kaon Decay width="80%">
+                            <figcaption>
+                                <p>Kaon Decay (here, time is on the horizontal axis).</p>
+                            </figcaption>
+                        </figure>
+                        <p> A surprising quality of Feynman diagrams is that they can be used to represent multiple interactions. Let's assume that you've just drawn how a neutrino scatters with a muon. By rotating this graph, you will arrive at another, much more common interaction – the muon decay.</p>
+                        <figure>
+                            <img src="/rotate.jpg" alt="Kaon Decay width="80%">
+                            <figcaption>
+                                <p>Kaon Decay (here, time is on the horizontal axis).</p>
+                            </figcaption>
+                        </figure>
+                        <p>The twisting of Feynman diagrams is allowed due to a property called crossing symmetry. </p>
                         <h3>Something more rigorous</h3>
                         <p>Coming soon</p>
                     </div>
