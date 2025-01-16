@@ -355,11 +355,13 @@
             container.innerHTML = `
                 <div class="content">
                     <h1 id="main-title">Why I love ROOT</h1>
-                    <p> ROOT is a program/library designed to handle large amounts of experimental data, whether from high-energy physics or from other research fields. Here's a little overview about the aspects I find particularly amusing about it.</p>
-                    <p>1. The structure</p>
+                    <p> ROOT is a program/library designed to handle large amounts of experimental data, whether from high-energy physics or from other research fields. Here's a little overview about the aspects I find particularly neat about it.</p>
+                    <h2>1. The structure</h2>
                     <p>In ROOT, data is groupe together into a forest-themed structure: all data points lie on individual leaves, tied together with others into branches and trees.
                     <img src="/branches.png" alt="image" width="100%" height="auto"></p>
-                    <p>On this picture, you can see one of such trees. You might notice that the branches are slightly more orderly than what you'd recognize in nature. That is because each branch corresponds to the data of a single output of some detector. These branches must have the same length, because only then can we group together the readings of multiple detectors into single branches.</p>
+                    <p>On this picture, you can see one of such trees. You might notice a slight discrepancy between the tree in ROOT and one we'd find in nature – for the ROOT tree, all branches take the same length, and feature the same amount of leaves (grey squares). That is because each branch corresponds to a single channel of some detector, and each leaf is a single reading of that channel. These branches must have the same length, because only then can we group together the readings from multiple detectors into coherent measurements.</p>
+                    <h2>2. Landau distributions </h2>
+                    <p>Yes, there are some Python libraries, which promise to help with creating these distributions, but they all fall short on this promise. Also, any kind of data visualization is just so natural in ROOT. Even the preview of ROOT files is not just a long file of numerical jargon, but it is instead displayed really neatly in the form of histograms (see Figure below). Although this histogram representation makes no sense for some datasets, it is tremendously useful for the other ones.</p>
                 </div>`;
         }
                    
