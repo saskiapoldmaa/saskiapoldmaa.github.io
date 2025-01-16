@@ -283,6 +283,7 @@
             <ul id="submenu2" class="submenu">
                 <li><a href="#" onclick="switchHeader(); showFeynmanDiagramsContent();">1. Feynman Diagrams</a></li>
                 <li><a href="#" onclick="switchHeader(); showROOT();">2. Why I <3 ROOT</a></li>
+                <li><a href="#" onclick="switchHeader(); showJets();">2. Jets </a></li>
             </ul>
             <li onclick="toggleSubmenu('submenu3')">A Few Stories</li>
             <ul id="submenu3" class="submenu">
@@ -577,6 +578,26 @@
                 <div class="content">
                     <h1 id="main-title">Nothing</h1>
                     
+                </div>`;
+        }
+        function showJets() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Jets – what are they?</h1>
+                    <p>At high-energy particle colliders, like the Large Hadron Collider (LHC), particles such as protons are smashed together at near-light speeds. This incredible energy density doesn&rsquo;t just break particles apart&mdash;it creates entirely new ones, like quarks and gluons.</p>
+                    <p>But here&rsquo;s the thing: quarks and gluons don&rsquo;t like being alone. They exist only in groups, bound together by the strong nuclear force. This means that, as soon as they are produced in a collision, they quickly combine with other particles to form larger, stable groups like protons, neutrons, or pions.</p>
+                    <p>This process is called <strong>hadronization</strong>, and the resulting spray of particles forms what we call a <strong>jet</strong>. Essentially, a particle jet is a collimated stream of hadrons that emerges from the collision point.</p>
+                    <h3>How Do Jets Prove Quarks Exist?</h3>
+                    <p>The idea of quarks wasn&rsquo;t always a certainty&mdash;it began as a theoretical framework in the 1960s to explain patterns in the properties of hadrons. But theories need evidence, and the proof came from deep inelastic scattering experiments at the Stanford Linear Accelerator Center (SLAC) in the late 1960s.</p>
+                    <p>Here&rsquo;s how it worked: physicists fired high-energy electrons at protons. If protons were indivisible, the electrons would scatter uniformly, like marbles bouncing off a billiard ball. Instead, they observed that electrons scattered at sharp angles, as if they were hitting smaller, dense objects inside the proton. These objects, named <strong>quarks</strong>, were revealed through this process.</p>
+                    <p>But interestingly, quarks can never be measured in isolation due to a phenomenon known as infrared slavery (more below). Hence, by physics standards, we cannot actually observe quarks. <strong>How do we know that quarks exist then?</strong></p>
+                    <p>Quarks carry a type of "charge" called color charge, which isn&rsquo;t related to actual colors but is instead an abstract property in QCD. Gluons, the force carriers of the strong nuclear force, mediate interactions between quarks, and they themselves carry color charge.</p>
+                    <p>In QED (quantum electrodynamics), which governs electromagnetism, the force between two charges diminishes as they move apart. In QCD, it&rsquo;s the opposite. The farther apart two quarks try to move, the stronger the force between them becomes, like a rubber band being stretched. Eventually, it takes so much energy to separate them that the energy itself creates new quark-antiquark pairs, which hadronize into new particles. This phenomenon is called <strong>color confinement</strong>, and it&rsquo;s the reason why quarks and gluons are never observed in isolation.</p>
+                    <h3>Hadronization</h3>
+                    <p>Color confinement is why particle jets appear as cascades of hadrons rather than free quarks or gluons. When a quark is ejected in a collision, it&rsquo;s immediately "tethered" by the strong force. The process of hadronization ensures that energy from the strong force is converted into jets of particles, which align with the original trajectory of the quark or gluon.</p>
+                    <p>In experiments, we can reconstruct these jets and study their properties to infer what happened during the collision. The angles, energy distributions, and particle content of jets provide a wealth of information about the underlying physics, including the behavior of quarks and gluons under the strong force.</p>
+                    <iframe src="https://op-webtools.web.cern.ch/vistar/?usr=LHCATLAS" width="100%" height="auto" frameborder="0" allowfullscreen></iframe>
                 </div>`;
         }
         function showfirst() {
