@@ -258,6 +258,7 @@
         }
       };
     </script>
+    
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
     </script>
@@ -330,6 +331,7 @@
                 <li>this also helps me gain a more peripheral view on these concepts.</p></li>
                 </ul>
                 <p>Anyways, I hope you find something insightful. This is also meant to serve as a little roadmap to BL4S, so I've included a few blog posts in the <i> A Few Stories</i> section. Enjoy! </i></p>
+                <p>Last Updated: <span id="lastUpdated"></span></p>
             </div>
             <div class="image">
                 <div class="profile-image">
@@ -346,6 +348,16 @@
     <footer>Saskia Põldmaa, 2025</footer>
 
     <script>
+        // Get the last modified date of the document
+        const lastUpdated = new Date(document.lastModified);
+        
+        // Format the date as "Month Day, Year" (e.g., "January 26, 2025")
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = lastUpdated.toLocaleDateString(undefined, options);
+        
+        // Insert the formatted date into the footer
+        document.getElementById("lastUpdated").textContent = formattedDate;
+
         let isDarkMode = false;
 
         function toggleDarkMode() {
