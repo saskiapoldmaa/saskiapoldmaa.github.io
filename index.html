@@ -269,6 +269,13 @@
             <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
         </a>
         <ul>
+            <li onclick="toggleSubmenu('submenu1')">Our experiment</li>
+            <ul id="submenu1" class="submenu">
+                <li><a href="#" onclick="switchHeader(); showSummary();">1. Bird's eye view</a></li>
+                <li><a href="#" onclick="switchHeader(); showCOSMOSS();">2. COSMOSS</a></li>
+                <li><a href="#" onclick="switchHeader(); showEnergy();">3. Energy Measurements</a></li>
+                <li><a href="#" onclick="switchHeader(); showProfile();">4. Beam Profile</a></li>
+            </ul>
             <li onclick="toggleSubmenu('submenu1')">Experimental</li>
             <ul id="submenu1" class="submenu">
                 <li><a href="#" onclick="switchHeader(); showTriggerContent();">1. Trigger</a></li>
@@ -277,7 +284,6 @@
                 <li><a href="#" onclick="switchHeader(); showDWCContent();">4. DWC</a></li>
                 <li><a href="#" onclick="switchHeader(); showDAQContent();">5. DAQ systems</a></li>
                 <li><a href="#" onclick="switchHeader(); showNIMContent();">6. NIM</a></li>
-                <li><a href="#" onclick="switchHeader(); showBubbleChamberContent();">7. Bubble Chamber</a></li>
                 <li><a href="#" onclick="switchHeader(); showVaria();">8. Miscellaneous</a></li>
 
             </ul>
@@ -580,6 +586,38 @@
                 <div class="content">
                     <h1 id="main-title">Nothing</h1>
                     
+                </div>`;
+        }
+        function showEnergy() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Energy Measurements</h1>
+                    <u>This article will be about how we used Cherenkov detectors to measure our beamline's spectrum. Coming soon.</u>
+                </div>`;
+        }
+        function showSummary() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Bird's eye view of our beam test</h1>
+                    <u>This article will be about how the detectors came together into a beutiful little experiment. Coming soon.</u>
+                </div>`;
+        }
+        function showCOSMOSS() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">COSMOSS Detector</h1>
+                    <u>This article will be about how our detector worked and how we illuminated it with a muon beam. Coming soon.</u>
+                </div>`;
+        }
+        function showProfile() {
+            const container = document.getElementById('main-container');
+            container.innerHTML = `
+                <div class="content">
+                    <h1 id="main-title">Beam Profiles and Tracking Detectors</h1>
+                    <u>This article will focus on tracking detectors. Coming soon.</u>
                 </div>`;
         }
         function showJets() {
