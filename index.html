@@ -353,7 +353,7 @@
         
         // Format the date as "Month Day, Year" (e.g., "January 26, 2025")
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = lastUpdated.toLocaleDateString(undefined, options);
+        const formattedDate = lastUpdated.toLocaleDateString("en-US", options);
         
         // Insert the formatted date into the footer
         document.getElementById("lastUpdated").textContent = formattedDate;
