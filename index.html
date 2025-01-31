@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dummy's Guide to Particle Physics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -14,7 +18,9 @@
             font-style: normal;
             background-color: #ffffff;
             transition: background-color 0.3s, color 0.3s;
+            padding-top: 50px;
         }
+
         pre {
             background-color: #f4f4f4;
             padding: 10px;
@@ -22,11 +28,12 @@
             overflow-x: auto;
             font-family: "Courier New", monospace;
         }
+
         body.dark {
             background-color: #121212;
             color: #f0f0f0;
         }
-        
+
         h2 {
             font-size: 1.5rem;
             color: hsl(235, 100%, 69%);
@@ -34,7 +41,7 @@
             margin: 20px 250px;
             margin-top: 50px;
         }
-        
+
         nav {
             background-color: #f7f7f7;
             padding: 20px;
@@ -47,68 +54,69 @@
             font-weight: normal;
             transition: background-color 0.3s;
         }
-        
+
         nav.dark {
             background-color: #333;
         }
-        
+
         nav ul {
             list-style: none;
             padding: 0;
         }
-        
+
         nav ul li {
             margin: 15px 0;
             cursor: pointer;
         }
-        
+
         nav ul li a {
             text-decoration: none;
             color: black;
             font-size: 1.2rem;
             transition: color 0.3s;
         }
-        
+
         nav ul li a:active,
         nav ul li a:focus {
             color: hsl(235, 100%, 69%);
             outline: none;
         }
-        
+
         nav ul li a.clicked {
             color: hsl(235, 100%, 69%);
         }
-        
+
         nav ul li a.dark {
             color: #f0f0f0;
         }
-        
+
         nav ul .submenu {
             display: none;
             padding-left: 20px;
             font-weight: normal;
             font-size: 1rem;
         }
-        
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
             background-color: #f0f0f0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
             position: fixed;
+            height: auto;
             top: 0;
-            left: 300px;
+            left: 30px;
             width: calc(100% - 330px);
             z-index: 10;
             transition: background-color 0.3s;
         }
-        
+
         header.dark {
             background-color: #333;
         }
-        
+
         header .left ul,
         header .right ul {
             list-style: none;
@@ -117,66 +125,66 @@
             display: flex;
             gap: 15px;
         }
-        
+
         header .left ul li,
         header .right ul li {
             font-size: 1rem;
             cursor: pointer;
         }
-        
+
         .icon {
             font-size: 20px;
             cursor: pointer;
         }
-        
+
         .container {
-            margin-left: 350px;
+            margin-left: 50px;
             padding-top: 60px;
             padding: 20px;
         }
-        
+
         .main-content {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             align-items: center;
         }
-        
+
         .content {
             flex: 1;
             width: 70%;
             text-align: left;
             padding-top: 100px;
         }
-        
+
         .image {
             flex: 1;
             min-width: 200px;
             text-align: center;
         }
-        
+
         .main-content h1 {
             font-size: 2rem;
             margin-bottom: 10px;
         }
-        
+
         .main-content p {
             font-size: 1.2rem;
             margin-bottom: 20px;
         }
-        
+
         .profile-image img {
             width: 500px;
             border-radius: 30%;
             margin-bottom: 10px;
         }
-        
+
         .social-icons {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        
+
         .social-icons a {
             margin: 10px;
             font-size: 1.5rem;
@@ -185,17 +193,18 @@
             display: inline-block;
             transition: color 0.3s;
         }
-        
+
         .social-icons a:hover {
             color: hsl(235, 100%, 69%);
         }
-        
+
         .language-toggle {
             display: flex;
             align-items: left;
-            gap: 0px; /* Reduce the gap between buttons */
+            gap: 0px;
+            /* Reduce the gap between buttons */
         }
-        
+
         .language-toggle button {
             background: none;
             border: none;
@@ -204,67 +213,164 @@
             cursor: pointer;
             transition: color 0.3s;
         }
-        
+
         .language-toggle button.active {
             color: hsl(234, 12%, 47%);
         }
-        
+
         footer {
             text-align: center;
             margin-top: 200px;
             font-size: 0.9rem;
             color: #888;
         }
-        
+
+        a {
+            text-decoration: none;
+        }
+
+        #searchBox {
+            display: none;
+            width: 300px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        #searchBox.show {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        #header.active {
+            margin-left: 230px;
+        }
+
         @media (max-width: 768px) {
             nav {
                 position: relative;
                 width: 100%;
                 height: auto;
             }
+
             header {
                 left: 0;
                 width: 100%;
             }
+
             .container {
                 margin-left: 0;
             }
+
             .main-content {
                 flex-direction: column;
                 align-items: center;
             }
+
             .content,
             .image {
                 text-align: center;
             }
+
             .content {
                 order: 2;
             }
+
             h2 {
                 margin: 0;
             }
+
             .sidebar ul li a {
                 text-decoration: none;
                 color: #007bff;
                 font-size: 14px;
             }
         }
-    </style>
-    <script type="text/javascript">
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+
+        #sidebar {
+            width: 250px;
+            position: fixed;
+            left: -250px;
+            /* Initially hidden */
+            top: 0;
+            height: 100%;
+            transition: left 0.3s ease-in-out;
         }
-      };
-    </script>
-    
+
+        #sidebar.active {
+            left: 0;
+            /* Slide in when active */
+        }
+
+        #menu-toggle {
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            color: #000;
+            border-radius: 5px;
+        }
+
+        .submenu {
+            display: none;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        #sidebar.active+#main-container {
+            margin-left: 350px;
+        }
+
+        .container.active #header {
+            margin-left: 350px;
+        }
+
+        mark {
+            background-color: yellow;
+        }
+    </style>
     <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
+        </script>
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
     </script>
 </head>
 
 <body>
+
+    <header id="header">
+        <div class="left">
+
+
+
+            <ul>
+                <li id="menu-toggle"><i class="fas fa-bars icon" title="Menu"></i></li>
+                <li><i class="fas fa-adjust icon" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()"></i></li>
+                <li><i class="fas fa-search icon" title="Search" onclick="toggleSearchBox()"></i>
+                    <input type="text" id="searchBox" placeholder="Search..." oninput="highlightText()">
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+                <li><i class="fas fa-print icon" title="Print" onclick="window.print()"></i></li>
+                <li><a href="https://github.com" target="_blank"><i class="fab fa-github icon" title="GitHub"></i></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
     <nav id="sidebar">
         <a href="index.html">
             <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
@@ -286,13 +392,13 @@
                 <li><a href="#" onclick="switchHeader(); showDAQContent();">5. DAQ systems</a></li>
                 <li><a href="#" onclick="switchHeader(); showNIMContent();">6. NIM</a></li>
                 <li><a href="#" onclick="switchHeader(); showVaria();">8. Miscellaneous</a></li>
-
             </ul>
             <li onclick="toggleSubmenu('submenu3')">Theoretical</li>
             <ul id="submenu3" class="submenu">
                 <li><a href="#" onclick="switchHeader(); showJets();">1. Jets </a></li>
                 <li><a href="#" onclick="switchHeader(); showFeynmanDiagramsContent();">2. Feynman Diagrams</a></li>
-                <li><a href="#" onclick="switchHeader(); showROOT();">3. Why I <3 ROOT</a></li>
+                <li><a href="#" onclick="switchHeader(); showROOT();">3. Why I &lt;3 ROOT</a>
+                </li>
             </ul>
             <li onclick="toggleSubmenu('submenu4')">A Few Stories</li>
             <ul id="submenu4" class="submenu">
@@ -300,37 +406,33 @@
                 <li><a href="#" onclick="switchHeader(); showbeginning();">2. First Few Days</a></li>
                 <li><a href="#" onclick="switchHeader(); showfirst();">3. Training</a></li>
             </ul>
+            <li onclick="toggleSubmenu('submenu5')">Our experiment</li>
+            <ul id="submenu5" class="submenu">
+                <li><a href="#" onclick="loadArticle('lorem-ipsum.md')">Lorem Ipsum</a></li>
+                <li><a href="#" onclick="loadArticle('lorem-ipsum2.md')">Lorem Ipsum 1</a></li>
+            </ul>
         </ul>
     </nav>
 
-    <header id="header">
-        <div class="left">
-            <ul>
-                <li><i class="fas fa-bars icon" title="Menu"></i></li>
-                <li><i class="fas fa-adjust icon" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()"></i></li>
-                <li><i class="fas fa-search icon" title="Search"></i></li>
-            </ul>
-        </div>
-        <div class="right">
-            <ul>
-                <li><i class="fas fa-print icon" title="Print" onclick="window.print()"></i></li>
-                <li><a href="https://github.com" target="_blank"><i class="fab fa-github icon" title="GitHub"></i></a></li>
-            </ul>
-        </div>
-    </header>
+
+
 
     <div class="container" id="main-container">
+
         <h2 id="page-title">Dummy's Guide to Particle Physics</h2>
         <div class="main-content">
             <div class="content">
-                <h1 id="main-heading">Hi! I'm Saskia, a Beamline for Schools alumna, and this is a website for anyone interested in particle physics.</h1>
+                <h1 id="main-heading">Hi! I'm Saskia, a Beamline for Schools alumna, and this is a website for anyone
+                    interested in particle physics.</h1>
                 <p>I decided to compile these materials, because</p>
                 <ul>
-                <li>this knowledge is often difficult to come across on the internet</li>
-                <li>or the concepts are explained exclusively at a graduate school level</li>
-                <li>this also helps me gain a more peripheral view on these concepts.</p></li>
+                    <li>this knowledge is often difficult to come across on the internet</li>
+                    <li>or the concepts are explained exclusively at a graduate school level</li>
+                    <li>this also helps me gain a more peripheral view on these concepts.</p>
+                    </li>
                 </ul>
-                <p>Anyways, I hope you find something insightful. This is also meant to serve as a little roadmap to BL4S, so I've included a few blog posts in the <i> A Few Stories</i> section. Enjoy! </i></p>
+                <p>Anyways, I hope you find something insightful. This is also meant to serve as a little roadmap to
+                    BL4S, so I've included a few blog posts in the <i> A Few Stories</i> section. Enjoy! </i></p>
                 <p>Last Updated: <span id="lastUpdated"></span></p>
             </div>
             <div class="image">
@@ -338,8 +440,11 @@
                     <img src="tshirt.jpeg" alt="Profile Image">
                 </div>
                 <div class="social-icons">
-                    <a href="mailto:saskia.poldmaa@gmail.com" style="color: rgb(139, 139, 189);" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://ee.linkedin.com/in/saskia-p%C3%B5ldmaa-2a3b72266" style="color: rgb(139, 139, 189);" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:saskia.poldmaa@gmail.com" style="color: rgb(139, 139, 189);" title="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://ee.linkedin.com/in/saskia-p%C3%B5ldmaa-2a3b72266"
+                        style="color: rgb(139, 139, 189);" target="_blank" title="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -350,11 +455,11 @@
     <script>
         // Get the last modified date of the document
         const lastUpdated = new Date(document.lastModified);
-        
+
         // Format the date as "Month Day, Year" (e.g., "January 26, 2025")
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const formattedDate = lastUpdated.toLocaleDateString("en-US", options);
-        
+
         // Insert the formatted date into the footer
         document.getElementById("lastUpdated").textContent = formattedDate;
 
@@ -391,7 +496,7 @@
                     </figure>
                 </div>`;
         }
-                   
+
         function showNIMContent() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
@@ -419,7 +524,7 @@
                     <p>The NIM standard was developed to facilitate modularity, and it remains widely used despite newer systems like VME and CAMAC being introduced. The simplicity and robustness of NIM crates make them invaluable for small-scale and prototype experiments.</p>
                 </div>`;
         }
-        
+
         function showDAQContent() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
@@ -442,7 +547,7 @@
                     <p>Whether in high-energy physics or medical imaging, DAQs play an essential role in extracting meaningful information from complex experiments.</p>
                 </div>`;
         }
-        
+
         function showBubbleChamberContent() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
@@ -553,7 +658,7 @@
                 </div>`;
         }
 
-        
+
         function showCMSExperimentContent() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
@@ -571,27 +676,31 @@
         function showDWCContent() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
-                <div class="content">
-                    <h1 id="main-title">Delay Wire Chambers</h1>
-                    <p>For more technical questions on the DWC, refer <a href="https://cds.cern.ch/record/702443/files/sl-note-98-023.pdf">here</a></p>
-                    <p>DWCs a.k.a delay wire chambers are gas-filled rectangular chambers that help you track a particle - or at least get their position at the moment they pass the detector. They work like this: a particle passes the gas-filled (argon &amp; $CO_2$) chamber. If the particle is charged, it will ionize the gas inside. In the chamber there are multiple layers of parallel wires, each layer acting as an electrode with neighbouring layers being oppositely charged. 
-                    The positive ions and electrons, which were created in the ionization, will start to move towards their respective electrodes (electrons towards anode and ions towards cathodes). They're not only moving towards the electrodes, they are also accelerating due to the Coulomb force – especially electrons, which reach such a high velocity, that they start to ionize the surrounding gas even further, creating an avalanche (more specifically a Townsend avalanche). Eventually all of the kicked out electrons reach the anode and cause a great current in it. This current in the anode (more specifically its magnetic field) will go on to create an image current* in the cathode. This step is important, because it's not the anode current that we are measuring, it's instead the image current in the cathode. Also, the current will be produced in 2-3 neighbouring cathode wires at a time.</p>
-                    <h3 id="dwc-readout">DWC readout</h3>
-                    <p>Neighbouring cathode wires are connected to each other with little delay lines. The two edgemost wires are connected to a sensor. The current from the edgemost wires has a characteristic shape: it's like a mountain composed of tiy steps. </p>
-                    <p><details></p>
-                    <p><summary>Image current*</summary>
-                    <br>
-                    ... also known as mirror current, in this context, is just the current which the magnetic field of the neighbouring anode produced in our cathode. The words &quot;image&quot; or &quot;mirror&quot; are used because it turns out that as far as the magnetic field is concerned, the current inside our electrode can be modelled as a reflection of the anode, where the mirror is the surface of our cathode.
-                    </details>
-                    Each tiny step is the contribution from a single wire. They add up consecutively thanks to the delay lines between the wires, but this is not really the important part. The delay lines are actually there so that the little current mountain would reach the two edges of the cathode, where the detectors are, at different times. The moment when the signal is detected in the sensor is at the rising edge. The detector is a TDC, time to digital converter. This is like a very precise stopwatch that measures the time from the trigger until a signal. The delay lines made it so that the time measured by the two TDCs is not equal. It's actually the difference in the times that gives us the position along one axis. 
-                    $$ \text{time difference}=\text{time(Left)}-\text{time(Right)}$$
-                    $$ X=A\cdot \left(\text{time difference}\right) + B $$
-                    where the A and B are constants that were measured during the calibration. More specifically, A is the slope and B is the offset.</p>
-                    <p>During calibration, a test generator is used to create electrical signals in the chamber. Though two signals are needed to find the two variables $A$ and $B$, it is standard practice to use three. Those three test point must lie on the same straight line. </p>
-                    <h3 id="tdc-vs-scaler">TDC vs Scaler</h3>
-                    <p>So a TDC is in essence just a stopwatch. And so is the scaler, but the scaler isn't controlled by the trigger, so this is one of the only detectors that is always just doing its own thing – measuring the time of every hit, no matter whether the TDAQ is BUSY or not. </p>
-                </div>`;
+        <div class="content">
+            <h1 id="main-title">Delay Wire Chambers</h1>
+            <p>For more technical questions on the DWC, refer <a href="https://cds.cern.ch/record/702443/files/sl-note-98-023.pdf">here</a></p>
+            <p>DWCs a.k.a delay wire chambers are gas-filled rectangular chambers that help you track a particle - or at least get their position at the moment they pass the detector. They work like this: a particle passes the gas-filled (argon &amp; $CO_2$) chamber. If the particle is charged, it will ionize the gas inside. In the chamber there are multiple layers of parallel wires, each layer acting as an electrode with neighbouring layers being oppositely charged. 
+            The positive ions and electrons, which were created in the ionization, will start to move towards their respective electrodes (electrons towards anode and ions towards cathodes). They're not only moving towards the electrodes, they are also accelerating due to the Coulomb force – especially electrons, which reach such a high velocity, that they start to ionize the surrounding gas even further, creating an avalanche (more specifically a Townsend avalanche). Eventually all of the kicked out electrons reach the anode and cause a great current in it. This current in the anode (more specifically its magnetic field) will go on to create an image current* in the cathode. This step is important, because it's not the anode current that we are measuring, it's instead the image current in the cathode. Also, the current will be produced in 2-3 neighbouring cathode wires at a time.</p>
+            <h3 id="dwc-readout">DWC readout</h3>
+            <p>Neighbouring cathode wires are connected to each other with little delay lines. The two edgemost wires are connected to a sensor. The current from the edgemost wires has a characteristic shape: it's like a mountain composed of tiny steps. </p>
+            <p><details></p>
+            <p><summary>Image current*</summary>
+            <br>
+            ... also known as mirror current, in this context, is just the current which the magnetic field of the neighbouring anode produced in our cathode. The words &quot;image&quot; or &quot;mirror&quot; are used because it turns out that as far as the magnetic field is concerned, the current inside our electrode can be modelled as a reflection of the anode, where the mirror is the surface of our cathode.
+            </details>
+            Each tiny step is the contribution from a single wire. They add up consecutively thanks to the delay lines between the wires, but this is not really the important part. The delay lines are actually there so that the little current mountain would reach the two edges of the cathode, where the detectors are, at different times. The moment when the signal is detected in the sensor is at the rising edge. The detector is a TDC, time to digital converter. This is like a very precise stopwatch that measures the time from the trigger until a signal. The delay lines made it so that the time measured by the two TDCs is not equal. It's actually the difference in the times that gives us the position along one axis. 
+            $$ \text{time difference}=\text{time(Left)}-\text{time(Right)}$$
+            $$ X=A\cdot \left(\text{time difference}\right) + B $$ 
+            where the A and B are constants that were measured during the calibration. More specifically, A is the slope and B is the offset.</p>
+            <p>During calibration, a test generator is used to create electrical signals in the chamber. Though two signals are needed to find the two variables $A$ and $B$, it is standard practice to use three. Those three test point must lie on the same straight line. </p>
+            <h3 id="tdc-vs-scaler">TDC vs Scaler</h3>
+            <p>So a TDC is in essence just a stopwatch. And so is the scaler, but the scaler isn't controlled by the trigger, so this is one of the only detectors that is always just doing its own thing – measuring the time of every hit, no matter whether the TDAQ is BUSY or not. </p>
+        </div>`;
+
+            // Reprocess MathJax after the content is updated
+            MathJax.typeset();
         }
+
         function shownothing() {
             const container = document.getElementById('main-container');
             container.innerHTML = `
@@ -852,7 +961,7 @@
         }
 
         document.querySelectorAll('#submenu1 li a').forEach(link => {
-            link.addEventListener('click', function(event) {
+            link.addEventListener('click', function (event) {
                 if (!this.href.includes("new.html")) {
                     event.preventDefault();
                 }
@@ -862,6 +971,99 @@
             });
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <script>
+        async function loadArticle(article) {
+            const response = await fetch(`articles/${article}`);
+            const text = await response.text();
+            const parsedContent = marked.parse(text);
+            const container = document.getElementById('main-container');
+            container.innerHTML = parsedContent;
+        }
+    </script>
+
+
+    <script>
+        // Function to toggle sidebar and adjust header margin
+        document.addEventListener("DOMContentLoaded", function () {
+            var sidebar = document.getElementById("sidebar");
+            var header = document.getElementById("header");
+
+            // Ensure sidebar is visible on initial load
+            sidebar.classList.add("active");
+            header.classList.add("active");
+        });
+
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            var sidebar = document.getElementById("sidebar");
+            var header = document.getElementById("header");
+
+            // Toggle sidebar visibility
+            sidebar.classList.toggle("active");
+
+            // Adjust header margin based on sidebar state
+            header.classList.toggle("active");
+        });
+
+        // Function to toggle submenus
+        function toggleSubmenu(submenuId) {
+            var submenu = document.getElementById(submenuId);
+            submenu.classList.toggle("active");
+        }
+    </script>
+
+
+    <script>
+        function toggleSearchBox() {
+            var searchBox = document.getElementById('searchBox');
+            if (searchBox.style.display === 'none' || searchBox.style.display === '') {
+                searchBox.style.display = 'block';
+            } else {
+                searchBox.style.display = 'none';
+            }
+        }
+
+    </script>
+
+    <script>
+        function highlightText() {
+            let input = document.getElementById("searchBox").value.trim();
+            let container = document.getElementById("main-container");
+
+            function removeHighlight(node) {
+                if (node.nodeType === 3) { // Text node
+                    node.parentNode.innerHTML = node.parentNode.innerHTML.replace(/<mark>(.*?)<\/mark>/gi, "$1");
+                } else {
+                    node.childNodes.forEach(removeHighlight);
+                }
+            }
+
+            function applyHighlight(node) {
+                if (node.nodeType === 3) { // Text node
+                    let text = node.nodeValue;
+                    let regex = new RegExp(`(${input})`, "gi");
+                    if (input !== "" && text.match(regex)) {
+                        let highlighted = text.replace(regex, "<mark>$1</mark>");
+                        let span = document.createElement("span");
+                        span.innerHTML = highlighted;
+                        node.replaceWith(span);
+                    }
+                } else {
+                    node.childNodes.forEach(applyHighlight);
+                }
+            }
+
+            removeHighlight(container);
+            if (input !== "") applyHighlight(container);
+        }
+
+        function clearHighlight() {
+            document.getElementById("searchBox").value = "";
+            highlightText(); // Removes highlights by resetting text
+        }
+
+    </script>
+
 </body>
 
 </html>
