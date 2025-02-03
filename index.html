@@ -103,15 +103,20 @@
             align-items: center;
             padding: 10px 20px;
             background-color: #f0f0f0;
-            /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
             position: fixed;
             height: auto;
             top: 0;
-            left: 0px;
+            left: 250px; /* Default position when sidebar is visible */
             width: calc(100% - 250px);
             z-index: 10;
-            transition: background-color 0.3s;
+            transition: left 0.3s ease, width 0.3s ease, background-color 0.3s;
         }
+        
+        #sidebar:not(.active) + #header {
+            left: 0;
+            width: 100%;
+        }
+
 
         header.dark {
             background-color: #333;
@@ -1001,9 +1006,11 @@
             sidebar.classList.toggle("active");
         
             if (sidebar.classList.contains("active")) {
+                header.style.left = "250px"; // Align with sidebar
                 header.style.width = "calc(100% - 250px)";
             } else {
-                header.style.width = "100%";
+                header.style.left = "0"; // Align with screen edge
+                header.style.width = "100%"; // Expand to full width
             }
         });
 
