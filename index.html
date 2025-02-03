@@ -997,13 +997,16 @@
         document.getElementById("menu-toggle").addEventListener("click", function () {
             var sidebar = document.getElementById("sidebar");
             var header = document.getElementById("header");
-
-            // Toggle sidebar visibility
+        
             sidebar.classList.toggle("active");
-
-            // Adjust header margin based on sidebar state
-            header.classList.toggle("active");
+        
+            if (sidebar.classList.contains("active")) {
+                header.style.width = "calc(100% - 250px)";
+            } else {
+                header.style.width = "100%";
+            }
         });
+
 
         // Function to toggle submenus
         function toggleSubmenu(submenuId) {
