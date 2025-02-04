@@ -1,12 +1,6 @@
 # Tutorial 05: Working with DWC Data (Updated Version)
 
 
-<span style="color: #800000; font-weight: bold;">IMPORTANT!:</span>  
-<p>
-    There was an error in an earlier version of this notebook that has been corrected. Please update your local copy if it does not contain this message.
-    Many thanks to the students for reporting the error, Yiota Chatzidaki and especially Dolores Garcia (who also contributed the fix itself) for their help in making things better!
-</p>
-
 We will have a look at working with DWC data, both raw and monitor files.
 Plus, we will try to investigate a different way to work with DWC so we can hopefully filter out data that we are interested in more efficiently
 
