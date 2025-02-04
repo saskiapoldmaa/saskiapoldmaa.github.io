@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -388,8 +387,8 @@
                 <li><a href="#" onclick="switchHeader(); showEnergy();">3. Energy Measurements</a></li>
                 <li><a href="#" onclick="switchHeader(); showProfile();">4. Beam Profile</a></li>
             </ul>
-            <li onclick="toggleSubmenu('submenu2')">Experimental</li>
-            <ul id="submenu2" class="submenu">
+            <li onclick="toggleSubmenu('submenu0')">Experimental</li>
+            <ul id="submenu0" class="submenu">
                 <li><a href="#" onclick="switchHeader(); showTriggerContent();">1. Trigger</a></li>
                 <li><a href="#" onclick="switchHeader(); showCherenkov();">2. Cherenkov detectors</a></li>
                 <li><a href="#" onclick="switchHeader(); showQDCContent();">3. QDC</a></li>
@@ -398,18 +397,41 @@
                 <li><a href="#" onclick="switchHeader(); showNIMContent();">6. NIM</a></li>
                 <li><a href="#" onclick="switchHeader(); showVaria();">8. Miscellaneous</a></li>
             </ul>
-            <li onclick="toggleSubmenu('submenu3')">Theoretical</li>
-            <ul id="submenu3" class="submenu">
+            <li onclick="toggleSubmenu('submenu2')">Experimental</li>
+            <ul id="submenu2" class="submenu">
+                <li><a href="#" onclick="loadArticle('trigger.md')">1. Trigger</a></li>
+                <li><a href="#" onclick="loadArticle('cherenkov.md')">2. Cherenkov detectors</a></li>
+                <li><a href="#" onclick="loadArticle('qdc.md')">3. QDC</a></li>
+                <li><a href="#" onclick="loadArticle('dwc.md')">4. DWC</a></li>
+                <li><a href="#" onclick="loadArticle('daq.md')">5. DAQ systems</a></li>
+                <li><a href="#" onclick="loadArticle('nim.md')">6. NIM</a></li>
+                <li><a href="#" onclick="loadArticle('varia.md')">7. Miscellaneous</a></li>
+            </ul>
+            <li onclick="toggleSubmenu('submenu0')">Theoretical</li>
+            <ul id="submenu0" class="submenu">
                 <li><a href="#" onclick="switchHeader(); showJets();">1. Jets </a></li>
                 <li><a href="#" onclick="switchHeader(); showFeynmanDiagramsContent();">2. Feynman Diagrams</a></li>
                 <li><a href="#" onclick="switchHeader(); showROOT();">3. Why I &lt;3 ROOT</a>
                 </li>
             </ul>
-            <li onclick="toggleSubmenu('submenu4')">A Few Stories</li>
-            <ul id="submenu4" class="submenu">
+            <li onclick="toggleSubmenu('submenu3')">Theoretical</li>
+            <ul id="submenu3" class="submenu">
+                <li><a href="#" onclick="loadArticle('jets.md')">1. Jets</a></li>
+                <li><a href="#" onclick="loadArticle('feynman.md')">2. Feynman Diagrams</a></li>
+                <li><a href="#" onclick="loadArticle('root.md')">3. Why to <3 ROOT</a></li>
+                </li>
+            </ul>
+            <li onclick="toggleSubmenu('submenu0')">A Few Stories</li>
+            <ul id="submenu0" class="submenu">
                 <li><a href="#" onclick="switchHeader(); showstrato();">1. Ballooning</a></li>
                 <li><a href="#" onclick="switchHeader(); showbeginning();">2. First Few Days</a></li>
                 <li><a href="#" onclick="switchHeader(); showfirst();">3. Training</a></li>
+            </ul>
+            <li onclick="toggleSubmenu('submenu4')">A Few Stories</li>
+            <ul id="submenu4" class="submenu">
+                <li><a href="#" onclick="loadArticle('strato.md')">1. Ballooning</a></li>
+                <li><a href="#" onclick="loadArticle('beginning.md')">2. First Few Days</a></li>
+                <li><a href="#" onclick="loadArticle('training.md')">3. Training</a></li>
             </ul>
             <li onclick="toggleSubmenu('submenu5')">Our experiment</li>
             <ul id="submenu5" class="submenu">
