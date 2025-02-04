@@ -1,4 +1,5 @@
-##What particles are in the beam?##
+What particles are in the beam?
+===============================
 
 Well, there are lots of beams on offer at CERN. You just pick one out from a catalogue, place your order on the computer by selecting the right beamfile, and to place the order, you call to the CCC (CERN Control Centre).
 
