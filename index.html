@@ -1009,6 +1009,10 @@
             const parsedContent = marked.parse(text);
             const container = document.getElementById('main-container');
             container.innerHTML = parsedContent;
+            // Ensure MathJax renders the new content
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
         }
     </script>
 
