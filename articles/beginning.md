@@ -1,6 +1,12 @@
 First Few Days
 ==============
 
+<a href="https://github.com/your-username/your-repo/raw/main/path/to/notebook.ipynb" download>
+    <button style="background-color:#f37626; color:white; border:none; padding:10px 20px; cursor:pointer; font-size:16px;">
+        📥 Download Jupyter Notebook
+    </button>
+</a>
+
 Väga varajase algusega reisipäev. Lendasime kohale läbi Amsterdami. Need vaated, mis Hollandi kohal paistsid olid küll uskumatud. Iga puu oli strateegiliselt paigutatud, põllud olid standardsete kujudega ja isegi jõgi voolas ühtlase laiusega. Amsterdam ise tundus äge, seal olid kõrghooned ja ka omapärased punasest telliskivist majad, nende vahel looklesid jõesopid. Aa ja lennujaama kõrval oli kummaline kuppelmaastik. Kohale jõudes võttis meid vastu minu jaoks suusakuurortiliku ilmega Genfi lennujaam ja selle ees seisev Pretzeli kotikesega krapsakas Markus ja temaga koos oli Jean-Pierre.
 
 Nad ei tundunud omavahel kohutvalat tuttavad, aga mõlemaga oli lihtne rääkida. Markus rääkis meile jura mägedest. CERN-i jõudmine oli üllatavalt lihtne: võtad lihtsalt trammi kirjaga CERN ja oledki kohal alla 20 minutiga (linnasüdamest sinna siuke 30min). Kampus ise oli kohutavalt futuristlik. Sees võtsime kingad ja kohtusime esimese eestlasega Einoga, kes tegeles LHC magnetite kallal technical studentina. Kampusel ringi kõndides oli pull vaadata, kuidas Markus kõiki tundis. Ja go-to fraas oli et "oled sa teisipäeval tulemas".
