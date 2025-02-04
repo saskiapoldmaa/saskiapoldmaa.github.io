@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -107,8 +108,8 @@
             position: fixed;
             height: auto;
             top: 0;
-            left: 30px;
-            width: calc(100% - 250px);
+            width: 97%;
+
             z-index: 10;
             transition: background-color 0.3s;
         }
@@ -175,6 +176,7 @@
 
         .profile-image img {
             width: 500px;
+            max-width: 100%;
             border-radius: 30%;
             margin-bottom: 10px;
         }
@@ -247,7 +249,9 @@
 
 
         #header.active {
-            margin-left: 230px;
+            margin-left: 260px;
+            left: 30px;
+            width: calc(100% - 330px);
         }
 
         @media (max-width: 768px) {
@@ -259,7 +263,7 @@
 
             header {
                 left: 0;
-                width: 100%;
+                width: 93%;
             }
 
             .container {
@@ -289,12 +293,13 @@
                 color: #007bff;
                 font-size: 14px;
             }
+
         }
 
         #sidebar {
             width: 250px;
             position: fixed;
-            left: -250px;
+            left: -300px;
             /* Initially hidden */
             top: 0;
             height: 100%;
@@ -787,6 +792,7 @@
                     See, et enamik CERN-is ringi sagivaid inimesi tundusid meist vaid paar aastat vanemad, oli meie jaoks nii suur üllatus, et kui õhtul kahele CERN-i kohalikule peale sattusime, küsisime neilt otse, et mis siin ikkagi toimub. Mida kõik need noored siin teevad? Tuli välja, et kõik need on ilmselt CERN-is õpilaseprogrammiga, samamoodi nagu ka need kaks noort, kes seda meile seletasid: Alex ja Oliver. </li>
                     </ul>
                 </div>`;
+            MathJax.typeset();
         }
         function showbeginning() {
             const container = document.getElementById('main-container');
@@ -870,6 +876,7 @@
                     <p>Pressure scans are more useful after you've translated the x-axis from pressure to threshold momentum.Because particle energies usually follow a normal distribution, the 50% efficiency usually responds to the peak of the spectrum.
                     <img src="/pre.png" alt="Pressure scan after calculations"></p>
                 </div>`;
+            MathJax.typeset();
         }
         function showVaria() {
             const container = document.getElementById('main-container');
@@ -900,6 +907,7 @@
                     <p>What opens and closes the gate? It's a so-called gate generator that receives the signal slightly earlier than the other components. This is because the other elements have a delay line attached to them, but the gate does not. When the gate generator detects a rise in current, it opens the gate just in time for the signal to arrive at the gate.</p>
                     <p>By the way, more often than not, the current entering a QDC is not only $I(t)$, our signal. There is also a pedestal current $I_{PED}$ – a constant current which is generated inside a QDC by default. Its purpose is to reduce the relative error on the ADC reading (I'm not sure why this is important, since after subtracting the pedestal current in data analysis, the relative error will still be the same) and to bring the capacitor into a mode where it is working linearly, meaning the real capacitance coincides with the nominal one. The pedestal current also depends on the wires being used, so it must always be determined experimentally (and separately for every channel!). It is common practice to not deduct your pedestal current from the measurement results, but in an ideal world this deduction is always made.</p>
                 </div>`;
+            MathJax.typeset();
         }
 
         function switchHeader() {
