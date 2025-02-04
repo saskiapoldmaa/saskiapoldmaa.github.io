@@ -1,16 +1,16 @@
 # First Example: Check If Your Local ROOT Can Run A Simple PyROOT Notebook
 
 
-```python
-import ROOT
-```
-
 Let's try to 
 - create a set of random numbers
 - that are distributed according to a Gaussian distribution
 - and see if we can plot these numbers
 
-Please let Seyma or Martin know if you have any issues running this example either using the ROOT installation on your computer or in the virtual machine!
+But first...
+
+```python
+import ROOT
+```
 
 ## Define the Gaussian Distribution As A Formula With Two Parameters $\sigma$ and $\mu$
 
@@ -23,7 +23,7 @@ gauss_fml = ROOT.TFormula("gauss_fml", "1/([sigma]*sqrt(2*pi)) * exp(-0.5*((x-[m
 
 ## Createa 1D Sequences For Different Parameterisations of the Gaussian Distributions
 
-In order to generate a sequence of values according to the formula `gaus_fml`, we have to set the values for the two distribution parameters`[sigma]` and `[mu]` 
+In order to generate a sequence of values according to the formula `gaus_fml`, we have to set the values for the two distribution parameters $\\sigma$ and $\\mu$.
 
 
 ```python
@@ -143,9 +143,4 @@ output_file = ROOT.TFile( "./example1_gaussian_distribution_python.root", "RECRE
 gauss_fml.Write()
 histogram1.Write()
 output_file.Close()
-```
-
-
-```python
-
 ```
