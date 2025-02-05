@@ -12,7 +12,7 @@ But first...
 import ROOT
 ```
 
-## Define the Gaussian Distribution As A Formula With Two Parameters $\sigma$ and $\mu$
+### Define the Gaussian Distribution As A Formula With Two Parameters $\sigma$ and $\mu$
 
 Note: there is already a built-in `gaus` formula that you would normally use, but in order to test something simple, we are defining our own formula
 
@@ -21,7 +21,7 @@ Note: there is already a built-in `gaus` formula that you would normally use, bu
 gauss_fml = ROOT.TFormula("gauss_fml", "1/([sigma]*sqrt(2*pi)) * exp(-0.5*((x-[mu])/[sigma])*((x-[mu])/[sigma]))" )
 ```
 
-## Createa 1D Sequences For Different Parameterisations of the Gaussian Distributions
+### Createa 1D Sequences For Different Parameterisations of the Gaussian Distributions
 
 In order to generate a sequence of values according to the formula `gaus_fml`, we have to set the values for the two distribution parameters $\\sigma$ and $\\mu$.
 
