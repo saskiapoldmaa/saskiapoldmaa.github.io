@@ -6,7 +6,6 @@
     </button>
 </a>
 
-
 Let's try to 
 - create a set of random numbers
 - that are distributed according to a Gaussian distribution
