@@ -8,9 +8,8 @@ Let's try to
 
 But first...
 
-```python
-import ROOT
-```
+<pre><code class="python">import ROOT</code></pre>
+
 
 ### Define the Gaussian Distribution As A Formula With Two Parameters $\sigma$ and $\mu$
 
