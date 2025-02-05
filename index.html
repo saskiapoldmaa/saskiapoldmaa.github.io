@@ -1095,6 +1095,15 @@
         });
     });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre code').forEach((block) => {
+            block.classList.add("language-python");  // Auto-fix missing classes
+            hljs.highlightElement(block);
+        });
+    });
+    </script>
+
 
 </body>
 
