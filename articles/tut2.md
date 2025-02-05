@@ -67,11 +67,11 @@ qdc_no_absorber = ROOT.TFile.Open(str(path_qdc_78299.absolute()))
 1) How do we know which channels of the QDC we have to get the histogram from?
 => Look at the signal table in the log book!
 
-![signal_table_qdc.png](tut2_files/signal_table_qdc.png)
+![Signal table](images/signaltable.png)
 
 2) What are S2, S3 and CAL13 again?
 
-![image.png](tut2_files/image.png)
+![S2, S3, CAl irl](images/qdcstuff.png)
 
 
 
@@ -174,8 +174,9 @@ c0.Update()
 
 
 ```python
-# c0.Draw()
+c0.Draw()
 ```
+![Canvas c0](images/tut21.png)
 
 
 
@@ -298,7 +299,7 @@ Beforew we dive into the ROOT "Rawdata" tree, let's briefly talk about some stru
 
 So, for a simple tree with only three branches `A`, `B`, and `C`, the picture could look a little bit like this:
 
-![root_branches_leafs_events-2.png](tut2_files/root_branches_leafs_events-2.png)
+![root branches, leaves and events](images/root_structure.png)
 
 
 The data structures that ROOT can handle can be a lot more complicated. But our case already looks a little bit like the picture above (at least if we limit ourselves to the branches that we are actually interested in)
@@ -593,11 +594,9 @@ c1.Update()
 
 
 ```python
-# c1.Draw()
+c1.Draw()
 ```
-
-
-
+![Canvas c1](images/tut22.png)
 
 <div id="root_plot_1722867178910" style="width: 1200px; height: 600px; position: relative">
 </div>
