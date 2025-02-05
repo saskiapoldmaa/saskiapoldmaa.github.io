@@ -1,4 +1,4 @@
-# ROOT Tutorial No 3: Working With Monitor And Raw Data Files
+## ROOT Tutorial No 3: Working With Monitor And Raw Data Files
 
 Let's recap from the previous session:
 
@@ -13,7 +13,7 @@ Let's recap from the previous session:
 
 Lat time, we had a look at the monitor files. These contain ready-made histograms about the quantities we are interested in and are great for getting a quick overview about the data and to decide if a run is interesting or not. Let's plot the data from these three runs in a slightly different way to compare the results more effectively:
 
-## Compare Results From QDC Monitor ROOT Files
+### Compare Results From QDC Monitor ROOT Files
 
 **NOTE**: In order to make it easier for you to run the notebook on your computer or later at CERN, we will use a "common prefix" for the path to the data files. Please update this path so it points towards the directory where your local ROOT can find the files. 
 
@@ -62,7 +62,7 @@ qdc_no_absorber = ROOT.TFile.Open(str(path_qdc_78299.absolute()))
 %jsroot
 ```
 
-### Wait a second ... 
+**Wait a second ... **
 
 1) How do we know which channels of the QDC we have to get the histogram from?
 => Look at the signal table in the log book!
@@ -237,7 +237,7 @@ if (typeof requirejs !== 'undefined') {
 
 
 
-### Some Notes, Observations And Comments
+**Some Notes, Observations And Comments**
 
 1) Instead of copy pasting the code that sets up the canvas and draws the histograms, it may be a good idea to define a helper function that takes this over and allows to reuse the code
 
@@ -248,7 +248,7 @@ if (typeof requirejs !== 'undefined') {
 **POSSIBLE TODO**:
 In case you want to try something yourself, maybe you can create a different summary plot, where we compare the results of all three detectors S2, S3 and CAL17 in one histogramm per run?
 
-## Working with Raw Data Files
+### Working with Raw Data Files
 
 Let's have a look at the **raw data** file for run ´1722178299´ which contains the results from the green curves above:
 
@@ -2726,14 +2726,3 @@ if (typeof requirejs !== 'undefined') {
 1) Why does the histogramm look different to before?
 2) How could we try to recreate the original histogram from the raw data?
 3) Can you try to filter out entries before filling the values into the histogramm(s)?
-
-## Next Time:
-
-- We will have a look at combining the QDC data with data for the Cherenkov detectors
-- We will try to understand the difference between data stored by the TDCs and the Scalers
-- We may have a brief look at the DWC data
-
-
-```python
-
-```
