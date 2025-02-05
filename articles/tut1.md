@@ -1,4 +1,4 @@
-# First Example: Check If Your Local ROOT Can Run A Simple PyROOT Notebook
+## First Example: Check If Your Local ROOT Can Run A Simple PyROOT Notebook
 
 <a href="https://github.com/saskiapoldmaa/saskiapoldmaa.github.io/blob/main/Files/gaussian_distribution_pyroot.ipynb" download>
     <button style="background-color:#616eff; color:white; border:none; padding:7px 12px; cursor:pointer; font-size:15px; border-radius:5px;">
@@ -47,7 +47,7 @@ print( f"mu: {mu}, sigma: {sigma}" )
     mu: 0.0, sigma: 1.5
 
 
-## Plot The Sequences
+### Plot The Sequences
 
 In order to "Draw" something (like a plot), we needa a "Canvas":
 
@@ -105,7 +105,7 @@ c1.Draw()
     
 
 
-## Create Pseudo Random Numbers & Visualise Them As A Histogramm
+### Create Pseudo Random Numbers & Visualise Them As A Histogramm
 
 
 ```python
@@ -138,7 +138,7 @@ c2.Draw()
     
 
 
-## Save Some Of The Expressions (and Data) We Have Created Into a ROOT File
+### Save Some Of The Expressions (and Data) We Have Created Into a ROOT File
 
 
 ```python
