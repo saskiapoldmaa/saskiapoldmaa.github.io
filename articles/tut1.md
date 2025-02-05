@@ -1,5 +1,11 @@
 # First Example: Check If Your Local ROOT Can Run A Simple PyROOT Notebook
 
+<a href="path/to/file.ipynb" download>
+    <button style="background-color:#7d67e0; color:gray; border:none; padding:7px 12px; cursor:pointer; font-size:11px; border-radius:5px;">
+        📥 Try it out yourself!
+    </button>
+</a>
+
 
 Let's try to 
 - create a set of random numbers
