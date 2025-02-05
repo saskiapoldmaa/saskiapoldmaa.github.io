@@ -16,6 +16,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <style>
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: white;
+            background: #2d2d2d;
+            font-family: "Fira Code", monospace;
+            font-size: 14px;
+            text-shadow: none;
+        }
+        .token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata {
+            color: #75715e;
+        }
+        .token.punctuation {
+            color: #f8f8f2;
+        }
+        .token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol {
+            color: #f92672;
+        }
+        .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+            color: #a6e22e;
+        }
+        .token.operator, .token.entity, .token.url, .token.variable {
+            color: #f8f8f2;
+        }
+
         body {
             margin: 0;
             font-family: "Crimson Text", serif;
@@ -1080,8 +1104,12 @@
         }
 
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Prism.highlightAll();
+    });
+    </script>
 
-    <script>Prism.highlightAll();</script>
 
 </body>
 
