@@ -27,7 +27,7 @@ So far we have established, that
   
 - In order to get a "number" as the result of the measurement, the integral has to be "definite" i.e., we have to integrate between boundaries ($t_{START}$ and $t_{END}$ in the formula above). This means that our integration is measuring the area under the curve $I(t)$ between the points in time $ \left[t_{START},t_{END}\right] $. 
 
-![](https://codimd.web.cern.ch/uploads/upload_888d12857db141a4a10c0783e921bd8e.png)
+<img src="https://codimd.web.cern.ch/uploads/upload_888d12857db141a4a10c0783e921bd8e.png" alt="" style="width:80%; height:auto;">
 
   It is important to chose the integration interval not too large (otherwise we will capture a lot of contributions of noise and will artifically increase our value for Q) and not too small (otherwise we will not measure the area under the curve of the whole signal). Also, we have to check that the signal really arrives between $t_{START}$ and $t_{END}$. **The whole process of ensuring this things is called "timing-in" for a signal**, you will find descriptions how we did things in the lab book!
 
@@ -40,7 +40,7 @@ The time period over which the QDC integrates the current was apparently very im
 
 **ANSWER**: You can find the integraton time in the log book, but it is a bit hidden. The QDC takes $t_{START}$ and $t_{END}$ from the "edges" of the trigger signal. I.e., the length of the interval is the length of the trigger interval. If a trigger signal is used like this, we call it a **GATE** signal.
 
-![](https://codimd.web.cern.ch/uploads/upload_480a8cb2c38def8fa972e4225dc29661.png)
+<img src="https://codimd.web.cern.ch/uploads/upload_480a8cb2c38def8fa972e4225dc29661.png" alt="" style="width:50%; height:auto;">
 
 - Using this idea, one can easily derive numerical methods to calculate the area under the curve, for example the [Trapezoid method](https://en.wikipedia.org/wiki/Trapezoidal_rule) method:
 
@@ -50,8 +50,7 @@ $$\; Q = \int_{t_{START}}^{t_{END}}I(t)\,dt \; \approx \; \frac{t_{END} - t_{STA
 
 - The QDC that we are using is a `CAEN v792AC` and it works slightly differently. It charges a capacitor with the analog signal $I(t)$ while the "Gate" is open (i.e., between $t_{START}$ and $t_{END}$ to "integrate" the signal "analogly". Then, once the "Gate" is closed (i.e., after we pass $t_{END}$), we measure the charge collected in the capacitor using an `Analog-To-Digital Converter` (ADC) which is essentially a counter. The higher the counting value· the more charge - this works pretty similar to the Arduino ADC that you have used to measure voltages!
 
-
-![](https://codimd.web.cern.ch/uploads/upload_4b7f8ff68449e994cd4db1578fb31db8.png)
+<img src="https://codimd.web.cern.ch/uploads/upload_4b7f8ff68449e994cd4db1578fb31db8.png" alt="" style="width:100%; height:auto;">
 
 If you look closely, you will see that we are not only integrating the signal $I(t)$ but also have something there that is called $I_{PED}$. This is the so called **pedestal current** and it helps us avoid two issues:
 
@@ -172,21 +171,14 @@ leg.Draw()
 c0.Update()
 ```
 
-
+<img src="images/tut31.png" alt="" style="width:70%; height:auto;">
     
-![png](tut3_files/tut3_22_0.png)
-    
-
-
 
 ```python
 c0.Draw()
 ```
 
-
-    
-![png](tut3_files/tut3_23_0.png)
-    
+<img src="images/tut32.png" alt="" style="width:70%; height:auto;">
 
 
 Well, that looks quite constant (at least not Gaussian distributed, which is good, there should not be a lot of noise). Let's get the Pedestal mean and standard deviation values for each channel:
@@ -322,10 +314,7 @@ c1.Update()
 c1.Draw()
 ```
 
-
-    
-![png](tut3_files/tut3_36_0.png)
-    
+<img src="images/tut33.png" alt="" style="width:70%; height:auto;">
 
 
 **NOTE**: 
@@ -335,7 +324,7 @@ The shape of the distribution should not change, but the curve is displaced hori
 
 Let's look into the other two digitizer modules that we have mostly ignored until now:
 
-![](https://codimd.web.cern.ch/uploads/upload_ffa71d34fb90f58272cd6eb58a24ba53.png)
+<img src="https://codimd.web.cern.ch/uploads/upload_ffa71d34fb90f58272cd6eb58a24ba53.png" alt="" style="width:70%; height:auto;">
 
 Looking at the signal table, there are two TDCs: 
 - TDC1 contains all the signals from the DWCs (L, R, U, D + coincidences of the anode signals) plus some convenient signals that could be useful for data analysis with the DWC (S0 & S1, S2 & S3, FS0 & FS1)
@@ -476,8 +465,3 @@ print(f"number of hits  : {num_hits} -> this should be identical to taking the l
 
 
 **IDEA**: If we only want to figure out **if** a particle had a count, we do not have to read the values from the vector. We can, but usually we do not have to. 
-
-
-```python
-
-```
