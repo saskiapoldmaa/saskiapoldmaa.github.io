@@ -101,7 +101,7 @@ c1.Draw()
 
 
     
-![png](tut1_files/tut1_17_0.png)
+![png](images/nice_gaus.png)
     
 
 
@@ -134,9 +134,7 @@ histogram1.GetYaxis().CenterTitle(True)
 c2.Draw()
 ```
 
-
-    
-![png](tut1_files/tut1_21_0.png)
+![png](images/gaus.png)
     
 
 
