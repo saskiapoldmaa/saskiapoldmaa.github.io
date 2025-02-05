@@ -17,13 +17,13 @@ There is a lot to do, let's get started!
 
 
 
-## How does a QDC actually work & who put something on a pedestal???
+### How does a QDC actually work & who put something on a pedestal???
 
 So far we have established, that 
 - A QDC is a "Charge To Digital" converter
 - It measures charge by integrating electrical current over time, i.e.
 
-  $$I(t) = \frac{dQ}{dt} \quad \Longrightarrow \quad Q = \int_{t_{START}}^{t_{END}} I(t)\;dt $$
+  $$I(t) = \frac{dQ}{dt} \quad \Longrightarrow \quad Q = \int_{t_{START}}^{t_{END}} I(t) dt $$
   
 - In order to get a "number" as the result of the measurement, the integral has to be "definite" i.e., we have to integrate between boundaries ($t_{START}$ and $t_{END}$ in the formula above). This means that our integration is measuring the area under the curve $I(t)$ between the points in time $ \left[t_{START},t_{END}\right] $. 
 
@@ -44,7 +44,8 @@ The time period over which the QDC integrates the current was apparently very im
 
 - Using this idea, one can easily derive numerical methods to calculate the area under the curve, for example the [Trapezoid method](https://en.wikipedia.org/wiki/Trapezoidal_rule) method:
 
-$$\; Q = \int_{t_{START}}^{t_{END}}I(t)\,dt \; \approx \; \frac{t_{END} - t_{START}}{2\cdot N}\; \left( I(t_{START}) \; + \; I(t_{END}) \; + \; \sum_{i=1}^{N-2} 2\,I(t_i) \right) \quad \text{with} \; t_i  \; \text{being the} \; N - 2 \; \text{equally spaced points between} \; t_{START} \; \text{and} \; t_{END} $$
+$$ Q = \int_{t_{START}}^{t_{END}}I(t)\,dt \approx \frac{t_{END} - t_{START}}{2\cdot N} \left( I(t_{START}) + I(t_{END}) + \sum_{i=1}^{N-2} 2\,I(t_i) \right) \quad \text{with} t_i 
+ \text{being the} N - 2 \text{equally spaced points between} t_{START} \text{and} t_{END} $$
 
 - This is for example how the Sakura Particles team plan to measure the deposited energy with their updated electronics 
 
@@ -69,7 +70,7 @@ $$ Error = \left| \frac{\text{Count}_{True} - \text{Count}_{Measure}}{\text{Coun
 
 This is for example not what the CosmicWatch implementation has done, there they have provided a polynomial fit for the nonlinear response curve but did not sacrifice any of the dynamic range of the signal. Given the constraints of this device, it makes sense. But there are alternatives
 
-## Measuring & Compensating the Pedestal
+### Measuring & Compensating the Pedestal
 
 Let's have a look at run `1722364119` in the log book:
 
@@ -318,7 +319,7 @@ c1.Draw()
 **NOTE**: 
 The shape of the distribution should not change, but the curve is displaced horizontally (and the binning into the histogram will be slightly different - it is possible that the shape of the curve appears to change slightly)
 
-## Using TDC and Scaler Data To Filter Events
+### Using TDC and Scaler Data To Filter Events
 
 Let's look into the other two digitizer modules that we have mostly ignored until now:
 
@@ -339,7 +340,7 @@ The main difference between the TDCs and the Scaler are
 Since the scaler is not affected by the busy logic (see the previous exercise), it can in theory record contributions from every particle that arrives. It also counts noise (unless we count coincidence signals). 
 
 Useful things to do with a scaler:
-- You can calculate the ratio of how many particles have hit your detector compared to how many particles you could record with TDAQ#
+- You can calculate the ratio of how many particles have hit your detector compared to how many particles you could record with TDAQ
 - You can check if the number of particles below/above the threshold of the XCETs recorded by TDAQ is representative of the ensemble of all arriving particles or if we had some "bias" in selecting them
 - You can check if the beam composition (or momentum distribution) remains stable over time or if there are fluctuations
 - You can check the signal/noise ratio for uncoincided signals
