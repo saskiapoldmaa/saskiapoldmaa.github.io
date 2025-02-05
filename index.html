@@ -426,7 +426,7 @@
             </ul>
             <li onclick="toggleSubmenu('submenu5')">The Article</li>
             <ul id="submenu5" class="submenu">
-                <li><a href="/article" onclick="loadArticle('article.md')">PDF version</a></li>
+                <li><a href="?show=article.md">Manuscript</a></li>
             </ul>
         </ul>
     </nav>
@@ -993,6 +993,14 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const show = params.get('show');
+            if (show) {
+                loadArticle(show);
+            }
+        };
+
         async function loadArticle(article) {
             const response = await fetch(`articles/${article}`);
             const text = await response.text();
