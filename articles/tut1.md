@@ -1,8 +1,8 @@
 # First Example: Check If Your Local ROOT Can Run A Simple PyROOT Notebook
 
 <a href="https://github.com/saskiapoldmaa/saskiapoldmaa.github.io/blob/main/Files/gaussian_distribution_pyroot.ipynb" download>
-    <button style="background-color:#7d67e0; color:gray; border:none; padding:7px 12px; cursor:pointer; font-size:11px; border-radius:5px;">
-        📥 Try it out yourself!
+    <button style="background-color:#616eff; color:white; border:none; padding:7px 12px; cursor:pointer; font-size:11px; border-radius:5px;">
+         👇 Try it out yourself!
     </button>
 </a>
 
