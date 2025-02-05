@@ -1,4 +1,4 @@
-## ROOT Tutorial No 3: Working With Monitor And Raw Data Files
+# ROOT Tutorial No 3: Working With Monitor And Raw Data Files
 
 Let's recap from the previous session:
 
