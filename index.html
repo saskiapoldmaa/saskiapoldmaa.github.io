@@ -993,12 +993,20 @@
             const parsedContent = marked.parse(text);
             const container = document.getElementById('main-container');
             container.innerHTML = parsedContent;
+    
+            // Ensure syntax highlighting is applied to dynamically loaded content
+            document.querySelectorAll('#main-container pre code').forEach((block) => {
+                block.classList.add("language-python");  // Ensures Highlight.js detects Python code
+                hljs.highlightElement(block);
+            });
+    
             // Ensure MathJax renders the new content
             if (window.MathJax) {
                 MathJax.typesetPromise();
             }
         }
     </script>
+
 
 
     <script>
