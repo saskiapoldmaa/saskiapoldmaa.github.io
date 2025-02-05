@@ -73,11 +73,11 @@ qdc_no_absorber = ROOT.TFile.Open(str(path_qdc_78299.absolute()))
 1) How do we know which channels of the QDC we have to get the histogram from?
 => Look at the signal table in the log book!
 
-![Signal table](images/signaltable.png)
+![Signal table](../articles/images/signaltable.png)
 
 2) What are S2, S3 and CAL13 again?
 
-![S2, S3, CAl irl](images/qdcstuff.png)
+![S2, S3, CAl irl](../articles/images/qdcstuff.png)
 
 
 
