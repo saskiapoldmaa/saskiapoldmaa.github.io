@@ -170,15 +170,13 @@ leg.Draw()
 
 c0.Update()
 ```
-
-<img src="images/tut31.png" alt="" style="width:70%; height:auto;">
     
 
 ```python
 c0.Draw()
 ```
 
-<img src="images/tut32.png" alt="" style="width:70%; height:auto;">
+<img src="images/tut31.png" alt="" style="width:70%; height:auto;">
 
 
 Well, that looks quite constant (at least not Gaussian distributed, which is good, there should not be a lot of noise). Let's get the Pedestal mean and standard deviation values for each channel:
@@ -314,7 +312,7 @@ c1.Update()
 c1.Draw()
 ```
 
-<img src="images/tut33.png" alt="" style="width:70%; height:auto;">
+<img src="images/tut32.png" alt="" style="width:70%; height:auto;">
 
 
 **NOTE**: 
