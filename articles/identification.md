@@ -43,7 +43,7 @@ To illustrate this, let us look at the data gathered during a "pressure scan" â€
 
 Below are the results of one of these pressure scans for a 9 GeV beam. Look out for what happens as the pressure increases!
 
-<iframe src="../Files/pressure_vs_cherenkov.html" width="70 %" height="400"></iframe>
+<iframe src="../Files/pressure_vs_cherenkov.html" width="70%" height="400"></iframe>
 
 See how different particles popped up as little bumps in the graph? Although all of these particles are almost at the same energies â€“ 9 GeV, due to their different masses, it takes a different amount of pressure for each type of these particles to become visible in the Cherenkov detector.
 
