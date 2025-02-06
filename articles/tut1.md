@@ -111,7 +111,7 @@ c1.Draw()
 
 
     
-![png](images/nice_gaus.png)
+![png](../articles/images/nice_gaus.png)
     
 
 
