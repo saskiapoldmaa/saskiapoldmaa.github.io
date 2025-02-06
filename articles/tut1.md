@@ -134,7 +134,7 @@ histogram1.GetYaxis().CenterTitle(True)
 c2.Draw()
 ```
 
-![png](images/gaus.png)
+![png](../articles/images/gaus.png)
     
 
 
