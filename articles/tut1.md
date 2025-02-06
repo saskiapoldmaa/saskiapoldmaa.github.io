@@ -1,10 +1,11 @@
 # First Example: Check If Your Local ROOT Can Run A Simple PyROOT Notebook
 
-<a href="https://github.com/saskiapoldmaa/saskiapoldmaa.github.io/blob/main/Files/gaussian_distribution_pyroot.ipynb" download>
+<a href="https://raw.githubusercontent.com/saskiapoldmaa/saskiapoldmaa.github.io/main/Files/gaussian_distribution_pyroot.ipynb" download="gaussian_distribution_pyroot.ipynb">
     <button style="background-color:#616eff; color:white; border:none; padding:7px 12px; cursor:pointer; font-size:15px; border-radius:5px;">
          👇 Try it out yourself!
     </button>
 </a>
+
 
 Let's try to 
 - create a set of random numbers
