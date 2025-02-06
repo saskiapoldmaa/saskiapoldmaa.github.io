@@ -22,7 +22,7 @@ Anyways, we now have three equations, which we will have to combine to find the 
 
 $$P=\\frac{1}{k}\\left( \\frac{m_0c^2+E}{\\sqrt{E^2+2Em_0c^2}}-1 \\right)$$.
 
-So for 3 GeV, the pressures needed are
+So for a 3 GeV beam, the different particles will begin emitting light in the Cherenkov detectors at the following pressures.
 
 | Particle  | Pressure (bar) |
 |---|---|
@@ -31,7 +31,7 @@ So for 3 GeV, the pressures needed are
 |Kaon   |22.8   |
 |Proton |65.9   |
 
-And for 9 GeV
+And for a 9 GeV beam, these values will be 
 | Particle  | Pressure (bar) |
 |---|---|
 |Muon   |0.15   |
@@ -39,8 +39,12 @@ And for 9 GeV
 |Kaon   |3.06   |
 |Proton |9.97   |
 
+To illustrate this, let us look at the data gathered during a "pressure scan" –– this is a procedure, during which a Cherenkov detector is pumped to almost its maximal pressure, and it is then let to slowly run empty. In the process, the Cherenkov efficiency –– fraction of particles passing through the detector, which emit light, is monitored. 
+
+Below are the results of one of these pressure scans for a 9 GeV beam. Look out for what happens as the pressure increases!
+
 <iframe src="../Files/pressure_vs_cherenkov.html" width="70 %" height="400"></iframe>
 
-
+See how different particles popped up as little bumps in the graph? Although all of these particles are almost at the same energies – 9 GeV, due to their different masses, it takes a different amount of pressure for each type of these particles to become visible in the Cherenkov detector.
 
 <img src="../articles/images/Identification/3GeVhadron.png" alt="" width="70%" height="auto">
