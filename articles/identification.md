@@ -15,6 +15,23 @@ where n is the refractive index in that medium and c is the speed of light in th
 
 $$p=\\frac{m_0 v}{\\sqrt{1-v^2/c^2}}$$ where $m_0$ is the particle's rest mass.
 
-$$P=\\frac{1}{k}\\left( \\frac{\\sqrt{m_0 c^4 -E^2 -2Em_0c^2}}{\\sqrt{E^2+2Em_0c^2}}-1 \\right)$$
+$$P=\\frac{1}{k}\\left( \\frac{m_0c^2+E}{\\sqrt{E^2+2Em_0c^2}}-1 \\right)$$
+
+So for 3 GeV, the pressures needed are
+
+| Particle  | Pressure (bar) |
+|---|---|---|---|---|
+|Muon   |1.287   |
+|Pion   |5.3   |
+|Kaon   |22.8   |
+|Proton |65.9   |
+
+And for 7 GeV
+| Particle  | Pressure (bar) |
+|---|---|---|---|---|
+|Muon   |0.246   |
+|Pion   |0.40   |
+|Kaon   |4.9   |
+|Proton |15.6   |
 
 <img src="../articles/images/Identification/3GeVhadron.png" alt="" width="70%" height="auto">
