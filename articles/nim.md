@@ -12,7 +12,7 @@ NIM (Nuclear Instrumentation Module) crates serve as the backbone of many labora
 
 The discriminator works just like a comparator. It's output is used as a reference point for when to take measurements. Thanks to the delay component, the comparator's output transition (from 'high' to 'low' or vice versa) occurs precisely when the signal reaches the ADC. The second transition, which signifies the end of the measurement, occurs as the tail end of the signal passes the ADC. 
 
-<img src="../discriminator.png" alt="" width="30%" height="auto">
+<img src="../discriminator.png" alt="" width="70%" height="auto">
 
 Here you see the output of a dicriminator and its appearance on a NIM.
 
