@@ -7,3 +7,6 @@
 </a>
 
 Is it circular? How wide is it?
+
+What does this graph show?
+<img src="../articles/images/comingsoon.png" width="70%" height="auto" >
