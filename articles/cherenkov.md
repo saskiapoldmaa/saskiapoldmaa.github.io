@@ -1,9 +1,8 @@
 Cherenkov detectors
 ===================
 
-![](/diy_che.png) ![](/kamiokande_che.png) ![](/xcet.gif)
-
-[DIY Detector](https://indico.cern.ch/event/1337180/contributions/5629322/attachments/2880440/5046367/isotdaq24.Negri.DaqIntro.pdf), [Kamiokande](https://www.asahi.com/ajw/articles/14370116), [XCET](https://sba.web.cern.ch/sba/Documentations/Informations&Training/Beam_Equipments/Threshold_Cerenkov_counters/)
+<p><img src="/diy_che.png" alt="" width="30%" height="auto"> <img src="/kamiokande_che.png" alt="" width="30%" height="auto"> <img src="/xcet.gif" alt="" width="30%" height="auto"></p>
+<p><a href="https://indico.cern.ch/event/1337180/contributions/5629322/attachments/2880440/5046367/isotdaq24.Negri.DaqIntro.pdf">DIY Detector</a>, <a href="https://www.asahi.com/ajw/articles/14370116">Kamiokande</a>, <a href="https://sba.web.cern.ch/sba/Documentations/Informations&amp;Training/Beam_Equipments/Threshold_Cerenkov_counters/">XCET</a></p>
 
 Common denominator between these pictures?
 
