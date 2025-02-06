@@ -26,12 +26,12 @@ So for 3 GeV, the pressures needed are
 |Kaon   |22.8   |
 |Proton |65.9   |
 
-And for 7 GeV
+And for 9 GeV
 | Particle  | Pressure (bar) |
 |---|---|
-|Muon   |0.246   |
-|Pion   |0.40   |
-|Kaon   |4.9   |
-|Proton |15.6   |
+|Muon   |0.15   |
+|Pion   |0.20   |
+|Kaon   |3.06   |
+|Proton |9.97   |
 
 <img src="../articles/images/Identification/3GeVhadron.png" alt="" width="70%" height="auto">
