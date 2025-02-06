@@ -1,20 +1,10 @@
 # First Example: Check If Your Local ROOT Can Run A Simple PyROOT Notebook
 
-<button onclick="downloadFile()" style="background-color:#616eff; color:white; border:none; padding:7px 12px; cursor:pointer; font-size:15px; border-radius:5px;">
-    👇 Try it out yourself!
-</button>
-
-<script>
-function downloadFile() {
-    const link = document.createElement('a');
-    link.href = 'https://github.com/saskiapoldmaa/saskiapoldmaa.github.io/blob/main/Files/tutorial05_working_with_dwc_corrected.ipynb';
-    link.download = 'gaussian_distribution_pyroot.ipynb';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-</script>
-
+<a href="https://github.com/saskiapoldmaa/saskiapoldmaa.github.io/blob/main/Files/gaussian_distribution_pyroot.ipynb" download>
+    <button style="background-color:#616eff; color:white; border:none; padding:7px 12px; cursor:pointer; font-size:15px; border-radius:5px;">
+         👇 Try it out yourself!
+    </button>
+</a>
 
 
 Let's try to 
