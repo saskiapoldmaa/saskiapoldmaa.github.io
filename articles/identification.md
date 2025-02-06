@@ -34,7 +34,7 @@ And for 9 GeV
 |Kaon   |3.06   |
 |Proton |9.97   |
 
-<iframe src="../Files/pressure_vs_cherenkov.html" width="70 %" height="400"></iframe>
+<iframe src="../Files/pressure_vs_cherenkov.html" width="70%" height="400px"></iframe>
 
 
 <img src="../articles/images/Identification/3GeVhadron.png" alt="" width="70%" height="auto">
