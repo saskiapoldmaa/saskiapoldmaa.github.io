@@ -8,5 +8,9 @@
 
 Is it circular? How wide is it?
 
-What does this graph show?
+Learn to access the beamprofiles of CERN's live beams.
+
+and to recreate this graph...
 <img src="../articles/images/comingsoon.png" width="70%" height="auto" >
+
+Coming soon!
