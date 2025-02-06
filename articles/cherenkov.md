@@ -26,4 +26,6 @@ $\\eta=\\frac{\\text{Light-emitting particles per spill}}{\\text{Trigger rate}}$
 
 As you can see from the previous picture, at low pressure the threshold momentum is very high, so there are few particles that actually get detected, but as the pressure increases, the momentum becomes less and less discriminating, so more particles are detected.
 
-Pressure scans are more useful after you've translated the x-axis from pressure to threshold momentum.Because particle energies usually follow a normal distribution, the 50% efficiency usually responds to the peak of the spectrum. <img src="/pre.png" alt="" width="30%" height="auto">
+Pressure scans are more useful after you've translated the x-axis from pressure to threshold momentum.Because particle energies usually follow a normal distribution, the 50% efficiency usually responds to the peak of the spectrum. 
+
+<img src="/pre.png" alt="" width="30%" height="auto">
