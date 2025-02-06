@@ -20,7 +20,7 @@ $$P=\\frac{1}{k}\\left( \\frac{m_0c^2+E}{\\sqrt{E^2+2Em_0c^2}}-1 \\right)$$
 So for 3 GeV, the pressures needed are
 
 | Particle  | Pressure (bar) |
-|---|---|---|---|---|
+|---|---|
 |Muon   |1.287   |
 |Pion   |5.3   |
 |Kaon   |22.8   |
@@ -28,7 +28,7 @@ So for 3 GeV, the pressures needed are
 
 And for 7 GeV
 | Particle  | Pressure (bar) |
-|---|---|---|---|---|
+|---|---|
 |Muon   |0.246   |
 |Pion   |0.40   |
 |Kaon   |4.9   |
