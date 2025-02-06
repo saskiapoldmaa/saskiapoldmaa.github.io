@@ -1,4 +1,4 @@
-# Tutorial 05: Working with DWC Data (Updated Version)
+# Working with DWC Data
 
 <a href="https://github.com/saskiapoldmaa/saskiapoldmaa.github.io/blob/main/Files/tutorial05_working_with_dwc_corrected.ipynb" download>
     <button style="background-color:#616eff; color:white; border:none; padding:7px 12px; cursor:pointer; font-size:15px; border-radius:5px;">
@@ -9,13 +9,13 @@
 We will have a look at working with DWC data, both raw and monitor files.
 Plus, we will try to investigate a different way to work with DWC so we can hopefully filter out data that we are interested in more efficiently
 
-## Short recap / introduction: How does a DWC work
+### Short recap / introduction: How does a DWC work
 
 You can find a historic document describing the DWC at CERN following this link: [https://sba.web.cern.ch/sba/Documentations/Eastdocs/docs/DWC-UserGuide.pdf](https://sba.web.cern.ch/sba/Documentations/Eastdocs/docs/DWC-UserGuide.pdf)
 
 The document is a bit on the very technical side but if you are interested (or just curious), we would recommend taking at least a look at it. No worries, we will explain everything to you!
 
-## Let's read some data files!
+### Let's read some data files!
 
 ```python
 import ROOT
@@ -64,7 +64,7 @@ ROOT.gStyle.SetPalette( ROOT.kRainBow )
 %jsroot
 ```
 
-### Let'st start by reading the result of the DWC Monitor files again
+** Let'st start by reading the result of the DWC Monitor files again **
 
 
 ```python
