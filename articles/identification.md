@@ -34,7 +34,10 @@ And for 9 GeV
 |Kaon   |3.06   |
 |Proton |9.97   |
 
-<iframe src="../Files/pressure_vs_cherenkov.html" width="70%" height="400px"></iframe>
+<iframe src="../Files/pressure_vs_cherenkov.html" width="70%" height="400"></iframe>
+
+See how different particles popped up? Although all of these particles are almost at the same energies – 9 GeV, due to their different masses, they pop up at different pressures. 
+
 
 
 <img src="../articles/images/Identification/3GeVhadron.png" alt="" width="70%" height="auto">
