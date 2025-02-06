@@ -15,3 +15,4 @@ where n is the refractive index in that medium and c is the speed of light in th
 
 $$p=\\frac{m_0 v}{\\sqrt{1-v^2/c^2}}$$ where $m_0$ is the particle's rest mass.
 
+<img src="../3GeVhadron.png" alt="" width="70%" height="auto">
