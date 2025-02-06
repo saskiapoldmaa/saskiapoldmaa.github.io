@@ -11,11 +11,16 @@ We don't even have to program anything to gain some first insights. Let's look a
 A particle emits light in a Cherenkov detector if it exceeds light speed in that medium.
 
 $$v>\\frac{c}{n}$$
-where n is the refractive index in that medium and c is the speed of light in that medium. The particle's momentum is then $p=mv$ but since the speeds get very big, we must treat it relativistically, so
+where n is the refractive index in that medium and c is the speed of light in that medium. In any relativistic scenario, speeds are avoided as much as possible, so let us translate this speed over to the particle's energy (this is particle physics' lingo for kinetic energy)
 
-$$p=\\frac{m_0 v}{\\sqrt{1-v^2/c^2}}$$ where $m_0$ is the particle's rest mass.
+$$E_k=\\frac{m_0 c^2}{\\sqrt{\\left.1-(v / c)^2\\right)}}-m_0 c^2$$ where m_0 is the particle's rest mass.
 
-$$P=\\frac{1}{k}\\left( \\frac{m_0c^2+E}{\\sqrt{E^2+2Em_0c^2}}-1 \\right)$$
+What we'd like to know is what pressure must we put the Cherenkov detector under, to make the light move slower than the particle. For this, we will express the refractive index as
+$$n=1+kP$$
+where P is the pressure and k is a gas-specific constant. In our experiment, we used $CO_2$, so $k=4.5\\cdot 10^{-4}$.
+Anyways, we now have three equations, which we will have to combine to find the pressure in the Cherenkov as a function of energy. This comes out to be
+
+$$P=\\frac{1}{k}\\left( \\frac{m_0c^2+E}{\\sqrt{E^2+2Em_0c^2}}-1 \\right)$$.
 
 So for 3 GeV, the pressures needed are
 
@@ -34,9 +39,7 @@ And for 9 GeV
 |Kaon   |3.06   |
 |Proton |9.97   |
 
-<iframe src="../Files/pressure_vs_cherenkov.html" width="70%" height="400"></iframe>
-
-See how different particles popped up? Although all of these particles are almost at the same energies – 9 GeV, due to their different masses, they pop up at different pressures. 
+<iframe src="../Files/pressure_vs_cherenkov.html" width="70 %" height="400"></iframe>
 
 
 
