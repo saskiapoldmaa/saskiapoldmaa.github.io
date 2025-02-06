@@ -18,7 +18,7 @@ By using two Cherenkov detectors at different pressures, with two distinct momen
 
 To map the momentum of all particles in the beam, i.e. to measure the particles' spectrum, you need to perform a so-called pressure scan. For this, only one Cherenkov detector is necessary, but you need to vary the pressure in it from maximum to minimum. This can be done by initially pumping the detector full of gas and taking measurements while it gradually depressurizes.
 
-The results of pressure scans are usually given by # of particles in a spill that made the medium emit light. You get an idea of what fraction of particles emitted light by comparing this to the trigger rate - the total number of particles in a spill. This is a sample pressure scan from our testbeam: ![Pressure scan](/che.png)
+The results of pressure scans are usually given by # of particles in a spill that made the medium emit light. You get an idea of what fraction of particles emitted light by comparing this to the trigger rate - the total number of particles in a spill. This is a sample pressure scan from our testbeam: <img src="/che.png" alt="" width="70%" height="auto">
 
 Here, the x-axis represents the pressure in the Cherenkov detector in bars. On the y-axis is the Cherenkov efficiency. The efficiency of a Cherenkov detector is truly not an efficiency; it is actually the fraction of particles that emit light or
 
@@ -26,4 +26,4 @@ $\\eta=\\frac{\\text{Light-emitting particles per spill}}{\\text{Trigger rate}}$
 
 As you can see from the previous picture, at low pressure the threshold momentum is very high, so there are few particles that actually get detected, but as the pressure increases, the momentum becomes less and less discriminating, so more particles are detected.
 
-Pressure scans are more useful after you've translated the x-axis from pressure to threshold momentum.Because particle energies usually follow a normal distribution, the 50% efficiency usually responds to the peak of the spectrum. ![Pressure scan after calculations](/pre.png)
+Pressure scans are more useful after you've translated the x-axis from pressure to threshold momentum.Because particle energies usually follow a normal distribution, the 50% efficiency usually responds to the peak of the spectrum. <img src="/pre.png" alt="" width="30%" height="auto">
