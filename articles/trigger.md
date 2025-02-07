@@ -26,7 +26,7 @@ You might already be wondering whether the oscilloscope's trigger has anything t
 
 Similar to the oscilloscope, a basic trigger system is also based on threshold voltages: once the voltage exceeds the threshold, the measurement is initiated. But wouldn't we lose the first portion of the signal? We would, were it not for the delay.
 
-<img src="/easy_trigger.png" width="50%" height="auto">
+<img src="/easy_trigger.png" width="30%" height="auto">
 
 A beta detector's trigger system.
 
