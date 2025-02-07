@@ -9,13 +9,14 @@ This is identical to what the detectors see. At whatever instant, there seems to
 
 Such events can be detected both via data analysis, like I had done with my DIY detector (this is called a triggerless DAQ), or through the much simpler method of using AND gates. Once the AND gate gets a signal, indicating that multiple detectors got a hit simultaneously, the info is quickly spread to all other detectors: "Quick! Write that down!", and so the readings of all the detectors get grouped together into a single _event_.
 
-![image](/DAQtypes.png)
+<img src="/DAQtypes.png" width="60%" height="auto">
+
 
 Each event corresponds to a single particle.
 
 Electronic triggers are especially fundamental for more sophisticated experiments, like the LHC ones, which would be physically incapable of recording all of the data that they would otherwise produce (50 TB/s!). In this context, trigger systems are slightly more complex: not only is it necessary to filter out data that originates from collisions – most collisions are actually not of interest, because they don't carry any novel information with them. For this, the trigger is composed of both electronics (level-1 trigger) and custom CPUs (high level trigger), which filter out common phenomena.
 
-![image](/ATLAS_trigger.jpg)
+<img src="/ATLAS_trigger.jpg">
 
 One of the ATLAS trigegrs. Photo by [CERN](https://cds.cern.ch/record/2309423). Want to read more? I recommend the [CMS trigger](https://cms-opendata-workshop.github.io/workshop2021-lesson-introtrigger/01-introduction/index.html).
 
@@ -25,7 +26,7 @@ You might already be wondering whether the oscilloscope's trigger has anything t
 
 Similar to the oscilloscope, a basic trigger system is also based on threshold voltages: once the voltage exceeds the threshold, the measurement is initiated. But wouldn't we lose the first portion of the signal? We would, were it not for the delay.
 
-![image](/easy_trigger.png)
+<img src="/easy_trigger.png" width="50%" height="auto">
 
 A beta detector's trigger system.
 
@@ -39,7 +40,7 @@ Trigger systems can become very complicated, for example an extra layer of compl
 
 There is a short yet not infinitesimal time frame in which the signal needs to pass through the detector and other components until it gets stored on the disk. On the image, this time frame is 1 ms. We cannot have a new trigger go off during that same time, since the processing of the previous one has still not yet finished, so we need to ignore all incoming signal for that time period. This is done by a busy logic.
 
-![image](/my_trigger.png)
+<img src="/my_trigger.png" width="50%" height="auto"> 
 
 Busy logic.
 
