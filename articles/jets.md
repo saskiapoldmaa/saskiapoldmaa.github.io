@@ -1,7 +1,7 @@
 Jets – what are they?
 =====================
 
-<img src="/jet.png" width="80%" height="auto">
+<img src="/jet.png" width="90%" height="auto">
 
 At high-energy particle colliders, like the Large Hadron Collider (LHC), particles such as protons are smashed together at near-light speeds. This incredible energy density doesn’t just break particles apart—it creates entirely new ones, like quarks and gluons.
 
