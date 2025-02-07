@@ -14,7 +14,7 @@ Image current\*
 
 $$ \\mathbf{time difference}=\\mathbf{time}_{eft}-\\mathbf{time}_{ight} $$ 
 
-$$X=A \\cdot \\left(\\text{time difference}_{right} + B $$ where the A and B are constants that were measured during the calibration. More specifically, A is the slope and B is the offset.
+$$ X=A \\cdot \\text{time difference}_{ight} + B $$ where the A and B are constants that were measured during the calibration. More specifically, A is the slope and B is the offset.
 
 During calibration, a test generator is used to create electrical signals in the chamber. Though two signals are needed to find the two variables $A$ and $B$, it is standard practice to use three. Those three test point must lie on the same straight line.
 
