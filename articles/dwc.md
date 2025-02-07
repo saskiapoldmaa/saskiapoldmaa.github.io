@@ -17,6 +17,8 @@ $$ X=A \\cdot \\left(\\text{time difference}_{\\text{right}} + B $$ where the A 
 
 During calibration, a test generator is used to create electrical signals in the chamber. Though two signals are needed to find the two variables $A$ and $B$, it is standard practice to use three. Those three test point must lie on the same straight line.
 
+![](https://codimd.web.cern.ch/uploads/upload_4c2548f7dbef143fb33bb59ee30d33b6.png)
+
 ### TDC vs Scaler
 
 So a TDC is in essence just a stopwatch. And so is the scaler, but the scaler isn't controlled by the trigger, so this is one of the only detectors that is always just doing its own thing – measuring the time of every hit, no matter whether the TDAQ is BUSY or not.
