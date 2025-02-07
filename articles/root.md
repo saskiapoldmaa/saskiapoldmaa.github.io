@@ -15,6 +15,6 @@ On this picture, you can see one of such trees. You might notice a slight discre
 
 Yes, there are some Python libraries, which _promise_ to help with creating these distributions, but do they automatically give you all of the parameters of the distribution? Also, any kind of data visualization is just so natural in ROOT. Even the preview of ROOT files is not just a long file of numerical jargon, but it is instead displayed really neatly in the form of histograms (see Figure below). Although this histogram representation makes no sense for some datasets, it is tremendously useful for the other ones.
 
-<img src="/Landau.png" width="80%" height="auto">
+<img src="/Landau.png" width="60%" height="auto">
 
 The preview of a ROOT file. The nice Landau distribution is the histogram of QDC counts recorded from a scintillator.
