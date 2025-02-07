@@ -5,7 +5,7 @@ Feynman diagrams are an incredible tool for visualizing interactions in quantum 
 
 ### Quick Overview
 
-![Electron-positron annihilation](/annihilation.png)
+<img src="/annihilation.png" width="60%" height="auto">
 
 Here's the quickest explanation:
 
@@ -21,7 +21,7 @@ So, on the picture above, an electron and a positron approach each other. At som
 
 The second pitfall I encountered, are loops.
 
-![Electron-positron annihilation](/loop.jpg)
+<img src="/loop.jpg" width="120%" height="auto">
 
 You'd be right to think that this is the scattering of two electrons, where they also exchange a photon. But what happens with the photon midway?
 
@@ -29,13 +29,13 @@ The loop shows that while the photon travels between the two electrons, it brief
 
 Oftentimes, you will encounter parallel lines in Feynman diagrams. This is used in the case of non-fundamental particles, where the dynamics of the quarks may (or may not) become important.
 
-![Kaon Decay](/kaon.jpg)
+<img src="/kaon.jpg" width="40%" height="auto">
 
 Kaon Decay (here, time is on the horizontal axis).
 
 A surprising quality of Feynman diagrams is that they can be used to represent multiple interactions. Let's assume that you've just drawn how a neutrino scatters with a muon. By rotating this graph, you will arrive at another, much more common interaction – the muon decay.
 
-![](/rotate.png)
+<img src="/rotate.png" width="120%" height="auto">
 
 Kaon Decay (here, time is on the horizontal axis).
 
