@@ -12,7 +12,7 @@ Neighbouring cathode wires are connected to each other with little delay lines. 
 Image current\*  
 ... also known as mirror current, in this context, is just the current which the magnetic field of the neighbouring anode produced in our cathode. The words "image" or "mirror" are used because it turns out that as far as the magnetic field is concerned, the current inside our electrode can be modelled as a reflection of the anode, where the mirror is the surface of our cathode. Each tiny step is the contribution from a single wire. They add up consecutively thanks to the delay lines between the wires, but this is not really the important part. The delay lines are actually there so that the little current mountain would reach the two edges of the cathode, where the detectors are, at different times. The moment when the signal is detected in the sensor is at the rising edge. The detector is a TDC, time to digital converter. This is like a very precise stopwatch that measures the time from the trigger until a signal. The delay lines made it so that the time measured by the two TDCs is not equal. It's actually the difference in the times that gives us the position along one axis. 
 
-$$ \\text{time difference}=\\text{time}_{Left}-\\text{time}_{Right} $$ 
+$$ \\text{time difference} = \\text{time}_{Left} - \\text{time}_{Right} $$ 
 
 $$ X=A \\cdot \\text{time difference}_{Right} + B $$ where the A and B are constants that were measured during the calibration. More specifically, A is the slope and B is the offset.
 
