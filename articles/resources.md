@@ -1,7 +1,7 @@
 # Resoruces I wish I had known
 
 - [VISTAR!](https://op-webtools.web.cern.ch/vistar/) Not extremely useful, but just very cool (imo). Allows you to see the real-time view of different experiments at CERN (everything from the T10 beamline to ATLAS). The same views are also displayed on TVs everywhere around the CERN campus.
-<iframe src="https://op-webtools.web.cern.ch/vistar/" style="height:200px;width:300px;" title=""></iframe>
+<iframe src="https://op-webtools.web.cern.ch/vistar/" style="height:400px;width:600px;" title=""></iframe>
 
 - [Sci-Hub](https://www.sci-hub.ru/) Slightly illegal, but you gotta do what you gotta do. For high-schoolers, this is truly the only way to access scientific content –– well ArXiv exists but its reach is quite limited. All you need is the doi number of the article.
 - [Op-Webtools](https://op-webtools.web.cern.ch/) A collection of cool pages. MY favorites include Vistar and Online Logbook (I'm afraid the ladder is locked behind institutional barriers, though).
