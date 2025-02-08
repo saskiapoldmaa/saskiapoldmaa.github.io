@@ -1,7 +1,7 @@
 NIM Crates
 ==========
 
-<iframe src="https://youtu.be/j4yKByB6G5U" style="width: 600px; height: 400px; border: none">
+<iframe src="https://youtu.be/j4yKByB6G5U" style="width: 600px; height: 400px; border: none"></iframe>
 
 If we need to set three signals in coincidence, we should first set two of the signals in coincidence with each other and then set that signal into another coincidence with the 3rd signal. If we just set all of them into one big coincidence, then we could find that the some signal hasn't even arrived before another signal is already gone. This is because of the delays previously discussed, but also because the discriminator signals have an arbitrary (user-defined) length. It is easier for us to elongate the coincidence signal of inputs 1 & 2, in a way that signal 3 would aso fit in the coincidence window, then it is to elongate 2 discriminator signals.
 
