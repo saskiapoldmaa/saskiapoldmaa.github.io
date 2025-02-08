@@ -16,7 +16,7 @@ $$ \\text{time difference} = A$$
 
 ma ei saa aru
 
-$$\\text{time}_{\\text{Left}} - \\text{time}_{\\text{Right}} $$ 
+$$ \\text{time}_{\\text{Left}} - \\text{time}_{\\text{Right}} $$ 
 
 no mv
 
