@@ -20,7 +20,9 @@ Let us first tackle the simulation first, because the analytic approach requires
 Monte Carlo simulations are used when you know the underlying physics, but you have no imputs. So, you generate random inputs, feed them into the formulas, and observe what are the outputs.
 
 Here, we will use a Monte Carlo simulation alongside *inverse transform sampling*. What is that? 
+
 It's a technique for pseudo-ranom number generation. Essentially, you know that your data is supposed to be random, but at the same time, it should also approximately follow a known distribution. For this, we will us the fact that a datapoint has equal probability to occupy any piece of area under the probability distribution. I.e. if 5% of people are known to be shorter than 155cm, and another 5% are known to be between 168cm and 169.2 cm, then our randomly generated datapoint has equal probability of lying in the $ h<155 $cm range, as it has to lie in the $ 168.0$ cm $< h \\leq 169.2 $ cm. 
+
 The inverse transform sampling entails:
 - Generating random numbers
 - Transforming these random numbers using the inverse of the cumulative distribution function (CDF) of the target distribution
