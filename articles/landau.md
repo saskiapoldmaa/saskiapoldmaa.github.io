@@ -1,4 +1,4 @@
-# Reconstructing spectra –– deriving Landau distributions through simulation & Fourier transform
+# Reconstructing spectra – deriving Landau distributions
 
 Whatever spectra you look at – the QDC data from a scintillator, calorimeter, or the signal distribution of our own detector COSMOSS, you will recognize a very specific distribution. For example...
 
