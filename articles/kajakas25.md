@@ -20,8 +20,12 @@ $$ \\frac{\\partial B}{\\partial t}=D \\frac{\\partial^2 B}{\\partial r^2} $$ an
 
 $ B(r=a, t)=0$, $B(r, 0)=r(T_0-T_1)$, $B(r, \\infty)=0$ and $ B(0, t)=0 $ (because $B\\propto r$).
 
-
-
 <img src="../articles/images/kajakas3.png" width="600px" height="auto">
+
+The ping pong ball develops a horizontal velocity due to the Magnus effect: there is a boundary layer of air, which moves together with the surface of the ping pong ball. Due to the different velocities of the air around the ball, the pressures are different from various sides. 
+
+$$ \\Delta p = \\frac{\\rho \\Delta v^2}{2} = 2 \\rho v \\omega r  $$
+
+
 <img src="../articles/images/kajakas4.png" width="600px" height="auto">
 <img src="../articles/images/kajakas5.png" width="600px" height="auto">
