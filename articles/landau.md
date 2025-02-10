@@ -36,7 +36,7 @@ $$ F(\\varepsilon)= \\frac{C}{\\varepsilon_{min}} - \\frac{C}{\\varepsilon} $$
 
 where C is a normalization constant. We can find it by noting that the total area under the probability density graph must be 1. Therefore,
 
-$$ C = \\frac{1}{ \\frac{1}{\\varepsilon_{min}}-\\frac{1}{\\varepsilon_{max} } $$
+$$ C = \\frac{1}{ \\frac{1}{\\varepsilon_{min}} - \\frac{1}{\\varepsilon_{max}} } $$
 
 Now, what we will do is to generate random values of F(x), and then look at which $ \\varepsilon $ values these correspond to. 
 
