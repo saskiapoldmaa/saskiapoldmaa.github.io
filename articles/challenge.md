@@ -10,6 +10,7 @@ Below, you can check out my progress.
 
 ---
 
-[Seagull 2025](https://saskiapoldmaa.github.io/?show=kajakas25.md). Completed February 10.
+[Seagull 2025](https://saskiapoldmaa.github.io/?show=kajakas25.md). 
+<p style="color: grey;">Completed February 10.</p>
 
 ---
