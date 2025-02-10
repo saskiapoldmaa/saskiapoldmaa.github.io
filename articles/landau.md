@@ -76,7 +76,7 @@ plt.title('Derived Landau Distribution from Monte Carlo Simulation')
 plt.grid(True)
 plt.show()
 ```
-<img sr="../articles/images/landau_sim1.png" width="200px" height="auto">
-<img sr="../articles/images/landau_sim2.png" width="200px" height="auto">
-<img sr="../articles/images/landau_sim3.png" width="200px" height="auto">
+<img src="../articles/images/landau_sim1.png" width="200px" height="auto">
+<img src="../articles/images/landau_sim2.png" width="200px" height="auto">
+<img src="../articles/images/landau_sim3.png" width="200px" height="auto">
 
