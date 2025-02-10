@@ -11,7 +11,7 @@ These are all examples of Landau distributions –– distributions that charact
 But these can be derived without using any experimental data. All we need to know, is the following formula
 
 $$ \\frac{d \\sigma}{d \\varepsilon} \\propto \\frac{1}{\\varepsilon^2} $$
-Here, the $ \\varepsilon $ is the energy loss due to a single interaction, and $$ \\sigma $ denotes the cross-section – this is essentially the probability for the interaction with energy loss $ \\varepsilon $ to occur.
+Here, the $ \\varepsilon $ is the energy loss due to a single interaction, and $ \\sigma $ denotes the cross-section – this is essentially the probability for the interaction with energy loss $ \\varepsilon $ to occur.
 
 Let us first tackle the simulation first, because the analytic approach requires Fourier transforms, so it is slightly more intricate.
 
