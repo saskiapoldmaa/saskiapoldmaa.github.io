@@ -40,7 +40,7 @@ $$ C = \\frac{1}{ \\frac{1}{\\varepsilon_{min}} - \\frac{1}{\\varepsilon_{max}} 
 
 Now, what we will do is to generate random values of F(x), and then look at which $ \\varepsilon $ values these correspond to. 
 
-$$ \\varepsilon=\\frac{\\epsilon_{min}}{1-u \\left(1-\\frac{\\epsilon_{min}}{\\varepsilon_{max}}\\right)} $$ where u is our random value.
+$$ \\varepsilon=\\frac{\\epsilon_{min}}{ 1-u \\left( 1 - \\frac{\\varepsilon_{min}}{\\varepsilon_{max}} \\right) } $$ where u is our random value.
 
 In Python, this will be 
 ```python
