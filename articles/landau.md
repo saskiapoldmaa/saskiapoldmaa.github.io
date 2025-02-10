@@ -80,3 +80,9 @@ plt.show()
 <img src="../articles/images/landau_sim2.png" width="200px" height="auto">
 <img src="../articles/images/landau_sim3.png" width="200px" height="auto">
 
+Curiously, although the number of particles has very little effect on the distribution –– the distribution just looks more ideal as you increase the sample size, the number of interactions can vastly change the distribution: the more there are particles, the more the Landau distribution widens, even taking the appearance of a Gaussian. This is because as the number of interactions increases, stochastic effects dominate.
+
+In real life, we won't actually observe ideal Landau distributions (such as the three previous graphs), but instead the convolution of Landau and Gaussian distributions. 
+
+# Analytical Approach
+
