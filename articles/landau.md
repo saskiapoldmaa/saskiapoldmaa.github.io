@@ -75,6 +75,8 @@ plt.ylabel('Probability Density')
 plt.title('Derived Landau Distribution from Monte Carlo Simulation')
 plt.grid(True)
 plt.show()
-print(us)
 ```
+<img sr="landau_sim1.png" width="200px" height="auto">
+<img sr="landau_sim2.png" width="200px" height="auto">
+<img sr="landau_sim3.png" width="200px" height="auto">
 
