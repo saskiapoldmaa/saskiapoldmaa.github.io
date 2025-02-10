@@ -32,4 +32,12 @@ Alright, let's get down to business.
 First, we will need the cumulative distribution function (CDF) of our function, let us denote it as $F(\\varepsilon)$.
 $$ F(\\varepsilon)= \\int_\\sigma(\\varepsilon_{min})^\\sigma(\\varepsilon) C d\\sigma=\\int_\\varepsilon_{min}^\\varepsilon \\frac{C}{\\varepsilon}{\\varepsilon^2} $$
 
+$$ F(\\varepsilon)= \\frac{C}{\\varepsilon_{min}} - \\frac{C}{\\varepsilon} $$
 
+where C is a normalization constant. We can find it by noting that the total area under the probability density graph must be 1. Therefore,
+
+$$ C = \\frac{1}{\\frac{1}{\\varepsilon_{min}-\\frac{1}{varepsilon_{max}} $$
+
+Now, what we will do is to generate random values of F(x), and then look at which $ \\varepsilon $ values these correspond to. 
+
+$$ \\varepsilon=\\frac{\\epsilon_{min}}{1-u \\left(1-\\frac{\\epsilon_{min}}{\\varepsilon_{max}}\\right)}
