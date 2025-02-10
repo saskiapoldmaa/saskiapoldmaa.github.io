@@ -6,6 +6,6 @@ I have challenged myself to solve all of the 50-something [Physics Cup](https://
 
 I will keep this page up no matter how well I manage to complete this goal. 
 
-Below, you cna find all of the solutions I have already completed.
+Below, you can check out my progress.
 
 [Seagull 2025](https://saskiapoldmaa.github.io/?show=kajakas25.md). Completed February 10.
