@@ -1,4 +1,4 @@
-# Reconstructing spectra – deriving Landau distributions
+# Deriving spectra – what makes for a Landau distribution?
 
 Whatever spectra you look at – the QDC data from a scintillator, calorimeter, or the signal distribution of our own detector COSMOSS, you will recognize a very specific distribution. For example...
 
