@@ -1,6 +1,7 @@
 # Seagull 2025
 <img src="../articles/images/kajakas1.png" width="600px" height="auto">
 <img src="../articles/images/kajakas2.png" width="600px" height="auto">
+
 A 300C stone is thrown into cold water. Find how much time it takes to evaporate 1g of water.
 This is a standard case of thermal diffusion. I referred to [this](https://physlab.org/wp-content/uploads/2016/04/Doc.pdf) for help.
 Our diffusion equation is
