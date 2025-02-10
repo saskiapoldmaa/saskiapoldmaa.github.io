@@ -21,3 +21,11 @@ Monte Carlo simulations are used when you know the underlying physics, but you h
 
 Here, we will use a Monte Carlo simulation alongside *inverse transform sampling*. What is that? 
 It's a technique for pseudo-ranom number generation. Essentially, you know that your data is supposed to be random, but at the same time, it should also approximately follow a known distribution. For this, we will us the fact that a datapoint has equal probability to occupy any piece of area under the probability distribution. I.e. if 5% of people are known to be shorter than 155cm, and another 5% are known to be between 168cm and 169.2 cm, then our randomly generated datapoint has equal probability of lying in the $ h<155 $cm range, as it has to lie in the $ 168.0$ cm $< h \\leq 169.2 $ cm. 
+The inverse transform sampling entails:
+- Generating random numbers
+- Transforming these random numbers using the inverse of the cumulative distribution function (CDF) of the target distribution
+
+Alright, let's get down to business.
+
+First, we will need the cumulative distribution function (CDF) of our function, let us denote it as $F(\\varepsilon)$.
+$$ F(\\varepsilon)= \\int_\\sigma_{min}^\\sigma_{max} C d\\sigma=\\int_\\varepsilon_{min}^\\varepsilon_{max} \\frac{C}{\\varepsilon}{\\varepsilon^2} $$
