@@ -36,8 +36,45 @@ $$ F(\\varepsilon)= \\frac{C}{\\varepsilon_{min}} - \\frac{C}{\\varepsilon} $$
 
 where C is a normalization constant. We can find it by noting that the total area under the probability density graph must be 1. Therefore,
 
-$$ C = \\frac{1}{\\frac{1}{\\varepsilon_{min}-\\frac{1}{varepsilon_{max}} $$
+$$ C = \\frac{1}{ \\frac{1}{\\varepsilon_{min}}-\\frac{1}{\\varepsilon_{max} } $$
 
 Now, what we will do is to generate random values of F(x), and then look at which $ \\varepsilon $ values these correspond to. 
 
-$$ \\varepsilon=\\frac{\\epsilon_{min}}{1-u \\left(1-\\frac{\\epsilon_{min}}{\\varepsilon_{max}}\\right)}
+$$ \\varepsilon=\\frac{\\epsilon_{min}}{1-u \\left(1-\\frac{\\epsilon_{min}}{\\varepsilon_{max}}\\right)} where u is our random value.
+
+In Python, this will be 
+´´´python
+import numpy as np
+import matplotlib.pyplot as plt
+
+min_energy_transfer = 0.01  # Minimum energy transfer per interaction (MeV)
+max_energy_transfer = 10.0  # Maximum energy transfer per interaction (MeV)
+
+def inverse_transform_sampling(size):
+    u = np.random.uniform(0, 1, size)
+    return min_energy_transfer / (1 - u * (1 - min_energy_transfer / max_energy_transfer))
+´´´
+Not only do we have to generate particles, we have to generate multiple interactions for each particles, and then sum the energy losses over the multiple interactions.
+
+´´´python
+num_particles = 10000  # Total number of particles in the simulation
+num_interactions = 100  # Number of ionization events per particle
+
+# Simulate energy loss for many particles
+total_energy_loss = np.zeros(num_particles)
+
+for i in range(num_particles):
+    # Simulate energy transfers for each interaction
+    energy_losses = inverse_transform_sampling(num_interactions)
+    total_energy_loss[i] = np.sum(energy_losses)
+
+# Plotting the energy loss distribution
+plt.hist(total_energy_loss, bins=100, density=True, alpha=0.7, color='blue')
+plt.xlabel('Total Energy Loss (MeV)')
+plt.ylabel('Probability Density')
+plt.title('Derived Landau Distribution from Monte Carlo Simulation')
+plt.grid(True)
+plt.show()
+print(us)
+´´´
+
