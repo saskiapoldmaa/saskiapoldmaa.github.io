@@ -30,4 +30,6 @@ The inverse transform sampling entails:
 Alright, let's get down to business.
 
 First, we will need the cumulative distribution function (CDF) of our function, let us denote it as $F(\\varepsilon)$.
-$$ F(\\varepsilon)= \\int_\\sigma_{min}^\\sigma_{max} C d\\sigma=\\int_\\varepsilon_{min}^\\varepsilon_{max} \\frac{C}{\\varepsilon}{\\varepsilon^2} $$
+$$ F(\\varepsilon)= \\int_\\sigma(\\varepsilon_{min})^\\sigma(\\varepsilon) C d\\sigma=\\int_\\varepsilon_{min}^\\varepsilon \\frac{C}{\\varepsilon}{\\varepsilon^2} $$
+
+
