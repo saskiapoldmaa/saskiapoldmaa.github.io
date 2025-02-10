@@ -24,7 +24,8 @@ $ B(r=a, t)=0$, $B(r, 0)=r(T_0-T_1)$, $B(r, \\infty)=0$ and $ B(0, t)=0 $ (becau
 
 The ping pong ball develops a horizontal velocity due to the Magnus effect: there is a boundary layer of air, which moves together with the surface of the ping pong ball. Due to the different velocities of the air around the ball, the pressures are different from various sides. 
 
-$$ \\Delta p = \\frac{\\rho \\Delta v^2}{2} = 2 \\rho v \\omega r  $$
+The horizontal force acting on the ball is
+$$ F_x = \\Delta p \\hat{ n } \\cdot \\hat{ x } $$
 
 
 <img src="../articles/images/kajakas4.png" width="600px" height="auto">
