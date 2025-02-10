@@ -2,9 +2,9 @@
 
 Whatever spectra you look at – the QDC data from a scintillator, calorimeter, or the signal distribution of our own detector COSMOSS, you will recognize a very specific distribution. For example...
 
-<img src="../articles/images/landau1.png" width="250px" height="auto">
-<img src="../articles/images/landau2.png" width="250px" height="auto">
-<img src="../articles/images/landau3.png" width="250px" height="auto">
+<img src="../articles/images/landau1.png" width="300px" height="auto">
+<img src="../articles/images/landau2.png" width="300px" height="auto">
+<img src="../articles/images/landau3.png" width="300px" height="auto">
 
 These are all examples of Landau distributions –– distributions that characterize the energy loss of particles in matter.
 
@@ -30,7 +30,7 @@ The inverse transform sampling entails:
 Alright, let's get down to business.
 
 First, we will need the cumulative distribution function (CDF) of our function, let us denote it as $F(\\varepsilon)$.
-$$ F(\\varepsilon)= \\int_\\sigma(\\varepsilon_{min})^\\sigma(\\varepsilon) C d\\sigma=\\int_\\varepsilon_{min}^\\varepsilon \\frac{C}{\\varepsilon}{\\varepsilon^2} $$
+$$ F(\\varepsilon)= \\int_\\sigma(\\varepsilon_{min})^\\sigma(\\varepsilon) C d\\sigma=\\int_\\varepsilon_{min}^\\varepsilon \\frac{C}{\\varepsilon^2} $$
 
 $$ F(\\varepsilon)= \\frac{C}{\\varepsilon_{min}} - \\frac{C}{\\varepsilon} $$
 
@@ -76,9 +76,9 @@ plt.title('Derived Landau Distribution from Monte Carlo Simulation')
 plt.grid(True)
 plt.show()
 ```
-<img src="../articles/images/landau_sim1.png" width="200px" height="auto">
-<img src="../articles/images/landau_sim2.png" width="200px" height="auto">
-<img src="../articles/images/landau_sim3.png" width="200px" height="auto">
+<img src="../articles/images/landau_sim1.png" width="300px" height="auto">
+<img src="../articles/images/landau_sim2.png" width="300px" height="auto">
+<img src="../articles/images/landau_sim3.png" width="300px" height="auto">
 
 Curiously, although the number of particles has very little effect on the distribution –– the distribution just looks more ideal as you increase the sample size, the number of interactions can vastly change the distribution: the more there are particles, the more the Landau distribution widens, even taking the appearance of a Gaussian. This is because as the number of interactions increases, stochastic effects dominate.
 
