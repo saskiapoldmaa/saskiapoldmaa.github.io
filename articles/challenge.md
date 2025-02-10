@@ -8,4 +8,8 @@ I will keep this page up no matter how well I manage to complete this goal.
 
 Below, you can check out my progress.
 
+---
+
 [Seagull 2025](https://saskiapoldmaa.github.io/?show=kajakas25.md). Completed February 10.
+
+---
