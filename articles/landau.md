@@ -43,7 +43,7 @@ Now, what we will do is to generate random values of F(x), and then look at whic
 $$ \\varepsilon=\\frac{\\epsilon_{min}}{1-u \\left(1-\\frac{\\epsilon_{min}}{\\varepsilon_{max}}\\right)} where u is our random value.
 
 In Python, this will be 
-´´´python
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -53,10 +53,10 @@ max_energy_transfer = 10.0  # Maximum energy transfer per interaction (MeV)
 def inverse_transform_sampling(size):
     u = np.random.uniform(0, 1, size)
     return min_energy_transfer / (1 - u * (1 - min_energy_transfer / max_energy_transfer))
-´´´
+```
 Not only do we have to generate particles, we have to generate multiple interactions for each particles, and then sum the energy losses over the multiple interactions.
 
-´´´python
+```python
 num_particles = 10000  # Total number of particles in the simulation
 num_interactions = 100  # Number of ionization events per particle
 
@@ -76,5 +76,5 @@ plt.title('Derived Landau Distribution from Monte Carlo Simulation')
 plt.grid(True)
 plt.show()
 print(us)
-´´´
+```
 
