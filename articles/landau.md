@@ -1,4 +1,4 @@
-# Deriving spectra – how to form a Landau distribution?
+# Deriving spectra – how to generate a Landau distribution?
 
 Whatever spectra you look at – the QDC data from a scintillator, calorimeter, or the signal distribution of our own detector COSMOSS, you will recognize a very specific distribution. For example...
 
@@ -11,5 +11,13 @@ These are all examples of Landau distributions –– distributions that charact
 But these can be derived without using any experimental data. All we need to know, is the following formula
 
 $$ \\frac{d \\sigma}{d \\varepsilon} \\propto \\frac{1}{\\varepsilon^2} $$
-Here, the  \\varepsilon $$ is the energy loss due to a single interaction, and $$ \\sigma $ denotes the cross-section – this is essentially the probability for the interaction with energy loss $ \\varepsilon $$ to occur.
+Here, the  \\varepsilon $$ is the energy loss due to a single interaction, and $$ \\sigma $ denotes the cross-section – this is essentially the probability for the interaction with energy loss $ \\varepsilon $ to occur.
 
+Let us first tackle the simulation first, because the analytic approach requires Fourier transforms, so it is slightly more intricate.
+
+### Monte Carlo Approach
+
+Monte Carlo simulations are used when you know the underlying physics, but you have no imputs. So, you generate random inputs, feed them into the formulas, and observe what are the outputs.
+
+Here, we will use a Monte Carlo simulation alongside *inverse transform sampling*. What is that? 
+It's a technique for pseudo-ranom number generation. Essentially, you know that your data is supposed to be random, but at the same time, it should also approximately follow a known distribution. For this, we will us the fact that a datapoint has equal probability to occupy any piece of area under the probability distribution. I.e. if 5% of people are known to be shorter than 155cm, and another 5% are known to be between 168cm and 169.2 cm, then our randomly generated datapoint has equal probability of lying in the $ h<155 $cm range, as it has to lie in the $ 168.0$ cm $< h \\leq 169.2 $ cm. 
