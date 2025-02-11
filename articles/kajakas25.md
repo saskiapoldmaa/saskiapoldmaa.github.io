@@ -16,7 +16,7 @@ $$ T(r, t)=T_1+\\frac{B(r, t)}{r} $$
 where $ T_1 $ is the temperature of the water.
 
 After manipulating the previous formula, we get 
-$$ \\frac{\\partial B}{\\partial t}=D \\frac{\\partial^2 B}{\\partial r^2} $$ and our boundary conditions for this equation are 
+$$ \\frac{\\partial B}{\\partial t}=\\frac{\\kappa}{c \\rho} \\frac{\\partial^2 B}{\\partial r^2} $$ and our boundary conditions for this equation are 
 
 $ B(r=a, t)=0$, $B(r, 0)=r(T_0-T_1)$, $B(r, \\infty)=0$ and $ B(0, t)=0 $ (because $B\\propto r$).
 
