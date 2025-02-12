@@ -9,7 +9,7 @@ I will keep this page up no matter how well I manage to complete this goal.
 Below, you can check out my progress.
 ---
 
-[Physics Cup 2017 Problem 4](https://saskiapoldmaa.github.io/?show=PC/PC174/kajakas25.md). I had solved it before so this was just a warm-up.
+[Physics Cup 2017 Problem 4](https://saskiapoldmaa.github.io/?show=PC/PC174/PC174.md). I had solved it before so this was just a warm-up.
 <p style="color: gray;">Completed February 12.</p>
 
 ---
