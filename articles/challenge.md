@@ -10,7 +10,7 @@ You can check out my progress below.
 
 ---
 
-[Physics Cup 2018 Problem 5](https://saskiapoldmaa.github.io/?show=PC/PC185/PC185.md).
+[Physics Cup 2018 Problem 5](https://saskiapoldmaa.github.io/?show=PC/PC18/PC185.md).
 <p style="color: gray;">Completed February 12.</p>
 
 ---
