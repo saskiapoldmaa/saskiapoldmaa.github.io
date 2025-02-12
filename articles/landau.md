@@ -86,3 +86,98 @@ In real life, we won't actually observe ideal Landau distributions (such as the 
 
 # Analytical Approach
 
+When a charged particle passes through a thin material:
+
+- item It undergoes many small energy losses due to ionization.
+- Occasionally, large energy losses occur, leading to a distribution with a heavy right-hand tail.
+
+For thin materials, where the number of collisions is not large enough for the central limit theorem to apply (which would give a Gaussian distribution), the Landau distribution accurately models these fluctuations.
+
+### Mathematical Framework
+
+### Step 1: Setting Up the Problem
+
+Let $$ \\Delta $$ be the total energy loss after passing through the material. The goal is to find the probability density function $$ f(\Delta) $$.
+
+Because energy loss is the result of many random, independent ionization events, we can model it using a sum of random variables:
+
+$$
+\\Delta = \\sum_{i=1}^{N} \\epsilon_i
+$$
+
+where $$ \\epsilon_i $$ is the energy lost in the $$ i $$-th collision.
+
+### Step 2: The Characteristic Function (Fourier Transform of the PDF)
+
+The characteristic function $$ \phi(k) $$ of a probability distribution $$ f(\Delta) $$ is the Fourier transform of $$ f(\Delta) $$:
+
+$$
+\\phi(k) = \\int_{-\\infty}^{\\infty} e^{ik\\Delta} f(\\Delta) \\, d\\Delta
+$$
+
+To find $$ f(\\Delta) $$, we first derive $$ \phi(k) $$, and then invert the Fourier transform.
+
+### Step 3: Finding the Characteristic Function
+
+Landau used the fact that the energy transfer in a single collision follows a heavy-tailed distribution. For large energy transfers $$ \epsilon $$, the probability density behaves like:
+
+$$
+P(\\epsilon) \\propto \\frac{1}{\\epsilon^2}
+$$
+
+This form implies that the variance of energy loss is infinite, which is why the central limit theorem does not apply.
+
+Through a complex statistical treatment, Landau derived that the characteristic function for the total energy loss $$ \Delta $$ is:
+
+$$
+\\phi(k) = \\exp\left( -ik\\lambda \\ln(ik) \\right)
+$$
+
+where $$ \\lambda $$ is a parameter related to the mean energy loss per unit path length.
+
+### Step 4: Inverse Fourier Transform}
+
+To obtain the probability density function $$ f(\Delta) $$, we apply the inverse Fourier transform to $$ \phi(k) $$:
+
+$$
+f(\\Delta) = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} e^{-ik\\Delta} \\phi(k) \\, dk
+$$
+
+Substituting $$ \\phi(k) $$:
+
+$$
+f(\\Delta) = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} \\exp\\left[ -ik\\Delta - ik\\lambda \\ln(ik) \\right] dk
+$$
+
+This integral does not have a closed-form solution in terms of elementary functions. However, it can be expressed in terms of a special function or computed numerically.
+
+### Final Expression for the Landau Distribution
+
+Landau showed that the resulting distribution could be expressed as:
+
+$$
+f(\\lambda) = \\frac{1}{\\pi} \\int_0^{\\infty} e^{-t \\ln t - \\lambda t} \\sin(\\pi t) \\, dt
+$$
+
+This integral defines the Landau distribution.
+
+- The most probable value of energy loss corresponds to the peak of the distribution.
+- The mean of the distribution is undefined due to the heavy tail (infinite variance).
+
+### Properties of the Landau Distribution
+
+- **Asymmetry:** The distribution is skewed to the right, with a long tail toward large energy losses.
+- **Most Probable Value (MPV):** The peak represents the most probable energy loss, not the mean.
+- **Infinite Variance:** The variance is infinite, which is why the central limit theorem does not yield a Gaussian.
+
+### Summary
+
+The derivation of the Landau distribution involves:
+
+- item Recognizing that energy loss per collision follows a $$ 1 \\\\ \epsilon^2 $$ distribution.
+- item Deriving the characteristic function $$ \phi(k) = \exp( -ik\lambda \ln(ik) ) $$.
+- Applying the inverse Fourier transform to get the probability density function.
+- Using the resulting integral form to define the Landau distribution, which is solved numerically.
+
+
+
