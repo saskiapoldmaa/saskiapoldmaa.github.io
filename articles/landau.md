@@ -170,14 +170,4 @@ This integral defines the Landau distribution.
 - **Most Probable Value (MPV):** The peak represents the most probable energy loss, not the mean.
 - **Infinite Variance:** The variance is infinite, which is why the central limit theorem does not yield a Gaussian.
 
-### Summary
-
-The derivation of the Landau distribution involves:
-
-- item Recognizing that energy loss per collision follows a $$ 1 \\\\ \epsilon^2 $$ distribution.
-- item Deriving the characteristic function $$ \phi(k) = \exp( -ik\lambda \ln(ik) ) $$.
-- Applying the inverse Fourier transform to get the probability density function.
-- Using the resulting integral form to define the Landau distribution, which is solved numerically.
-
-
 
