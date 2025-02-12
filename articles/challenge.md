@@ -6,7 +6,7 @@ I have challenged myself to solve all of the 50-something [Physics Cup](https://
 
 I will keep this page up no matter how well I manage to complete this goal. 
 
-Below, you can check out my progress.
+You can check out my progress below.
 
 ---
 
