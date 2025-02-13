@@ -97,7 +97,7 @@ For thin materials, where the number of collisions is not large enough for the c
 
 ### Step 1: Setting Up the Problem
 
-Let $$ \\Delta $$ be the total energy loss after passing through the material. The goal is to find the probability density function $$ f(\Delta) $$.
+Let $ \\Delta $ be the total energy loss after passing through the material. The goal is to find the probability density function $ f(\Delta) $.
 
 Because energy loss is the result of many random, independent ionization events, we can model it using a sum of random variables:
 
@@ -105,7 +105,7 @@ $$
 \\Delta = \\sum_{i=1}^{N} \\epsilon_i
 $$
 
-where $$ \\epsilon_i $$ is the energy lost in the $$ i $$-th collision.
+where $ \\epsilon_i $ is the energy lost in the $ i $-th collision.
 
 ### Step 2: The Characteristic Function (Fourier Transform of the PDF)
 
