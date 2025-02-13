@@ -115,7 +115,7 @@ $$
 \\phi(k) = \\int_{-\\infty}^{\\infty} e^{ik\\Delta} f(\\Delta) \\, d\\Delta
 $$
 
-To find $$ f(\\Delta) $$, we first derive $$ \phi(k) $$, and then invert the Fourier transform.
+To find $ f(\\Delta) $, we first derive $ \phi(k) $, and then invert the Fourier transform.
 
 ### Step 3: Finding the Characteristic Function
 
@@ -127,13 +127,13 @@ $$
 
 This form implies that the variance of energy loss is infinite, which is why the central limit theorem does not apply.
 
-Through a complex statistical treatment, Landau derived that the characteristic function for the total energy loss $$ \Delta $$ is:
+Through a complex statistical treatment, Landau derived that the characteristic function for the total energy loss $ \Delta $ is:
 
 $$
 \\phi(k) = \\exp\left( -ik\\lambda \\ln(ik) \\right)
 $$
 
-where $$ \\lambda $$ is a parameter related to the mean energy loss per unit path length.
+where $ \\lambda $ is a parameter related to the mean energy loss per unit path length.
 
 ### Step 4: Inverse Fourier Transform}
 
@@ -143,7 +143,7 @@ $$
 f(\\Delta) = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} e^{-ik\\Delta} \\phi(k) \\, dk
 $$
 
-Substituting $$ \\phi(k) $$:
+Substituting $ \\phi(k) $:
 
 $$
 f(\\Delta) = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} \\exp\\left[ -ik\\Delta - ik\\lambda \\ln(ik) \\right] dk
