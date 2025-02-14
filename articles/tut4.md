@@ -155,11 +155,11 @@ But how do we use these constants?
 
 On page `5` in the DWC manual above, there are two formulae given for how to calculate the horizontal `x` coordinate of the Hit from the time differences between the `Right` (R)  and `Left` (L) signals coming from the chamber:
 
-$$ X \quad = \quad \left( t_{R} - t_{L} \right) \; \times \; \text{slope}_{x} \; + \; \text{offset}_{x} $$
+$$ X \\quad = \\quad \\left( t_{R} - t_{L} \\right) \\cdot \text{slope}_{x} + \\text{offset}_{x} $$
 
 The same structure can also be applied to the vertical coordinate `y`, but this time we are taking the time difference between the `Up` (U) and `Down` (D) signals from the same chamber:
 
-$$ Y \quad = \quad \left( t_{U} - t_{D} \right) \; \times \; \text{slope}_{y} \; + \; \text{offset}_{y} $$
+$$ Y \\quad = \\quad \\left( t_{U} - t_{D} \\right) \\cdot \\text{slope}_{y} + \\text{offset}_{y} $$
 
 In both cases, we used the calibration constants that we printed in the table above
 
@@ -173,8 +173,6 @@ The formula use the arrival time of signals for the `L`, `R`, `U` and `D` signal
 This information is available from the TDC, specifically if you look into the logbook [here](https://codimd.web.cern.ch/HZC6VD4mQf6wQ1yZPSGlQA#Signal-Table-Update), channels `0-11` of `TDC1`:
 
 <img src="images/tutorial_05/signal_table_dwc.png">
-
-(We used "DUMMY" here to describe the DUT -> we should fix that, consistent names are important otherwise we get confused, sorry for that)
 
 Specifically, we can conclude from this table that the upstream chamber's signals have the following mapping:
 
