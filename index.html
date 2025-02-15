@@ -999,7 +999,7 @@
         window.onload = function() {
             const params = new URLSearchParams(window.location.search);
             const show = params.get('show');
-    
+        
             if (show) {
                 if (show.endsWith('.md')) {
                     loadArticle(show);
@@ -1010,7 +1010,7 @@
                 }
             }
         };
-    
+        
         async function loadArticle(article) {
             try {
                 const response = await fetch(`articles/${article}`);
@@ -1018,14 +1018,16 @@
                 const text = await response.text();
                 const parsedContent = marked.parse(text);
                 const container = document.getElementById('main-container');
+        
+                // Inject article content
                 container.innerHTML = parsedContent;
-    
-                // Ensure syntax highlighting is applied
+        
+                // Apply syntax highlighting
                 document.querySelectorAll('#main-container pre code').forEach((block) => {
-                    block.classList.add("language-python");  // Ensures Highlight.js detects Python code
+                    block.classList.add("language-python");
                     hljs.highlightElement(block);
                 });
-    
+        
                 // Ensure MathJax renders the new content
                 if (window.MathJax) {
                     MathJax.typesetPromise();
@@ -1034,29 +1036,37 @@
                 console.error("Error loading article:", error);
             }
         }
-    
+        
         async function loadSimulation(simulation) {
             try {
                 const response = await fetch(`simulations/${simulation}`);
                 if (!response.ok) throw new Error("Simulation not found");
                 const text = await response.text();
                 const container = document.getElementById('main-container');
-    
-                // Inject content
+        
+                // Clear the container first to avoid conflicts
+                container.innerHTML = '';
+        
+                // Inject new content
                 container.innerHTML = text;
-    
-                // Execute scripts inside the dynamically loaded simulation
+        
+                // Find and execute any scripts inside the loaded simulation
                 container.querySelectorAll('script').forEach((script) => {
                     const newScript = document.createElement("script");
                     newScript.textContent = script.textContent;
                     document.body.appendChild(newScript);
                 });
+        
+                // Call a re-initialization function if needed (like initializeSimulation)
+                if (typeof initializeSimulation === "function") {
+                    initializeSimulation();
+                }
+        
             } catch (error) {
                 console.error("Error loading simulation:", error);
             }
         }
     </script>
-
 
 
 
