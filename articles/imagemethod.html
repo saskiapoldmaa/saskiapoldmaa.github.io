@@ -31,10 +31,10 @@
             draw();
         }
 
-        // Attach event listener to button
+        // Attach event listener to button AFTER loading
         document.getElementById("startBtn").addEventListener("click", startSimulation);
     }
 
-    // Ensure the script runs AFTER content is loaded
+    // Initialize simulation AFTER content is loaded
     initializeSimulation();
 </script>
