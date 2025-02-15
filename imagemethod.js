@@ -59,7 +59,7 @@ function drawEquipotentialLines() {
             let V = computePotential(x, y);
             let roundedV = Math.round(V / 500) * 500; // Round to nearest 500V
 
-            if (Math.abs(V) % 200000 < 1) { // Smaller range for smoother contours
+            if (Math.abs(V) == 1000 ) { // Smaller range for smoother contours
                 ctx.fillStyle = "rgba(0,0,255,0.5)";
                 ctx.fillRect(x, y, 1, 1);
 
