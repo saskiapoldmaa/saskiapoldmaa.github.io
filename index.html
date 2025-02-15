@@ -427,7 +427,7 @@
                 <li><a href="#" onclick="loadArticle('first.md')">3. Training</a></li>
             </ul> -->
             <li><a href="?show=article.md" style="text-decoration: none; color: inherit;">My First Paper!</a></li>
-            <li><a href="#" onclick="loadArticle('../articles/imagemethod.html')">Image Method</a></li>
+            <li><a href="#" onclick="loadSimulation('../articles/imagemethod.html')">Image Method</a></li>
         </ul>
     </nav>
 
@@ -996,36 +996,36 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     <script>
-        window.onload = function () {
+        window.onload = function() {
             const params = new URLSearchParams(window.location.search);
-            const show = params.get("show");
-        
+            const show = params.get('show');
+    
             if (show) {
-                if (show.endsWith(".md")) {
+                if (show.endsWith('.md')) {
                     loadArticle(show);
-                } else if (show.endsWith(".html")) {
+                } else if (show.endsWith('.html')) {
                     loadSimulation(show);
                 } else {
                     console.error("Unsupported file type:", show);
                 }
             }
         };
-        
+    
         async function loadArticle(article) {
             try {
                 const response = await fetch(`articles/${article}`);
                 if (!response.ok) throw new Error("Article not found");
                 const text = await response.text();
                 const parsedContent = marked.parse(text);
-                const container = document.getElementById("main-container");
+                const container = document.getElementById('main-container');
                 container.innerHTML = parsedContent;
-        
+    
                 // Ensure syntax highlighting is applied
-                document.querySelectorAll("#main-container pre code").forEach((block) => {
-                    block.classList.add("language-python"); // Ensures Highlight.js detects Python code
+                document.querySelectorAll('#main-container pre code').forEach((block) => {
+                    block.classList.add("language-python");  // Ensures Highlight.js detects Python code
                     hljs.highlightElement(block);
                 });
-        
+    
                 // Ensure MathJax renders the new content
                 if (window.MathJax) {
                     MathJax.typesetPromise();
@@ -1034,19 +1034,19 @@
                 console.error("Error loading article:", error);
             }
         }
-        
+    
         async function loadSimulation(simulation) {
             try {
                 const response = await fetch(`simulations/${simulation}`);
                 if (!response.ok) throw new Error("Simulation not found");
                 const text = await response.text();
-                const container = document.getElementById("main-container");
-        
+                const container = document.getElementById('main-container');
+    
                 // Inject content
                 container.innerHTML = text;
-        
+    
                 // Execute scripts inside the dynamically loaded simulation
-                container.querySelectorAll("script").forEach((script) => {
+                container.querySelectorAll('script').forEach((script) => {
                     const newScript = document.createElement("script");
                     newScript.textContent = script.textContent;
                     document.body.appendChild(newScript);
@@ -1055,20 +1055,8 @@
                 console.error("Error loading simulation:", error);
             }
         }
-
-        // Ensure syntax highlighting is applied to dynamically loaded content
-        document.querySelectorAll('#main-container pre code').forEach((block) => {
-            block.classList.add("language-python");  // Ensures Highlight.js detects Python code
-            hljs.highlightElement(block);
-        });
-    
-        // Ensure MathJax renders the new content
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
-    }
-
     </script>
+
 
 
 
