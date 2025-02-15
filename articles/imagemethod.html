@@ -1,40 +1,93 @@
-<h1>My JavaScript Simulation</h1>
+<h1>Electrostatics Simulation</h1>
 <canvas id="simulationCanvas" width="600" height="400"></canvas>
-<button id="startBtn">Start</button>
+<p>Drag the charges to move them.</p>
 
 <script>
+    let canvas, ctx;
+    let charges = [
+        { x: 200, y: 200, q: +1, dragging: false }, // Positive charge
+        { x: 400, y: 200, q: -1, dragging: false }  // Negative charge
+    ];
+    let draggingCharge = null;
+
     function initializeSimulation() {
-        let canvas = document.getElementById("simulationCanvas");
-        let ctx = canvas.getContext("2d");
-        let running = false;
+        canvas = document.getElementById("simulationCanvas");
+        ctx = canvas.getContext("2d");
 
-        function draw() {
-            if (!running) return;
+        canvas.addEventListener("mousedown", onMouseDown);
+        canvas.addEventListener("mousemove", onMouseMove);
+        canvas.addEventListener("mouseup", onMouseUp);
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            let time = new Date().getTime() / 100;
-            let x = (time % canvas.width);
-            let y = canvas.height / 2;
-
-            ctx.beginPath();
-            ctx.arc(x, y, 20, 0, Math.PI * 2);
-            ctx.fillStyle = "blue";
-            ctx.fill();
-            ctx.closePath();
-
-            requestAnimationFrame(draw);
-        }
-
-        function startSimulation() {
-            running = true;
-            draw();
-        }
-
-        // Attach event listener to button AFTER loading
-        document.getElementById("startBtn").addEventListener("click", startSimulation);
+        draw();
     }
 
-    // Initialize simulation AFTER content is loaded
+    function onMouseDown(event) {
+        const { offsetX, offsetY } = event;
+        for (let charge of charges) {
+            let dx = offsetX - charge.x;
+            let dy = offsetY - charge.y;
+            if (Math.sqrt(dx * dx + dy * dy) < 15) {
+                charge.dragging = true;
+                draggingCharge = charge;
+                break;
+            }
+        }
+    }
+
+    function onMouseMove(event) {
+        if (draggingCharge) {
+            draggingCharge.x = event.offsetX;
+            draggingCharge.y = event.offsetY;
+            draw();
+        }
+    }
+
+    function onMouseUp() {
+        if (draggingCharge) {
+            draggingCharge.dragging = false;
+            draggingCharge = null;
+        }
+    }
+
+    function drawEquipotentialLines() {
+        for (let v = -2; v <= 2; v += 0.5) { // Potential values to contour
+            ctx.beginPath();
+            for (let x = 0; x < canvas.width; x += 10) {
+                for (let y = 0; y < canvas.height; y += 10) {
+                    let potential = 0;
+                    for (let charge of charges) {
+                        let dx = x - charge.x;
+                        let dy = y - charge.y;
+                        let r = Math.sqrt(dx * dx + dy * dy);
+                        if (r > 5) { // Avoid singularity at charge location
+                            potential += charge.q / r;
+                        }
+                    }
+                    if (Math.abs(potential - v) < 0.1) {
+                        ctx.lineTo(x, y);
+                    }
+                }
+            }
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+        }
+    }
+
+    function drawCharges() {
+        for (let charge of charges) {
+            ctx.beginPath();
+            ctx.arc(charge.x, charge.y, 15, 0, Math.PI * 2);
+            ctx.fillStyle = charge.q > 0 ? "red" : "blue";
+            ctx.fill();
+            ctx.stroke();
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawEquipotentialLines();
+        drawCharges();
+    }
+
     initializeSimulation();
 </script>
