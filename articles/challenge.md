@@ -4,7 +4,7 @@ This is my attempt to keep myself accountable in my studies through posting abou
 
 I have challenged myself to solve all of the 50-something [Physics Cup](https://physicscup.ee/) in the upcoming months. I decided to give myself on average 2 days per problem, so the deadline is set in stone for May 31, 2025 (this goal was set on February 10).
 
-I will keep this page up no matter how well I manage to complete this goal. 
+I will keep this page up no matter how well I manage to complete this goal –– again, just to hold myself accountable.
 
 You can check out my progress below.
 
