@@ -496,59 +496,11 @@
         function switchHeader() {
             document.querySelector('header').outerHTML = `
                 <header>
-                    <div class="language-toggle">
-                        <i class="fas fa-adjust icon" title="Toggle Dark Mode" onclick="toggleDarkMode()"></i>
-                        <button id="btn-en" class="active" onclick="setLanguage('en')">English/</button>
-                        <button id="btn-et" onclick="setLanguage('et')">Estonian</button>
-                    </div>
-
                     <div>
                         <a class="fas fa-print icon" title="Print" onclick="window.print()"></a>
                         <a href="https://github.com" target="_blank"><i class="fab fa-github icon github" title="GitHub"></i></a>
                     </div>
                 </header>`;
-        }
-
-        function setLanguage(lang) {
-            const elements = {
-                en: {
-                    "main-title": "Trigger",
-                    description: "This is an upcoming high-performance computing book titled \"Algorithms for Modern Hardware\" by Sergey Slotin.",
-                    content1: "Its intended audience is everyone from performance engineers and practical algorithm researchers to undergraduate computer science students who have just finished an advanced algorithms course and want to learn more practical ways to speed up a program than by going from O(n log n) to O(n log log n).",
-                    content2: "All book materials are hosted on GitHub, with code in a separate repository. This isn't a collaborative project, but any contributions and feedback are very much welcome.",
-                    faq: "FAQ",
-                    bug: "Bug/Typo Fixes",
-                    bugContent: "If you spot an error on any page, please do one of these — in the order of preference:",
-                    fix1: "Fix it right away by either clicking on the pencil icon on the top right on any page (opens the Prose editor) or by modifying the page directly on GitHub (link to the source is also on the top right).",
-                    fix2: "Create an issue on GitHub.",
-                    fix3: "Tell me about it directly."
-                },
-                et: {
-                    "main-title": "Trigger",
-                    description: "See on eelseisev suure jõudlusega arvutamise raamat pealkirjaga \"Algoritmid moodsa riistvara jaoks\", autor Sergey Slotin.",
-                    content1: "Selle sihtrühmaks on kõik, alates jõudlusinseneridest ja praktilistest algoritmide uurijatest kuni arvutiteaduse üliõpilasteni, kes on just lõpetanud edasijõudnute algoritmide kursuse ja tahavad õppida praktilisemaid viise programmi kiirendamiseks kui minna O(n log n)-st O(n log log n)-ni.",
-                    content2: "Kõik raamatu materjalid on hostitud GitHubis, kood eraldi hoidlas. See ei ole koostööprojekt, kuid kõik panused ja tagasiside on väga teretulnud.",
-                    faq: "KKK",
-                    bug: "Veateated",
-                    bugContent: "Kui märkate mõne lehe viga, tehke üks järgmistest — eelistuste järjekorras:",
-                    fix1: "Parandage see kohe, klõpsates mõnel lehel paremas ülanurgas pliiatsi ikoonil (avaneb Prose redaktor) või muutes lehte otse GitHubis (allikas on samuti paremas ülanurgas).",
-                    fix2: "Looge GitHubis probleem.",
-                    fix3: "Rääkige mulle sellest otse."
-                }
-            };
-
-            const translations = elements[lang];
-            if (translations) {
-                Object.keys(translations).forEach(id => {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        element.innerText = translations[id];
-                    }
-                });
-            }
-
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            document.getElementById('btn-et').classList.toggle('active', lang === 'et');
         }
 
         document.querySelectorAll('#submenu1 li a').forEach(link => {
