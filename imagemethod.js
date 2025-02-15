@@ -50,34 +50,6 @@ function computePotential(x, y) {
     return V;
 }
 
-function drawEquipotentialLines() {
-    let step = 5;  // Increase resolution
-    let labeledPotentials = new Map(); // Store (x, y) positions for labels
-
-    for (let x = 0; x < canvas.width; x += step) {
-        for (let y = 0; y < canvas.height; y += step) {
-            let V = computePotential(x, y);
-            let roundedV = Math.round(V / 500) * 500; // Round to nearest 500V
-
-            if (Math.abs(V) == 1000 ) { // Smaller range for smoother contours
-                ctx.fillStyle = "rgba(0,0,255,0.5)";
-                ctx.fillRect(x, y, 1, 1);
-
-                // Labeling: Place labels at a spaced-out grid
-                if (!labeledPotentials.has(roundedV) || (x % 120 === 0 && y % 120 === 0)) {
-                    labeledPotentials.set(roundedV, { x, y });
-                }
-            }
-        }
-    }
-
-    // Draw labels at stored positions
-    ctx.fillStyle = "black";
-    ctx.font = "14px Arial";
-    labeledPotentials.forEach((pos, potential) => {
-        ctx.fillText(`${potential}V`, pos.x + 5, pos.y - 5);
-    });
-}
 
 function drawCharges() {
     for (let charge of charges) {
@@ -91,7 +63,6 @@ function drawCharges() {
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawEquipotentialLines();
     drawCharges();
     requestAnimationFrame(animate);
 }
