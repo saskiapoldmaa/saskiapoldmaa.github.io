@@ -11,6 +11,7 @@ Is it circular? How wide is it?
 Learn to access the beamprofiles of CERN's live beams.
 
 and to recreate this graph...
+
 <img src="../articles/images/hitmap_muon.png" width="70%" height="auto" >
 
 <img src="../articles/images/hitmap_hadron.png" width="70%" height="auto" >
