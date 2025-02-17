@@ -13,6 +13,7 @@ There are constantly noise  signals in either of the detectors, let this frequen
 If $p$ is the probability that a signal in the first scintillator will stumble upon a signal in the 2nd scintillator, the frequncy of random coincidences will be $pf_1$.
 
 <img src="../articles/images/rando1.jpg" width="600px" height="auto">
+
 The red bar denotes the positions where the center of the second scintillator's signals cna lie, in order to give a coincidence event.
 
 This red bar covers $(\\tau_1+\\tau_2)f_1$ of the total area (i.e. the total second). In that timeframe, we also have $f_2$ signals from the second scintillator which can be situated in the red spaces. Hence, the probability that one such overlap occurs, is
