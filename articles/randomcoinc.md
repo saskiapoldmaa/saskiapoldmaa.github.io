@@ -19,7 +19,7 @@ The red bar denotes the positions where the center of the second scintillator's 
 This red bar covers $(\\tau_1+\\tau_2)f_1$ of the total area (i.e. the total second). In that timeframe, we also have $f_2$ signals from the second scintillator which can be situated in the red spaces. Hence, the probability that one such overlap occurs, is
 $$\\boxed{f_1f_2(\\tau_1+\\tau_2)}$$
 
-Now let's go over the numbers. $\\tau$$ are on the order of nanoseconds, something like 20 to 50 ns. Let us take 50 ns for the pessimistic case. $f_1$ and $f_2$ are like 100 Hz. Hence
+Now let's go over the numbers. $\\tau$ are on the order of nanoseconds, something like 20 to 50 ns. Let us take 50 ns for the pessimistic case. $f_1$ and $f_2$ are like 100 Hz. Hence
 $$ f = 10^{-5} s.$$
 
 So between each spill, we will get $f\cdot 40s=0.0004$ phantom events, but the number of real events is in tens of thousands.
