@@ -8,13 +8,16 @@ Data Acquisition (DAQ) Systems
   allowfullscreen>
 </iframe>
                     
-Data Acquisition systems, or DAQs, are the heart of modern experimental setups. They gather, process, and store data from detectors, allowing researchers to analyze experimental results in real time or offline.
+Data Acquisition systems, or DAQs, are the heart of experiments. They gather, process, and store data from detectors, allowing the actual research (data analysis) to begin.
 
+Here is a brief ramble about the DAQs we used:
 <img src="https://codimd.web.cern.ch/uploads/upload_43fb6517b051368d7b4f5ebde271b203.png" width="800px" height="auto">
 
-CESAR is the control software that allows us to switch on the beam, select a beam configuration (momentum, momentum tolerance, to an extend the beam size via collimator settings unless we are using a muon beam, etc.) configure detectors such as the XCETs, start pressure scans, etc.
+TL;DR, we used two of them: CESAR and TDAQ (ATLAS Trigger/DAQ software)
 
-TDAQ is the software that we are using to actually capture data. It is the thing you saw in our session a few weeks back where we did some measurements with cosmic muons.
+CESAR is the control software that also allowed us to switch on the beam, select beam configurations (momentum, momentum tolerance, collimator settings, etc.), configure detectors such as the XCETs, start pressure scans, and much more.
+
+TDAQ is the software that we are using to capture actually analyzable data. 
 
 CESAR is not a data acquisition software, it shows you some values and you can do some measurements like the pressure scan. But it can not record the particle-by-particle data that we are interested in. Also, TDAQ and CESAR are not synchronized and do not "talk" to each other - we did record data during the pressure scans but because CESAR on it's own decides when to change the pressure and what to accept as "valid" measurements for each individual pressure, it is difficult to draw finer-grained data out of the TDAQ recording. 
 
