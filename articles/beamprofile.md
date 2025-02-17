@@ -14,11 +14,11 @@ Is it circular? How wide is it?
 This is a screenshot from CESAR – the more archaic one of the two DAQs. It represents the number of particles encountered per second over about a hour and a half. It might not seem obvious, but the frequency is actually at 0 most of the time. However, soemtimes it hovers at the 2,500 Hz mark, and sometimes, it hasn't quite reached that level yet.
 
 The DWC give us an insight into how the beam looks like. Here are some 2D images from DWCs...
-<img src="../articles/images/hitmap_muon.png" width="50%" height="auto" >
+<img src="../articles/images/hitmap_hadron.png" width="50%" height="auto" >
 
 for the hadron beam
 
-<img src="../articles/images/hitmap_hadron.png" width="50%" height="auto" >
+<img src="../articles/images/hitmap_muon.png" width="50%" height="auto" >
 
 and for the muon beam.
 
