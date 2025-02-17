@@ -10,7 +10,9 @@ Data Acquisition (DAQ) Systems
                     
 Data Acquisition systems, or DAQs, are the heart of modern experimental setups. They gather, process, and store data from detectors, allowing researchers to analyze experimental results in real time or offline.
 
-<img src="../articles/images/CESAR.png" width="800px" height="auto">
+<img src="https://codimd.web.cern.ch/uploads/upload_43fb6517b051368d7b4f5ebde271b203.png" width="800px" height="auto">
+
+CESAR
 
 <img src="../articles/images/TDAQ.png" width="800px" height="auto">
 
