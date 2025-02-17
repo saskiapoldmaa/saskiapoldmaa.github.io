@@ -36,8 +36,13 @@ But if they both collect the same data, only on slightly different scales, then 
 
 <img src="../articles/images/cesarvstdaq.png" width="800px" height="auto">
 
+For some reason, CESAR seems to be seeing much-much more events than TDAQ. Where do the events disappear?
+
+Let us take a look at the scaler data. This is the part of TDAQ data that is closest to whatever CESAR was measuring at the time. Here's what we will see after clicking open the scaler's 1st channel, which was connected to one of the scintillators.
+
 <img src="../articles/images/scaler.png" width="400px" height="auto">
 
+This graph shows the number of events plotted over time (in ns). 
 
 A typical DAQ system includes components like digitizers, triggers, and data storage units. The digitizer converts analog signals from detectors into digital data that can be processed by computers.
 
