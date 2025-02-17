@@ -6,12 +6,18 @@
     </button>
 </a>
 
-Is it circular? How wide is it?
-
 <img src="../articles/images/spill.png" width="800px" height="auto">
+
+This is a screenshot from CESAR – the more archaic one of the two DAQs. It represents the number of particles encountered per second over about a hour and a half. It might not seem obvious, but the frequency is actually at 0 most of the time. However, soemtimes it hovers at the 2,500 Hz mark, and sometimes, it hasn't quite 
+reached that level yet.
+
+The sudden rises in count rate occur during the spills –– the beam is not a continuous flow of particles, but rather a pulsation. Every 40 seconds or so (this depends on the experimental area), another bunch of particles arrives from the Proton Synchrotron to our experiment.
+
+But how does the beam look like spatially? How wide is it? Is it circular?
+These are also images from CESAR, they are so-called beamprofiles – given to us by a bunch of scintillating fibers. By noting down which fiber captures a signal, the particle's approximate position can be determined.
+
 <img src="https://codimd.web.cern.ch/uploads/upload_88fad15ed028d5ff5531140f612c45e4.png" width="800px" height="auto">
 
-This is a screenshot from CESAR – the more archaic one of the two DAQs. It represents the number of particles encountered per second over about a hour and a half. It might not seem obvious, but the frequency is actually at 0 most of the time. However, soemtimes it hovers at the 2,500 Hz mark, and sometimes, it hasn't quite reached that level yet.
 
 The DWC give us an insight into how the beam looks like. Here are some 2D images from DWCs...
 <img src="../articles/images/hitmap_hadron.png" width="50%" height="auto" >
