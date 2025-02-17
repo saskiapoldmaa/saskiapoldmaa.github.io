@@ -20,9 +20,9 @@ CESAR is not a data acquisition software, it shows you some values and you can d
 
 This is one of the reason why we will only use the pressure scans to establish the XCET boundaries but not during the actual data taking - too many independently varied variables makes the interpretation of the results difficult.
 
-<img src="../articles/images/scaler.png" width="400px" height="auto">
+<img src="../articles/images/cesarvstdaq.png" width="800px" height="auto">
 
-<img src="../articles/images/cesarvstdaq.png" width="400px" height="auto">
+<img src="../articles/images/scaler.png" width="400px" height="auto">
 
 
 A typical DAQ system includes components like digitizers, triggers, and data storage units. The digitizer converts analog signals from detectors into digital data that can be processed by computers.
