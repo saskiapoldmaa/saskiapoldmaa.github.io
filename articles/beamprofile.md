@@ -8,13 +8,15 @@
 
 Is it circular? How wide is it?
 
+<img src="https://codimd.web.cern.ch/uploads/upload_9996a4a1083c1e5ed601083a46f3dbbb.png" width="600px" height="auto">
+
 Learn to access the beamprofiles of CERN's live beams.
 
 and to recreate this graph...
 
-<img src="../articles/images/hitmap_muon.png" width="70%" height="auto" >
+<img src="../articles/images/hitmap_muon.png" width="50%" height="auto" >
 
-<img src="../articles/images/hitmap_hadron.png" width="70%" height="auto" >
+<img src="../articles/images/hitmap_hadron.png" width="50%" height="auto" >
 
 
 Coming soon!
