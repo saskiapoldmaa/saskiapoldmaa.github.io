@@ -8,7 +8,7 @@
 
 Is it circular? How wide is it?
 
-<img src="https://codimd.web.cern.ch/uploads/upload_9996a4a1083c1e5ed601083a46f3dbbb.png" width="800px" height="auto">
+<img src="../articles/images/spill.png" width="800px" height="auto">
 
 This is a screenshot from CESAR – the more archaic one of the two DAQs. It represents the number of particles encountered per second over about a hour and a half. It might not seem obvious, but the frequency is actually at 0 most of the time. However, soemtimes it hovers at the 2,500 Hz mark, and sometimes, it hasn't quite reached that level yet.
 
