@@ -21,7 +21,7 @@ So, on the picture above, an electron and a positron approach each other. At som
 
 The second pitfall I encountered, are loops.
 
-<img src="/loop.jpg" width="50%" height="auto">
+<img src="/loop.jpg" width="40%" height="auto">
 
 You'd be right to think that this is the scattering of two electrons, where they also exchange a photon. But what happens with the photon midway?
 
