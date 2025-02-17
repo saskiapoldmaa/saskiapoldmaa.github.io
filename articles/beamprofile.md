@@ -33,5 +33,7 @@ Curiously, the hadron beam is moch more concentrated. And the muon beam seems to
 Here is also a 3D image of the trajectories of 1 000 random hadrons as they move in-between the two DWCs...
 <img src="../articles/images/3d.png" width="800px" height="auto">
 
+A rotatable/zoomable version coming very-very soon!
+
 <!-- <iframe src="../Files/beamrendering.html" width="800" height="600"></iframe> -->
 
