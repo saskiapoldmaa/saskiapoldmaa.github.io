@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROOT 3D Visualization</title>
+    <script src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
+</head>
+<body>
+    <h2>3D ROOT Visualization</h2>
+    <div id="canvas" style="width: 800px; height: 600px;"></div>
+
+    <script>
+        JSROOT.openFile("trajectories.root").then(file => {
+            return file.readObject("c1"); // Load the canvas
+        }).then(obj => {
+            JSROOT.draw("canvas", obj, ""); // Draw inside div
+        });
+    </script>
+</body>
+</html>
