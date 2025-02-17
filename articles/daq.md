@@ -20,18 +20,10 @@ CESAR is not a data acquisition software, it shows you some values and you can d
 
 This is one of the reason why we will only use the pressure scans to establish the XCET boundaries but not during the actual data taking - too many independently varied variables makes the interpretation of the results difficult.
 
-
-<img src="../articles/images/TDAQ.png" width="800px" height="auto">
-
-
-
 A typical DAQ system includes components like digitizers, triggers, and data storage units. The digitizer converts analog signals from detectors into digital data that can be processed by computers.
 
-![](/daq2.png)
 
 The image above illustrates the flow of data within a DAQ system. Detectors produce signals that are digitized, filtered, and stored for analysis. Timing synchronization is critical, and DAQ systems often include precise clocks to ensure accurate event reconstruction.
-
-![](/daq3.png)
 
 Modern DAQ systems use software frameworks to manage data flow and enable user-friendly configuration. For example, the CAEN SY5527 system allows seamless integration with custom analysis software, as shown above.
 
