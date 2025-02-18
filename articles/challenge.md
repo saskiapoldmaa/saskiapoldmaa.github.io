@@ -10,6 +10,11 @@ You can check out my progress below.
 
 ---
 
+[Physics Cup 2018 Problem 2](https://saskiapoldmaa.github.io/?show=PC/PC18/PC182.md).
+<p style="color: gray;">Completed February 18.</p>
+
+---
+
 [Physics Cup 2023 Problem 5](https://saskiapoldmaa.github.io/?show=PC/PC25/PC253.md).
 <p style="color: gray;">Completed February 15.</p>
 
