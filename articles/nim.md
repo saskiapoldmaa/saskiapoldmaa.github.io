@@ -1,4 +1,4 @@
-NIM Crates
+Capturing Signals
 ==========
 
 <iframe width="560" height="315" 
@@ -7,6 +7,11 @@ NIM Crates
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
   allowfullscreen>
 </iframe>
+
+The whole experiment consitutes of various electric signals. Before digitizing them, we need to somehow pass them through logic gates and measure them in the least headachy way. For this, we often use NIM crates. How do these look like?
+
+Well, they are just little red panels, completely blocked away by a bundle of wires. And this is the biggest downside of NIMs – so. many. wires. Despite this, they have been the industry standard for the past $\\tilde60$ years.
+
 
 If we need to set three signals in coincidence, we should first set two of the signals in coincidence with each other and then set that signal into another coincidence with the 3rd signal. If we just set all of them into one big coincidence, then we could find that the some signal hasn't even arrived before another signal is already gone. This is because of the delays previously discussed, but also because the discriminator signals have an arbitrary (user-defined) length. It is easier for us to elongate the coincidence signal of inputs 1 & 2, in a way that signal 3 would aso fit in the coincidence window, then it is to elongate 2 discriminator signals.
 
