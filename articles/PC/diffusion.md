@@ -46,11 +46,11 @@ $$\\frac{\\partial T}{\\partial t}= \\frac{D}{s} \\frac{\\partial}{\\partial s}\
 
 By replacing in the $\\xi$, we get
 
-$$\\frac{\\xi T'}{2t}=\\frac{D}{s \\sqrt{2Dt}\\left( \\xi T'' + T' \\right) $$
+$$ \\frac{\\xi T'}{2t}=\\frac{D}{s} \\sqrt{2Dt}\\left( \\xi T'' + T' \\right) $$
 
 which is equivalent to
 
-$$-\\xi^2T'=\\xiT''+T' $$ 
+$$ -\\xi^2T'=\\xiT''+T' $$ 
 
 and also to
 
@@ -58,7 +58,7 @@ $$\\xi u + u'=0 $$
 
 where $u=\\xi T'$. Solving for u and then beginning to solve for $T$, we get
 
-$$T=\\int \\frac{C_1 e^{-\\xi^2/2}}{\\xi} \\,d\\xi = -C_2 \\mathrm{E_1} \\left(\\frac{x^2}{2}\\right)+C_3 $$
+$$ T=\\int \\frac{C_1 e^{-\\xi^2/2}}{\\xi} \\,d\\xi = -C_2 \\mathrm{Ei} \\left(\\frac{x^2}{2}\\right)+C_3 $$
 
 where Ei is the exponential integral.
 
