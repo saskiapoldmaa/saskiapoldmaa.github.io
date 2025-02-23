@@ -20,13 +20,13 @@ which is often expressed using the diffusion constant D as
 
 $$ \\frac{\\partial T}{\\partial t}=D \\frac{\\partial^2 T}{\\partial x^2}. $$
 
-We will solve it by assuming a self-similar solution. I.e., at whatever instant, the temperature profile looks identical to how it was before, just zoomed in/out. More formally, this means that $T=T(\\psi) $ where $\\psi$ is a product of $x$ and $t$, at some unknown powers. For diffusion, it is standard practice to use $\\psi=\\frac{x}{\\sqrt{Dt}}.
+We will solve it by assuming a self-similar solution. I.e., at whatever instant, the temperature profile looks identical to how it was before, just zoomed in/out. More formally, this means that $T=T(\\xi) $ where $\\xi$ is a product of $x$ and $t$, at some unknown powers. For diffusion, it is standard practice to use $\\xi=\\frac{x}{\\sqrt{Dt}}.
 
-Plugging this into the equations, and letting $T'$ denote $\\frac{dT}{d \\psi}$, the diffusion eqn. takes the form
+Plugging this into the equations, and letting $T'$ denote $\\frac{dT}{d \\xi}$, the diffusion eqn. takes the form
 
-$$-\\frac{\\psi T'}{2 t}=\\frac{T''}{t} $$ from which we get the Gaussian
-$$ T' =C_1 e^{-\\psi^2/2} $$ and integrating once more, we get
-$$T=C_2-C_2 \\erf \left( \\frac{x}{\\sqrt{2}} \right) $$
+$$-\\frac{\\xi T'}{2 t}=\\frac{T''}{t} $$ from which we get the Gaussian
+$$ T' =C_1 e^{-\\xi^2/2} $$ and integrating once more, we get
+$$T=C_2-C_2 \\operatorname{erf} \left( \\frac{x}{\\sqrt{2}} \right) $$
 
 <img src="../articles/images/kajakas2.png" width="600px" height="auto">
 
