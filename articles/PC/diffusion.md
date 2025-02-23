@@ -20,7 +20,7 @@ which is often expressed using the diffusion constant D as
 
 $$ \\frac{\\partial T}{\\partial t}=D \\frac{\\partial^2 T}{\\partial x^2}. $$
 
-We will solve it by assuming a self-similar solution. I.e., at whatever instant, the temperature profile looks identical to how it was before, just zoomed in/out. More formally, this means that $T=T(\\xi) $ where $\\xi$ is a product of $x$ and $t$, at some unknown powers. For diffusion, it is standard practice to use $\\xi=\\frac{x}{\\sqrt{Dt}}.
+We will solve it by assuming a self-similar solution. I.e., at whatever instant, the temperature profile looks identical to how it was before, just zoomed in/out. More formally, this means that $T=T(\\xi) $ where $\\xi$ is a product of $x$ and $t$, at some unknown powers. For diffusion, it is standard practice to use $\\xi=\\frac{x}{\\sqrt{Dt}}$.
 
 Plugging this into the equations, and letting $T'$ denote $\\frac{dT}{d \\xi}$, the diffusion eqn. takes the form
 
@@ -52,6 +52,8 @@ $$ T(r, t)=T_1+\\frac{B(r, t)}{r} $$
 where $ T_1 $ is the temperature of the water.
 
 After manipulating the previous formula, we get 
-$$ \\frac{\\partial B}{\\partial t}=\\frac{\\kappa}{c \\rho} \\frac{\\partial^2 B}{\\partial r^2} $$ and our boundary conditions for this equation are 
+$$ \\frac{\\partial B}{\\partial t}=\\frac{\\kappa}{c \\rho} \\frac{\\partial^2 B}{\\partial r^2} $$ 
+
+and our boundary conditions for this equation are 
 
 $ B(r=a, t)=0$, $B(r, 0)=r(T_0-T_1)$, $B(r, \\infty)=0$ and $ B(0, t)=0 $ (because $B\\propto r$).
