@@ -34,7 +34,7 @@ $$T=T_1 \\left( 1- erf \\left( \\frac{x}{\\sqrt{2}} \\right) \\right) $$
 
 ### 2D
 Now we get to the Physics Cup 2024 Problem no. 5: 
-<iframe src="https://physicscup.ee/physics-cup-taltech-2024-problem-5/" height="200" width="300" title="Iframe Example"></iframe>
+<iframe src="https://physicscup.ee/physics-cup-taltech-2024-problem-5/" width="600" height="300"></iframe>
 
 <img src="../articles/images/kajakas2.png" width="600px" height="auto">
 
