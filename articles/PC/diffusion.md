@@ -26,11 +26,15 @@ Plugging this into the equations, and letting $T'$ denote $\\frac{dT}{d \\xi}$, 
 
 $$-\\frac{\\xi T'}{2 t}=\\frac{T''}{t} $$ from which we get the Gaussian
 $$ T' =C_1 e^{-\\xi^2/2} $$ and integrating once more, we get
-$$T=C_2-C_2 erf \\left( \\frac{x}{\\sqrt{2}} \\right) $$
+$$T=C_2-C_3 erf \\left( \\frac{x}{\\sqrt{2}} \\right) $$
 
 Our boundary conditions are $T(x=0, t) =T_1$ and $T(x=\\infty, t)=0$, from which we deduce the final solution
 
 $$T=T_1 \\left( 1- erf \\left( \\frac{x}{\\sqrt{2}} \\right) \\right) $$
+
+### 2D
+Now we get to the Physics Cup 2024 Problem no. 5: 
+<iframe src="https://physicscup.ee/physics-cup-taltech-2024-problem-5/" height="200" width="300" title="Iframe Example"></iframe>
 
 <img src="../articles/images/kajakas2.png" width="600px" height="auto">
 
