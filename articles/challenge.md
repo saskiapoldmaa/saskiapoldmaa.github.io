@@ -10,6 +10,11 @@ You can check out my progress below.
 
 ---
 
+[Solving the Diffusion Equation](https://saskiapoldmaa.github.io/?show=PC/diffusion.md)
+<p style="color: gray;">Completed February 23.</p>
+
+---
+
 [Physics Cup 2018 Problem 2](https://saskiapoldmaa.github.io/?show=PC/PC18/PC182.md).
 <p style="color: gray;">Completed February 18.</p>
 
