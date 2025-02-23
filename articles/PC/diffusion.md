@@ -50,7 +50,7 @@ $$ \\frac{\\xi T'}{2t}=\\frac{D}{s} \\sqrt{2Dt}\\left( \\xi T'' + T' \\right) $$
 
 which is equivalent to
 
-$$ -\\xi^2T'=\\xiT''+T' $$ 
+$$ -\\xi^2 T'=\\xi T''+T' $$ 
 
 and also to
 
