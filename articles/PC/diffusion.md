@@ -34,7 +34,7 @@ $$T=T_1 \\left( 1- erf \\left( \\frac{x}{\\sqrt{2}} \\right) \\right) $$
 
 ### 2D
 
-Here, we do exaclty the same: assume a self-similar solution, transform the diffusion equation into a first-order DE, and then solve it. This time, we will take a different value of $\\xi$: $\\xi=\\frac{x}{\\sqrt{2Dt}$ where the 2 simply appears because the heat is now dissipating in 2 directions.
+Here, we do exaclty the same: assume a self-similar solution, transform the diffusion equation into a first-order DE, and then solve it. This time, we will take a different value of $\\xi$: $\\xi=\\frac{x}{\\sqrt{2Dt}}$ where the 2 simply appears because the heat is now dissipating in 2 directions.
 
 Also, our diffusion equation is slightly different. First, the Fourier law  for cylindrical symmetry is
 $$ 2 \\pi r J = \\kappa \\frac{\\partial T}{\\partial s}, $$
