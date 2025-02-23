@@ -26,7 +26,7 @@ Plugging this into the equations, and letting $T'$ denote $\\frac{dT}{d \\xi}$, 
 
 $$-\\frac{\\xi T'}{2 t}=\\frac{T''}{t} $$ from which we get the Gaussian
 $$ T' =C_1 e^{-\\xi^2/2} $$ and integrating once more, we get
-$$T=C_2-C_2 \\operatorname{erf} \left( \\frac{x}{\\sqrt{2}} \right) $$
+$$T=C_2-C_2 erf \left( \\frac{x}{\\sqrt{2}} \right) $$
 
 <img src="../articles/images/kajakas2.png" width="600px" height="auto">
 
