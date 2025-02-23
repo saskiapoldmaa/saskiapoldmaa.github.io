@@ -58,7 +58,7 @@ $$\\xi u + u'=0 $$
 
 where $u=\\xi T'$. Solving for u and then beginning to solve for $T$, we get
 
-$$ T=\\int \\frac{C_1 e^{-\\xi^2/2}}{\\xi} \\,d\\xi = -C_2 \\mathrm{Ei} \\left(\\frac{x^2}{2}\\right)+C_3 $$
+$$ T=\\int \\frac{C_1 e^{-\\xi^2/2}}{\\xi} \\,d\\xi = -C_2 \\mathrm{Ei} \\left(\\frac{s^2}{4Dt}\\right)+C_3 $$
 
 where Ei is the exponential integral.
 
