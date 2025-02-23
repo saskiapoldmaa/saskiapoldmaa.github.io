@@ -37,8 +37,11 @@ $$T=T_1 \\left( 1- erf \\left( \\frac{x}{\\sqrt{2}} \\right) \\right) $$
 Here, we do exaclty the same: assume a self-similar solution, transform the diffusion equation into a first-order DE, and then solve it. This time, we will take a different value of $\\xi$: $\\xi=\\frac{x}{\\sqrt{2Dt}}$ where the 2 simply appears because the heat is now dissipating in 2 directions.
 
 Also, our diffusion equation is slightly different. First, the Fourier law  for cylindrical symmetry is
+
 $$ 2 \\pi r J = \\kappa \\frac{\\partial T}{\\partial s}, $$
+
 where $ s $ is the distance from the axis of symmetry, and the dif. eqn. itself is consequently
+
 $$\\frac{\\partial T}{\\partial t}= \\frac{D}{s} \\frac{\\partial}{\\partial s}\\frac{\\partial T}{\\partial s}$$
 
 Now we get to the Physics Cup 2024 Problem no. 5: 
