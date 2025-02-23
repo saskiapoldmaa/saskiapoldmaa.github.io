@@ -38,8 +38,6 @@ Now we get to the Physics Cup 2024 Problem no. 5:
 
 <img src="../articles/images/kajakas2.png" width="600px" height="auto">
 
-I decided to write a [separate article](../articles/PC/diffusion.md) on diffusion, so this is just an excerpt from that.
-
 A 300C stone is thrown into cold water. Find how much time it takes to evaporate 1g of water.
 
 This is a standard case of thermal diffusion. I referred to [this](https://physlab.org/wp-content/uploads/2016/04/Doc.pdf) for help.
