@@ -53,7 +53,7 @@ Note that T is not under the square root, that is because $\\sqrt{\\frac{\\parti
 
 By now substituting $\\frac{\\partial T}{\\partial z}$ from the first eqn., we get
 
-$$\\frac{(vHc_w \\rho_w)^2}{\\kappa c \\rho}\\frac{\\partial^2 T}{\\parttial x^2}=\\frac{\\partial T}{\\partial t}$$
+$$\\frac{(vHc_w \\rho_w)^2}{\\kappa c \\rho}\\frac{\\partial^2 T}{\\partial x^2}=\\frac{\\partial T}{\\partial t}$$
 
 which is like a standard diffusion equation, only that the effective diffusivity constant is very wacky, since it also accounts for the flow of the water etc. Solving this in the same way as in the previous section, we get
 
