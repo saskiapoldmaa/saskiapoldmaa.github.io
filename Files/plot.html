@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
     <script type="module">
         import { parse, draw } from "https://root.cern/js/latest/modules/main.mjs";
 
@@ -8,20 +8,20 @@
             console.log("🚀 Loading JSON data...");
 
             try {
-                // Load JSON file from GitHub Pages
-                let response = await fetch("../Files/plot.json");
+                // Load JSON file
+                let response = await fetch("../Files/polyline.json");
                 if (!response.ok) throw new Error("Failed to fetch JSON");
 
                 let jsonText = await response.text();
 
                 // Parse JSON into a ROOT object
-                let hist = parse(jsonText);
-                if (!hist) throw new Error("Failed to parse JSON into ROOT object");
+                let polyline = parse(jsonText);
+                if (!polyline) throw new Error("Failed to parse JSON into ROOT object");
 
-                // Draw the histogram in the div with id 'plot'
-                draw("plot", hist, "lego2"); // "lego2" for 3D visualization
+                // Draw the polyline in the div with id 'plot'
+                draw("plot", polyline, "polylines"); // "polylines" mode for 3D visualization
 
-                console.log("✅ Successfully loaded and displayed the 3D histogram!");
+                console.log("✅ Successfully loaded and displayed the 3D polyline!");
             } catch (error) {
                 console.error("🚨 Error loading JSON:", error);
             }
@@ -29,7 +29,7 @@
     </script>
 </head>
 <body>
-    <p>Displaying 3D histogram from JSON:</p>
+    <p>Displaying 3D polyline from JSON:</p>
     <div id="plot" style="width:800px; height:600px; border:2px solid red;"></div>
 </body>
 </html>
