@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script type="text/javascript" src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
+    <p>Please work</p>
+    <script type="module">
+        import * as JSROOT from "https://root.cern/js/latest/modules/main.mjs";
+
+        document.addEventListener("DOMContentLoaded", async function () {
+            console.log("🚀 Checking JSROOT...");
+
+            try {
+                // Load histogram example
+                let file = await JSROOT.OpenFile("https://root.cern/js/files/hsimple.root");
+                let obj = await file.ReadObject("hpx;1");
+
+                // Draw it in the div with id 'plot'
+                JSROOT.draw("plot", obj, "hist");
+
+                console.log("✅ JSROOT is loaded and drawing!");
+            } catch (error) {
+                console.error("🚨 Error:", error);
+            }
+        });
+    </script>
 </head>
 <body>
-    <p>ahhh</p>
+    <p>Do we have JSROOT?</p>
     <div id="plot" style="width:800px; height:600px; border:2px solid red;"></div>
-
-    <script type="text/javascript">
-        console.log("🚀 Checking JSROOT...");
-    
-        if (typeof JSROOT === "undefined") {
-            console.error("🚨 JSROOT is NOT loaded!");
-        } else {
-            console.log("✅ JSROOT is loaded successfully.");
-    
-            // Example: Draw a test histogram
-            JSROOT.require("TCanvas").then(() => {
-                let hist = JSROOT.CreateHistogram("hist", 100, 0, 10);
-                hist.Fill(3, 5);
-                hist.Fill(5, 10);
-                hist.Fill(7, 15);
-    
-                JSROOT.draw("plot", hist, "hist");
-            });
-        }
-    </script>
 </body>
 </html>
