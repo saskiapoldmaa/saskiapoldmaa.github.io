@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <p>Pleaaaaseeeee work</p>
     <script type="module">
-        import { openFile, draw } from "https://root.cern/js/latest/modules/main.mjs";
+        import { parse, draw } from "https://root.cern/js/latest/modules/main.mjs";
 
         document.addEventListener("DOMContentLoaded", async function () {
-            console.log("🚀 Checking JSROOT...");
+            console.log("🚀 Loading JSON data...");
 
             try {
-                // Load ROOT file
-                let file = await openFile("https://root.cern/js/files/hsimple.root");
-                let obj = await file.readObject("hpx;1"); // Note: `readObject()` replaces `ReadObject()`
+                // Load JSON file from GitHub Pages
+                let response = await fetch("../Files/plot.json");
+                if (!response.ok) throw new Error("Failed to fetch JSON");
 
-                // Draw it in the div with id 'plot'
-                draw("plot", obj, "hist");
+                let jsonText = await response.text();
 
-                console.log("✅ JSROOT is loaded and drawing!");
+                // Parse JSON into a ROOT object
+                let hist = parse(jsonText);
+                if (!hist) throw new Error("Failed to parse JSON into ROOT object");
+
+                // Draw the histogram in the div with id 'plot'
+                draw("plot", hist, "lego2"); // "lego2" for 3D visualization
+
+                console.log("✅ Successfully loaded and displayed the 3D histogram!");
             } catch (error) {
-                console.error("🚨 Error:", error);
+                console.error("🚨 Error loading JSON:", error);
             }
         });
     </script>
 </head>
 <body>
-    <p>Do we have JSROOT?</p>
+    <p>Displaying 3D histogram from JSON:</p>
     <div id="plot" style="width:800px; height:600px; border:2px solid red;"></div>
 </body>
 </html>
