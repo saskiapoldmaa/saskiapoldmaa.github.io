@@ -4,20 +4,17 @@
     <script type="text/javascript" src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
 </head>
 <body>
-    <p>Proov 3</p>
-    <div id="plot" style="width:800px; height:600px;"></div>
+    <p>Proov</p>
+    <div id="plot" style="width:800px; height:600px; border:2px solid red;"></div>
 
     <script type="text/javascript">
-        console.log("JSROOT script loaded. Attempting to draw a test histogram...");
+        console.log("🚀 Checking JSROOT...");
 
-        // Create a simple TH1F histogram with random values
-        let h1 = JSROOT.createHistogram("TH1I", 10);
-        for (let i = 0; i < 10; i++) h1.setBinContent(i+1, Math.random() * 100);
-
-        // Try drawing it
-        JSROOT.draw("plot", h1, "HIST");
-
-        console.log("Test histogram drawn.");
+        if (typeof JSROOT === "undefined") {
+            console.error("🚨 JSROOT is NOT loaded!");
+        } else {
+            console.log("✅ JSROOT is loaded successfully.");
+        }
     </script>
 </body>
 </html>
