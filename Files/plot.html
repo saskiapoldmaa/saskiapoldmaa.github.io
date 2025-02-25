@@ -4,16 +4,26 @@
     <script type="text/javascript" src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
 </head>
 <body>
-    <p>do we have jsroot</p>
+    <p>ahhh</p>
     <div id="plot" style="width:800px; height:600px; border:2px solid red;"></div>
 
     <script type="text/javascript">
         console.log("🚀 Checking JSROOT...");
-
+    
         if (typeof JSROOT === "undefined") {
             console.error("🚨 JSROOT is NOT loaded!");
         } else {
             console.log("✅ JSROOT is loaded successfully.");
+    
+            // Example: Draw a test histogram
+            JSROOT.require("TCanvas").then(() => {
+                let hist = JSROOT.CreateHistogram("hist", 100, 0, 10);
+                hist.Fill(3, 5);
+                hist.Fill(5, 10);
+                hist.Fill(7, 15);
+    
+                JSROOT.draw("plot", hist, "hist");
+            });
         }
     </script>
 </body>
