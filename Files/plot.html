@@ -6,7 +6,7 @@
 <body>
     <div id="plot" style="width:800px; height:600px;"></div>
     <script type="text/javascript">
-        JSROOT.openFile('plot.json').then(file => file.readObject('h3', obj => {
+        JSROOT.openFile('../Files/plot.json').then(file => file.readObject('h3', obj => {
             JSROOT.draw('plot', obj, "BOX");
         }));
     </script>
