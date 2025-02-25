@@ -2,26 +2,43 @@
 <html lang="en">
 <head>
     <script type="module">
-        import { parse, draw } from "https://root.cern/js/latest/modules/main.mjs";
+        import { TPolyLine3D, draw } from "https://root.cern/js/latest/modules/main.mjs";
 
         document.addEventListener("DOMContentLoaded", async function () {
-            console.log("🚀 Loading JSON data...");
+            console.log("🚀 Loading trajectory JSON data...");
 
             try {
-                // Load JSON file from GitHub Pages
+                // Load JSON file from GitHub Pages (update the URL with your repo)
                 let response = await fetch("../Files/plot.json");
                 if (!response.ok) throw new Error("Failed to fetch JSON");
 
-                let jsonText = await response.text();
+                let jsonData = await response.json();
+                let trajectories = jsonData.trajectories; // Extract the list of trajectories
 
-                // Parse JSON into a ROOT object
-                let hist = parse(jsonText);
-                if (!hist) throw new Error("Failed to parse JSON into ROOT object");
+                if (!trajectories || trajectories.length === 0) {
+                    throw new Error("No trajectory data found in JSON!");
+                }
 
-                // Draw the histogram in the div with id 'plot'
-                draw("plot", hist, "lego2"); // "lego2" for 3D visualization
+                // Create an array of TPolyLine3D objects
+                let polylines = [];
 
-                console.log("✅ Successfully loaded and displayed the 3D histogram!");
+                for (let i = 0; i < trajectories.length; i++) {
+                    let polyline = new TPolyLine3D(2); // Each trajectory has 2 points (upstream → downstream)
+
+                    // Set the start (upstream) and end (downstream) points
+                    polyline.SetPoint(0, trajectories[i].x_upstream, trajectories[i].y_upstream, trajectories[i].z_upstream);
+                    polyline.SetPoint(1, trajectories[i].x_downstream, trajectories[i].y_downstream, trajectories[i].z_downstream);
+
+                    polyline.fLineColor = (i % 9) + 1;  // Assign different colors
+                    polyline.fLineWidth = 2;
+
+                    polylines.push(polyline);
+                }
+
+                // Draw the 3D plot
+                draw("plot", polylines, ""); 
+
+                console.log("✅ Successfully displayed interactive 3D beam trajectories!");
             } catch (error) {
                 console.error("🚨 Error loading JSON:", error);
             }
@@ -29,7 +46,7 @@
     </script>
 </head>
 <body>
-    <p>Displaying 3D histogram from JSON:</p>
+    <p>Interactive 3D Beam Trajectory Visualization:</p>
     <div id="plot" style="width:800px; height:600px; border:2px solid red;"></div>
 </body>
 </html>
