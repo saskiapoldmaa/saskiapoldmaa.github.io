@@ -41,7 +41,7 @@ A rotatable/zoomable version coming very-very soon!
 
 <script type="text/javascript" src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
 <script type="text/javascript">
-    JSROOT.openFile('plot.json').then(file => file.readObject('h3', obj => {
+    JSROOT.openFile('../Files/plot.json').then(file => file.readObject('h3', obj => {
         JSROOT.draw('plot', obj, "BOX");
     }));
 </script>
