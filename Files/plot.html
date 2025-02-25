@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <p>h </p>
     <script type="module">
-        import JSROOT from "https://root.cern/js/latest/modules/main.mjs";
-    
+        import { parse, draw } from "https://root.cern/js/latest/modules/main.mjs";
+
         document.addEventListener("DOMContentLoaded", async function () {
             console.log("🚀 Loading JSON data...");
-        
+
             try {
+                // Load JSON file from GitHub Pages
                 let response = await fetch("../Files/plot.json");
                 if (!response.ok) throw new Error("Failed to fetch JSON");
-        
-                let jsonData = await response.json();
-        
-                let plotDiv = document.getElementById("plot");
-                JSROOT.cleanup(plotDiv); // Clear previous plot if needed
-        
-                let tracks = jsonData.tracks; // Beam trajectories
-                let axes = jsonData.axes; // Coordinate system axes
-        
-                // Merge tracks and axes into one array for rendering
-                let allObjects = [...tracks, ...(axes || [])]; // Ensure axes exist
-        
-                // Draw all polylines in the 3D space
-                JSROOT.draw(plotDiv, allObjects, "same");
-        
-                console.log("✅ Successfully loaded and displayed the 3D beam trajectories!");
+
+                let jsonText = await response.text();
+
+                // Parse JSON into a ROOT object
+                let hist = parse(jsonText);
+                if (!hist) throw new Error("Failed to parse JSON into ROOT object");
+
+                // Draw the histogram in the div with id 'plot'
+                draw("plot", hist, "lego2"); // "lego2" for 3D visualization
+
+                console.log("✅ Successfully loaded and displayed the 3D histogram!");
             } catch (error) {
                 console.error("🚨 Error loading JSON:", error);
             }
