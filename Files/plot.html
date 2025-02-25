@@ -3,7 +3,8 @@
 <head>
     <p>ughh </p>
     <script type="module">
-        import { parse, draw } from "https://root.cern/js/latest/modules/main.mjs";
+        import JSROOT from "https://root.cern/js/latest/modules/main.mjs";
+    
         document.addEventListener("DOMContentLoaded", async function () {
             console.log("🚀 Loading JSON data...");
         
@@ -20,7 +21,7 @@
                 let axes = jsonData.axes; // Coordinate system axes
         
                 // Merge tracks and axes into one array for rendering
-                let allObjects = [...tracks, ...axes];
+                let allObjects = [...tracks, ...(axes || [])]; // Ensure axes exist
         
                 // Draw all polylines in the 3D space
                 JSROOT.draw(plotDiv, allObjects, "same");
