@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <p>Please work</p>
+    <p>Pleaaaaseeeee work</p>
     <script type="module">
-        import * as JSROOT from "https://root.cern/js/latest/modules/main.mjs";
+        import { openFile, draw } from "https://root.cern/js/latest/modules/main.mjs";
 
         document.addEventListener("DOMContentLoaded", async function () {
             console.log("🚀 Checking JSROOT...");
 
             try {
-                // Load histogram example
-                let file = await JSROOT.OpenFile("https://root.cern/js/files/hsimple.root");
-                let obj = await file.ReadObject("hpx;1");
+                // Load ROOT file
+                let file = await openFile("https://root.cern/js/files/hsimple.root");
+                let obj = await file.readObject("hpx;1"); // Note: `readObject()` replaces `ReadObject()`
 
                 // Draw it in the div with id 'plot'
-                JSROOT.draw("plot", obj, "hist");
+                draw("plot", obj, "hist");
 
                 console.log("✅ JSROOT is loaded and drawing!");
             } catch (error) {
