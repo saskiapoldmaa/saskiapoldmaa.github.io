@@ -35,8 +35,6 @@ Here is also a 3D image of the trajectories of 1 000 random hadrons as they move
 
 A rotatable/zoomable version coming very-very soon!
 
-## Interactive 3D ROOT Plot
-
 <div id="plot" style="width:800px; height:600px;"></div>
 <script type="text/javascript" src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
 <script type="text/javascript">
