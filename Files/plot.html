@@ -4,37 +4,18 @@
     <script type="text/javascript" src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
 </head>
 <body>
-    <p>Proov debug</p>
+    <p>Proov</p>
     <div id="plot" style="width:800px; height:600px;"></div>
+
     <script type="text/javascript">
-        console.log("JSROOT script loaded. Attempting to open file...");
-        
-        JSROOT.openFile('../Files/plot.json').then(file => {
-            console.log("File loaded:", file);
-            
-            file.readKeys().then(keys => {
-                console.log("Available keys in file:", keys);
+        console.log("JSROOT script loaded. Drawing a test histogram...");
 
-                if (keys.length === 0) {
-                    console.error("No objects found in plot.json!");
-                    return;
-                }
+        let h1 = JSROOT.createHistogram("TH1I", 10);
+        for (let i = 0; i < 10; i++) h1.setBinContent(i+1, Math.random() * 100);
 
-                const objName = keys[0].fullname;  // Get first object name
-                console.log("Attempting to read object:", objName);
+        JSROOT.draw("plot", h1, "HIST");
 
-                file.readObject(objName, obj => {
-                    if (!obj) {
-                        console.error("Failed to read object:", objName);
-                    } else {
-                        console.log("Object read successfully:", obj);
-                        JSROOT.draw('plot', obj, "BOX");
-                    }
-                });
-            });
-        }).catch(error => {
-            console.error("Error loading plot.json:", error);
-        });
+        console.log("Test histogram drawn.");
     </script>
 </body>
 </html>
