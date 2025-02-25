@@ -41,11 +41,4 @@ A rotatable/zoomable version coming very-very soon!
 <iframe src="../Files/plot.html" width="850" height="650"></iframe>
 
 
-<div id="plot" style="width:800px; height:600px;"></div>
-<script type="text/javascript" src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
-<script type="text/javascript">
-    JSROOT.openFile('../Files/plot.json').then(file => file.readObject('h3', obj => {
-        JSROOT.draw('plot', obj, "BOX");
-    }));
-</script>
 
