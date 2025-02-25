@@ -1,4 +1,4 @@
-# Solving the Diffusion Equation
+# All I Know About Diffusion
 
 I had encountered diffusion equations in previous years' physics cups but I had never managed to solve them. The 2025 Seagull prompted me to go back to them, and to my surprise, they didn't seem as daunting this time.
 
@@ -31,6 +31,27 @@ $$T=C_2-C_3 erf \\left( \\frac{x}{\\sqrt{2}} \\right) $$
 Our boundary conditions are $T(x=0, t) =T_1$ and $T(x=\\infty, t)=0$, from which we deduce the final solution
 
 $$T=T_1 \\left( 1- erf \\left( \\frac{x}{\\sqrt{2}} \\right) \\right) $$
+
+### 1D with a twist ft. fractional derivatives
+
+Imagine a sheet of water with thickness H, density $\\rho_w$ and heat capacity $c_w$ is flowing over the medium. Let us assume that this sheet of water extends to infinity, therefore we have to only look at 1D. Let us label the direction in which the water is flowing as x-axis, and the vertical (pointed downwards) as z-axis. What is the temperature of water at distance x and time t?
+
+The energy balance between the soil and the water can be written as
+
+$vHc_w\\rho_w \\frac{\\partial T}{\\partial x}=J=\\kappa \\frac{\\partial T}{\\partial z} $$
+
+But we don't really care about y – we want a final expression featuring x and t.
+
+We know that
+$$\\frac{\\partial T}{\\partial t}=D\\frac{\\partial^2 T}{\\partial z^2}$$
+
+but we can't do much here, since our first equation has the first expression features a first derivative of T over z, while the second one has the second derivative. What we can do, however, is expand the second expression...
+
+$$\\left(\\sqrt{\\frac{\\partial }{\\partial t}}T-\\sqrt{D}\\frac{\\partial T}{\\partial z}\\right)\\left(\\sqrt{\\frac{\\partial}{\\partial t}}T+\\sqrt{D}\\frac{\\partial T}{\\partial z}\\right)=0$$
+
+Note that T is not under the square root, that is because $\\sqrt{\\frac{\\partial }{\\partial t}}$ is not just the square root of the normal derivative, it is its own operator.
+
+
 
 ### 2D
 
