@@ -5,7 +5,7 @@ I had encountered diffusion equations in previous years' physics cups but I had 
 My biggest blunder was loioking for help from heat transfer problems. No wonder I did not find anything helpful from there –– heat transfer, at the very begiining, is a completely different process from the heat transfer in the steady state. It turns out that this 'heat wave' trvarses through the material as a diffusive process.
 
 ### 1D
-Imagine you have two walls, one at temperature T_1, and the second at temperature 0. These two walls are brought into contact, and the temperature is kept constant at $T_1$ on one of the walls.
+Imagine you have two walls, one at temperature $T_1$, and the second at temperature 0. These two walls are brought into contact, and the temperature is kept constant at $T_1$ on one of the walls.
 What is the temperature in the second wall, at distance x from the interface, and at time t?
 
 Fourier's first law tells us that
@@ -38,7 +38,7 @@ Imagine a sheet of water with thickness H, density $\\rho_w$ and heat capacity $
 
 The energy balance between the soil and the water can be written as
 
-$vHc_w\\rho_w \\frac{\\partial T}{\\partial x}=J=\\kappa \\frac{\\partial T}{\\partial z} $$
+$$vHc_w\\rho_w \\frac{\\partial T}{\\partial x}=J=\\kappa \\frac{\\partial T}{\\partial z} $$
 
 But we don't really care about y – we want a final expression featuring x and t.
 
@@ -51,7 +51,13 @@ $$\\left(\\sqrt{\\frac{\\partial }{\\partial t}}T-\\sqrt{D}\\frac{\\partial T}{\
 
 Note that T is not under the square root, that is because $\\sqrt{\\frac{\\partial }{\\partial t}}$ is not just the square root of the normal derivative, it is its own operator.
 
+By now substituting $\\frac{\\partial T}{\\partial z}$ from the first eqn., we get
 
+$$\\frac{(vHc_w \\rho_w)^2}{\\kappa c \\rho}\\frac{\\partial^2 T}{\\parttial x^2}=\\frac{\\partial T}{\\partial t}$$
+
+which is like a standard diffusion equation, only that the effective diffusivity constant is very wacky, since it also accounts for the flow of the water etc. Solving this in the same way as in the previous section, we get
+
+$$T(x, t)=T_0 \\left( 1- erf \\left( \\frac{x}{\\sqrt{2}} \\right) \\right) $$
 
 ### 2D
 
