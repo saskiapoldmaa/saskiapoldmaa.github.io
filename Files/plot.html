@@ -7,9 +7,34 @@
     <p>Proov</p>
     <div id="plot" style="width:800px; height:600px;"></div>
     <script type="text/javascript">
-        JSROOT.openFile('../Files/plot.json').then(file => file.readObject('h3', obj => {
-            JSROOT.draw('plot', obj, "BOX");
-        }));
+        console.log("JSROOT script loaded. Attempting to open file...");
+        
+        JSROOT.openFile('../Files/plot.json').then(file => {
+            console.log("File loaded:", file);
+            
+            file.readKeys().then(keys => {
+                console.log("Available keys in file:", keys);
+
+                if (keys.length === 0) {
+                    console.error("No objects found in plot.json!");
+                    return;
+                }
+
+                const objName = keys[0].fullname;  // Get first object name
+                console.log("Attempting to read object:", objName);
+
+                file.readObject(objName, obj => {
+                    if (!obj) {
+                        console.error("Failed to read object:", objName);
+                    } else {
+                        console.log("Object read successfully:", obj);
+                        JSROOT.draw('plot', obj, "BOX");
+                    }
+                });
+            });
+        }).catch(error => {
+            console.error("Error loading plot.json:", error);
+        });
     </script>
 </body>
 </html>
