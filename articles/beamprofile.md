@@ -38,7 +38,6 @@ A rotatable/zoomable version coming very-very soon!
 ## Interactive 3D ROOT Plot
 
 <div id="plot" style="width:800px; height:600px;"></div>
-
 <script type="text/javascript" src="https://root.cern/js/latest/scripts/JSRoot.core.js"></script>
 <script type="text/javascript">
     JSROOT.openFile('../Files/plot.json').then(file => file.readObject('h3', obj => {
