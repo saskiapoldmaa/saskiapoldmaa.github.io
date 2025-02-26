@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <p>Proov</p>
     <script type="module">
         import { parse, draw } from "https://root.cern/js/latest/modules/main.mjs";
 
@@ -10,7 +9,7 @@
 
             try {
                 // Load JSON file
-                let response = await fetch("../Files/polyline.json");
+                let response = await fetch("../Files/plot.json");
                 if (!response.ok) throw new Error("Failed to fetch JSON");
 
                 let jsonText = await response.text();
@@ -30,7 +29,6 @@
     </script>
 </head>
 <body>
-    <p>Displaying 3D polyline from JSON:</p>
     <div id="plot" style="width:800px; height:600px; border:2px solid red;"></div>
 </body>
 </html>
