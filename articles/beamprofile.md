@@ -32,12 +32,6 @@ and for the muon beam.
 Curiously, the hadron beam is moch more concentrated. And the muon beam seems to take the shape of a square – well that is actually not because of the beam itself, but simply from the fact that the DWCs are rectangular, and near the edges, they are slightly less efficient.
 
 Here is also a 3D image of the trajectories of 1 000 random hadrons as they move in-between the two DWCs...
-<img src="../articles/images/3d.png" width="800px" height="auto">
-
-A rotatable/zoomable version coming very-very soon!
-
-
-### iFrame
 
 <iframe src="../Files/plot.html" width="850" height="650"></iframe>
 
