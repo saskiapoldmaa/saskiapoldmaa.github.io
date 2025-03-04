@@ -10,6 +10,16 @@ You can check out my progress below.
 
 ---
 
+[Laplace-Runge-Lenz – Physics Cup 2025 Problem 5](https://saskiapoldmaa.github.io/?show=PC/PC25/5.md)
+<p style="color: gray;">Completed March 4.</p>
+
+---
+
+[A Short Problem on Dobble](https://saskiapoldmaa.github.io/?show=PC/dobble.md)
+<p style="color: gray;">Completed March 4.</p>
+
+---
+
 [Solving the Diffusion Equation](https://saskiapoldmaa.github.io/?show=PC/diffusion.md)
 <p style="color: gray;">Completed February 23.</p>
 
