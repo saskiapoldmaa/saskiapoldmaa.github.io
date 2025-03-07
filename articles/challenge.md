@@ -10,7 +10,7 @@ You can check out my progress below.
 
 ---
 
-[Laplace-Runge-Lenz – Physics Cup 2025 Problem 5](https://saskiapoldmaa.github.io/?show=PC/PC25/5.md)
+[Laplace-Runge-Lenz – Physics Cup 2025 Problem 5](https://saskiapoldmaa.github.io/?show=PC/PC25/255.md)
 <p style="color: gray;">Completed March 4.</p>
 
 ---
