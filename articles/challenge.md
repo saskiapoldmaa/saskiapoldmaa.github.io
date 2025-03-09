@@ -10,6 +10,11 @@ You can check out my progress below.
 
 ---
 
+[A Cool Conic Sections as Envelopes Property – Physics Cup 2025 Problem 4](https://saskiapoldmaa.github.io/?show=PC/PC25/4.md)
+<p style="color: gray;">Completed March 9.</p>
+
+---
+
 [Laplace-Runge-Lenz – Physics Cup 2025 Problem 5](https://saskiapoldmaa.github.io/?show=PC/PC25/255.md)
 <p style="color: gray;">Completed March 4.</p>
 
