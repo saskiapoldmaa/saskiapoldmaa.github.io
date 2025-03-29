@@ -16,13 +16,11 @@
                 const B = data.B;
                 const C = data.C;
                 const D = data.D;
-                
                 const centroid = [
                     (A[0][0] + B[0][0] + C[0][0] + D[0][0]) / 4,
                     (A[0][1] + B[0][1] + C[0][1] + D[0][1]) / 4,
                     (A[0][2] + B[0][2] + C[0][2] + D[0][2]) / 4
                 ];
-
                 const dataPlot = [{
                     type: 'scatter3d',
                     mode: 'markers+lines',
@@ -39,7 +37,6 @@
                     z: [centroid[2]],
                     marker: { size: 6, color: 'red' }
                 }];
-
                 const layout = {
                     title: 'Tetrahedron Animation',
                     scene: {
@@ -48,7 +45,6 @@
                         zaxis: { range: [-1, 1] }
                     }
                 };
-
                 Plotly.newPlot('plot', dataPlot, layout);
             });
     </script>
