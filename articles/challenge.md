@@ -10,7 +10,7 @@ You can check out my progress below.
 
 ---
 
-[Three Turtles Problem with a Twist – Physics Cup 2025 Problem 2](https://saskiapoldmaa.github.io/?show=tetrahedron.md)
+[Three Turtles Problem with a Twist – Physics Cup 2025 Problem 2](https://saskiapoldmaa.github.io/?show=tetrahedron.html)
 <p style="color: gray;">Completed March 4.</p>
 
 ---
