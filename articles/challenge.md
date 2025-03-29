@@ -10,7 +10,7 @@ You can check out my progress below.
 
 ---
 
-[Test](https://saskiapoldmaa.github.io/?show=proov.html)
+[Test](https://saskiapoldmaa.github.io/?show=proov.md)
 <p style="color: gray;">Completed March 4.</p>
 
 ---
