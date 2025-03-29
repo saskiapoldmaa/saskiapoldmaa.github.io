@@ -10,6 +10,11 @@ You can check out my progress below.
 
 ---
 
+[Three Turtles Problem with a Twist – Physics Cup 2025 Problem 2](https://saskiapoldmaa.github.io/?show=tetrahedron.html)
+<p style="color: gray;">Completed March 4.</p>
+
+---
+
 [A Cool Conic Sections as Envelopes Property – Physics Cup 2025 Problem 4](https://saskiapoldmaa.github.io/?show=PC/PC25/4.md)
 <p style="color: gray;">Completed March 9.</p>
 
