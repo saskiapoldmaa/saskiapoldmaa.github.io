@@ -10,6 +10,11 @@ You can check out my progress below.
 
 ---
 
+[Dielectric Spheres in Electric Field = Heat Conduction Problem? – Physics Cup 2020 Problem 4](https://saskiapoldmaa.github.io/?show=PC/PC20/4.md)
+<p style="color: gray;">Completed March 31.</p>
+
+---
+
 [Black Sphere Wandering Around in Vacuum – Physics Cup 2018 Problem 5](https://saskiapoldmaa.github.io/?show=PC/PC18/5.md)
 <p style="color: gray;">Completed March 30.</p>
 
