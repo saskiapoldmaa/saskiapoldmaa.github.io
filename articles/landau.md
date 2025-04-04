@@ -90,12 +90,10 @@ To sum up, the underlying physics behind Landau distributions is simply $\\frac{
 
 When a charged particle passes through a thin material:
 
-- item It undergoes many small energy losses due to ionization.
+- It undergoes many small energy losses due to ionization.
 - Occasionally, large energy losses occur, leading to a distribution with a heavy right-hand tail.
 
 For thin materials, where the number of collisions is not large enough for the central limit theorem to apply (which would give a Gaussian distribution), the Landau distribution accurately models these fluctuations.
-
-### Mathematical Framework
 
 ### Step 1: Setting Up the Problem
 
@@ -107,11 +105,11 @@ $$
 \\Delta = \\sum_{i=1}^{N} \\epsilon_i
 $$
 
-where $ \\epsilon_i $ is the energy lost in the $ i $-th collision.
+where $ \\epsilon_i $ is the energy lost during the $ i $-th collision.
 
 ### Step 2: The Characteristic Function (Fourier Transform of the PDF)
 
-The characteristic function $$ \phi(k) $$ of a probability distribution $$ f(\Delta) $$ is the Fourier transform of $$ f(\Delta) $$:
+The characteristic function $ \phi(k) $ of a probability distribution $ f(\Delta) $ is the Fourier transform of $ f(\Delta) $:
 
 $$
 \\phi(k) = \\int_{-\\infty}^{\\infty} e^{ik\\Delta} f(\\Delta) \\, d\\Delta
@@ -121,7 +119,7 @@ To find $ f(\\Delta) $, we first derive $ \phi(k) $, and then invert the Fourier
 
 ### Step 3: Finding the Characteristic Function
 
-Landau used the fact that the energy transfer in a single collision follows a heavy-tailed distribution. For large energy transfers $$ \epsilon $$, the probability density behaves like:
+Landau used the fact that the energy transfer in a single collision follows a heavy-tailed distribution. For large energy transfers $ \epsilon $, the probability density behaves like:
 
 $$
 P(\\epsilon) \\propto \\frac{1}{\\epsilon^2}
@@ -139,7 +137,7 @@ where $ \\lambda $ is a parameter related to the mean energy loss per unit path 
 
 ### Step 4: Inverse Fourier Transform}
 
-To obtain the probability density function $$ f(\Delta) $$, we apply the inverse Fourier transform to $$ \phi(k) $$:
+To obtain the probability density function $ f(\Delta) $, we apply the inverse Fourier transform to $ \phi(k) $:
 
 $$
 f(\\Delta) = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} e^{-ik\\Delta} \\phi(k) \\, dk
