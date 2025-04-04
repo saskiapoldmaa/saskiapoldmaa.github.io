@@ -20,8 +20,8 @@ You can check out my progress below.
 
 ---
 
-[Three Turtles Problem with a Twist – Physics Cup 2025 Problem 2](https://saskiapoldmaa.github.io/tetrahedron.html)
-<p style="color: gray;">Completed March 29.</p>
+[Three Turtles Problem with a Twist – Physics Cup 2025 Problem 2](https://saskiapoldmaa.github.io/articles/?show=PC/PC25/2.md)
+<p style="color: gray;">Completed in 2024, polished on March 29</p>
 
 ---
 
