@@ -159,7 +159,7 @@ $$
 f(\\lambda) = \\frac{1}{\\pi} \\int_0^{\\infty} e^{-t \\ln t - \\lambda t} \\sin(\\pi t) \\, dt
 $$
 
-This integral defines the Landau distribution.
+This integral is the official definition of the Landau distribution.
 
 - The most probable value of energy loss corresponds to the peak of the distribution.
 - The mean of the distribution is undefined due to the heavy tail (infinite variance).
