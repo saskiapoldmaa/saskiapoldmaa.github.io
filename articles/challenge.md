@@ -10,6 +10,11 @@ You can check out my progress below.
 
 ---
 
+[Homogeneously Charged Ellipsoids – Physics Cup 2025 Problem 1](https://saskiapoldmaa.github.io/?show=PC/PC25/1.md)
+<p style="color: gray;">Completed April 15</p>
+
+---
+
 [Dielectric Spheres in Electric Field = Heat Conduction Problem? – Physics Cup 2020 Problem 4](https://saskiapoldmaa.github.io/?show=PC/PC20/4.md)
 <p style="color: gray;">Completed March 31.</p>
 
