@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Potential Simulator</title>
+    <style>
+        body {
+            font-family: 'Crimson Text', serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: white;
+        }
+        
+        .simulation-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+        #simulation {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        #simulation canvas {
+            background-color: white !important;
+            display: block;
+        }
+        
+        .charge {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #e74c3c;
+            transform: translate(-50%, -50%);
+            cursor: move;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8em;
+            user-select: none;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .charge.positive {
+            background-color: #e74c3c; /* Red for positive */
+        }
+        
+        .charge.negative {
+            background-color: #3498db; /* Blue for negative */
+        }
+        
+        .controls {
+            margin: 15px 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .control-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .zoom-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: auto;
+            background: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .zoom-controls button {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1;
+        }
+        
+        #zoomLevel {
+            min-width: 45px;
+            text-align: center;
+            font-family: monospace;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .controls {
+            background-color: #2d2d2d;
+        }
+        
+        .dark-mode #simulation {
+            background-color: #1a1a1a;
+            border-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="simulation-container">
+        <h1>Electric Potential Simulator</h1>
+        <p>Drag the charges to see how the electric potential field changes. Adjust the charge values using the controls below.</p>
+        
+        <div id="simulation">
+            <!-- Canvas will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="charge1">Charge 1 (q₁):</label>
+                <input type="range" id="charge1" min="-10" max="10" value="5" step="0.1">
+                <span id="charge1Value">+5.0</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="charge2">Charge 2 (q₂):</label>
+                <input type="range" id="charge2" min="-10" max="10" value="-5" step="0.1">
+                <span id="charge2Value">-5.0</span>
+            </div>
+            
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="showPotential" checked>
+                    Show Potential
+                </label>
+                <label>
+                    <input type="checkbox" id="showFieldLines" checked>
+                    Show Field Lines
+                </label>
+            </div>
+            <div class="control-group">
+                <button id="addPositive">Add + Charge</button>
+                <button id="addNegative">Add - Charge</button>
+                <button id="clearCharges">Clear All</button>
+            </div>
+            <div class="zoom-controls">
+                <button id="zoomIn" title="Zoom In">+</button>
+                <span id="zoomLevel">100%</span>
+                <button id="zoomOut" title="Zoom Out">-</button>
+                <button id="resetZoom" title="Reset Zoom">Reset</button>
+            </div>
+        </div>
+        
+        <div class="description">
+            <h2>How It Works</h2>
+            <p>This simulation shows the electric potential and field lines around two point charges. The potential is calculated using Coulomb's law:</p>
+            <p>V = k * (q₁/r₁ + q₂/r₂)</p>
+            <p>Where:</p>
+            <ul>
+                <li>V is the electric potential at a point</li>
+                <li>k is Coulomb's constant (set to 1 for simplicity)</li>
+                <li>q₁ and q₂ are the charges</li>
+                <li>r₁ and r₂ are the distances from the point to each charge</li>
+            </ul>
+            <p>Drag the charges around to see how the potential field changes. Use the sliders to adjust the charge values.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded');
+            
+            // Get the simulation container and create canvas
+            const simulation = document.getElementById('simulation');
+            const canvas = document.createElement('canvas');
+            simulation.innerHTML = ''; // Clear any existing content
+            simulation.appendChild(canvas);
+            
+            // Set canvas size
+            function resizeCanvas() {
+                canvas.width = simulation.clientWidth;
+                canvas.height = 500; // Fixed height as per the CSS
+                console.log('Canvas resized to:', canvas.width, 'x', canvas.height);
+            }
+            
+            // Initialize canvas and context
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Could not get 2D context');
+                return;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            // Simulation state
+            const charges = [];
+            let selectedChargeIndex = -1;
+            let isDragging = false;
+            let showPotential = true;
+            let showFieldLines = true;
+            
+            // Zoom state
+            let zoomLevel = 1.0;
+            const ZOOM_FACTOR = 1.2;
+            const MIN_ZOOM = 0.0001;  // Very small value to effectively allow unlimited zoom out
+            const MAX_ZOOM = Number.MAX_VALUE; // Effectively unlimited zoom in
+            let viewOffsetX = 0;
+            let viewOffsetY = 0;
+            let isPanning = false;
+            let lastMouseX = 0;
+            let lastMouseY = 0;
+            
+            // Get UI elements
+            const charge1Slider = document.getElementById('charge1');
+            const charge2Slider = document.getElementById('charge2');
+            const charge1Value = document.getElementById('charge1Value');
+            const charge2Value = document.getElementById('charge2Value');
+            
+            // Set up event listeners
+            canvas.addEventListener('mousedown', handleMouseDown);
+            canvas.addEventListener('mousemove', handleMouseMove);
+            canvas.addEventListener('mouseup', handleMouseUp);
+            canvas.addEventListener('mouseleave', handleMouseUp);
+            canvas.addEventListener('wheel', handleWheel, { passive: false });
+            
+            // Button event listeners
+            document.getElementById('addPositive').addEventListener('click', () => addCharge(1));
+            document.getElementById('addNegative').addEventListener('click', () => addCharge(-1));
+            document.getElementById('clearCharges').addEventListener('click', clearCharges);
+            document.getElementById('showPotential').addEventListener('change', (e) => {
+                showPotential = e.target.checked;
+                draw();
+            });
+            document.getElementById('showFieldLines').addEventListener('change', (e) => {
+                showFieldLines = e.target.checked;
+                draw();
+            });
+            
+            // Zoom controls
+            document.getElementById('zoomIn').addEventListener('click', () => adjustZoom(1));
+            document.getElementById('zoomOut').addEventListener('click', () => adjustZoom(-1));
+            document.getElementById('resetZoom').addEventListener('click', resetView);
+            
+            // Update zoom level display
+            function updateZoomDisplay() {
+                document.getElementById('zoomLevel').textContent = `${Math.round(zoomLevel * 100)}%`;
+            }
+            
+            // Convert screen coordinates to world coordinates
+            function screenToWorld(screenX, screenY) {
+                return {
+                    x: (screenX - viewOffsetX) / zoomLevel,
+                    y: (screenY - viewOffsetY) / zoomLevel
+                };
+            }
+            
+            // Handle mouse down events
+            function handleMouseDown(e) {
+                const rect = canvas.getBoundingClientRect();
+                const screenX = e.clientX - rect.left;
+                const screenY = e.clientY - rect.top;
+                
+                // Convert to world coordinates
+                const worldPos = screenToWorld(screenX, screenY);
+                const x = worldPos.x;
+                const y = worldPos.y;
+                
+                // Middle mouse button or space + click for panning
+                if (e.button === 1 || (e.button === 0 && e.altKey)) {
+                    isPanning = true;
+                    lastMouseX = screenX;
+                    lastMouseY = screenY;
+                    canvas.style.cursor = 'grabbing';
+                    e.preventDefault();
+                    return;
+                }
+                
+                // Check if clicking on a charge
+                const chargeHitRadius = 20 / zoomLevel; // Scale hit area with zoom
+                for (let i = 0; i < charges.length; i++) {
+                    const charge = charges[i];
+                    const dx = x - charge.x;
+                    const dy = y - charge.y;
+                    if (dx * dx + dy * dy < chargeHitRadius * chargeHitRadius) {
+                        selectedChargeIndex = i;
+                        isDragging = true;
+                        charges[i].isDragging = true;
+                        return;
+                    }
+                }
+                
+                // If not clicking on a charge, create a new one with the last used charge type
+                if (e.shiftKey) {
+                    addCharge(-1, x, y);
+                } else if (e.button === 0) {  // Only add charge on left click
+                    addCharge(1, x, y);
+                }
+            }
+            
+            // Handle mouse move events
+            function handleMouseMove(e) {
+                const rect = canvas.getBoundingClientRect();
+                const screenX = e.clientX - rect.left;
+                const screenY = e.clientY - rect.top;
+                
+                if (isPanning) {
+                    // Pan the view
+                    viewOffsetX += (screenX - lastMouseX);
+                    viewOffsetY += (screenY - lastMouseY);
+                    lastMouseX = screenX;
+                    lastMouseY = screenY;
+                    draw();
+                    e.preventDefault();
+                } else if (isDragging && selectedChargeIndex >= 0) {
+                    // Move the selected charge
+                    const worldPos = screenToWorld(screenX, screenY);
+                    charges[selectedChargeIndex].x = worldPos.x;
+                    charges[selectedChargeIndex].y = worldPos.y;
+                    draw();
+                }
+            }
+            
+            // Handle mouse up events
+            function handleMouseUp() {
+                if (isPanning) {
+                    isPanning = false;
+                    canvas.style.cursor = '';
+                }
+                if (isDragging) {
+                    if (selectedChargeIndex >= 0 && selectedChargeIndex < charges.length) {
+                        charges[selectedChargeIndex].isDragging = false;
+                    }
+                    isDragging = false;
+                    draw();
+                }
+            }
+            
+            // Handle mouse wheel for zooming
+            function handleWheel(e) {
+                e.preventDefault();
+                
+                const rect = canvas.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                
+                // Calculate mouse position in world coordinates before zoom
+                const worldX = (mouseX - viewOffsetX) / zoomLevel;
+                const worldY = (mouseY - viewOffsetY) / zoomLevel;
+                
+                // Adjust zoom level
+                const zoomDelta = e.deltaY < 0 ? ZOOM_FACTOR : 1 / ZOOM_FACTOR;
+                const newZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoomLevel * zoomDelta));
+                
+                if (Math.abs(newZoom - zoomLevel) < 0.01) return; // Prevent tiny zoom changes
+                
+                // Adjust view offset to zoom toward mouse position
+                viewOffsetX = mouseX - worldX * newZoom;
+                viewOffsetY = mouseY - worldY * newZoom;
+                zoomLevel = newZoom;
+                
+                updateZoomDisplay();
+                draw();
+            }
+            
+            // Adjust zoom level
+            function adjustZoom(direction) {
+                const zoomDelta = direction > 0 ? ZOOM_FACTOR : 1 / ZOOM_FACTOR;
+                const newZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoomLevel * zoomDelta));
+                
+                if (Math.abs(newZoom - zoomLevel) < 0.01) return; // Prevent tiny zoom changes
+                
+                // Zoom toward center of canvas
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const worldX = (centerX - viewOffsetX) / zoomLevel;
+                const worldY = (centerY - viewOffsetY) / zoomLevel;
+                
+                viewOffsetX = centerX - worldX * newZoom;
+                viewOffsetY = centerY - worldY * newZoom;
+                zoomLevel = newZoom;
+                
+                updateZoomDisplay();
+                draw();
+            }
+            
+            // Reset the view to default zoom and position
+            function resetView() {
+                zoomLevel = 1.0;
+                viewOffsetX = 0;
+                viewOffsetY = 0;
+                updateZoomDisplay();
+                draw();
+            }
+            
+            // Set up mouse event listeners
+            canvas.addEventListener('mousedown', handleMouseDown);
+            canvas.addEventListener('mousemove', handleMouseMove);
+            canvas.addEventListener('mouseup', handleMouseUp);
+            canvas.addEventListener('mouseleave', handleMouseUp);
+            canvas.addEventListener('wheel', handleWheel, { passive: false });
+            
+            // Calculate electric potential at a point (x, y)
+            function calculatePotential(x, y) {
+                let potential = 0;
+                const k = 9e9; // Coulomb's constant
+                
+                for (const charge of charges) {
+                    const dx = x - charge.x;
+                    const dy = y - charge.y;
+                    const r = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (r > 0) {
+                        potential += k * charge.q / r;
+                    }
+                }
+                
+                return potential;
+            }
+            
+            // Calculate electric field at a point (x, y)
+            function calculateField(x, y) {
+                let Ex = 0, Ey = 0;
+                const k = 9e9; // Coulomb's constant
+                
+                for (const charge of charges) {
+                    const dx = x - charge.x;
+                    const dy = y - charge.y;
+                    const r = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (r > 0) {
+                        const E = k * charge.q / (r * r);
+                        Ex += E * dx / r;
+                        Ey += E * dy / r;
+                    }
+                }
+                
+                return { Ex, Ey };
+            }
+            
+            // Drawing functions
+            function draw() {
+                console.log('Drawing...');
+                
+                // Clear the entire canvas with white
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Save the current context state
+                ctx.save();
+                
+                // Apply zoom and pan transformations
+                ctx.save(); // Save the state before applying transformations
+                ctx.translate(viewOffsetX, viewOffsetY);
+                ctx.scale(zoomLevel, zoomLevel);
+                
+                // Clear again after transformations to ensure no artifacts
+                ctx.fillStyle = 'white';
+                ctx.fillRect(-viewOffsetX/zoomLevel, -viewOffsetY/zoomLevel, canvas.width/zoomLevel, canvas.height/zoomLevel);
+                
+                // Draw potential if enabled
+                if (showPotential) {
+                    console.log('Drawing potential');
+                    drawPotential();
+                }
+                
+                // Draw field lines if enabled
+                if (showFieldLines) {
+                    console.log('Drawing field lines');
+                    drawFieldLines();
+                }
+                
+                // Restore the context state to draw charges at a consistent size
+                ctx.restore(); // Restore to before zoom/pan
+                ctx.restore(); // Restore to original state
+                
+                // Draw charges (in screen space so they don't scale)
+                console.log('Drawing charges');
+                for (let i = 0; i < charges.length; i++) {
+                    drawCharge(charges[i], i === selectedChargeIndex && isDragging);
+                }
+                
+                console.log('Draw complete');
+            }
+            
+            function drawPotential() {
+                const width = canvas.width;
+                const height = canvas.height;
+                const step = 8; // Smaller step for smoother gradient
+                const maxPotential = 1e9; // Adjusted max potential for better color distribution
+                
+                console.log('Drawing potential with step:', step);
+                
+                // Create a gradient for the potential
+                const gradient = ctx.createLinearGradient(0, 0, width, 0);
+                gradient.addColorStop(0, '#0000ff');  // Blue for negative
+                gradient.addColorStop(0.5, '#000000'); // Black for zero
+                gradient.addColorStop(1, '#ff0000');  // Red for positive
+                
+                // Draw potential as a grid of colored rectangles
+                for (let x = 0; x < width; x += step) {
+                    for (let y = 0; y < height; y += step) {
+                        const potential = calculatePotential(x, y);
+                        
+                        // Normalize potential to [0, 1] range for coloring
+                        let t = Math.min(1, Math.max(-1, potential / maxPotential));
+                        t = (t + 1) / 2; // Convert to 0-1 range
+                        
+                        // Create a color based on the potential value
+                        let r, g, b;
+                        if (t < 0.5) {
+                            // Blue to black gradient for negative potential
+                            const f = t * 2;
+                            r = 0;
+                            g = 0;
+                            b = Math.round(255 * (1 - f));
+                        } else {
+                            // Black to red gradient for positive potential
+                            const f = (t - 0.5) * 2;
+                            r = Math.round(255 * f);
+                            g = 0;
+                            b = 0;
+                        }
+                        
+                        // Apply lighter colors with more transparency for a subtle look
+                        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.3)`;
+                        ctx.fillRect(x, y, step, step);
+                    }
+                }
+            }
+            
+            function drawFieldLines() {
+                const width = canvas.width;
+                const height = canvas.height;
+                const numLines = 16; // Increased number of field lines for denser visualization
+                const steps = 300; // More steps for smoother lines
+                const stepSize = 2; // Smaller step size for smoother lines
+                
+                console.log('Drawing field lines');
+                
+                // Find all positive and negative charges
+                const positiveCharges = charges.filter(c => c.q > 0);
+                const negativeCharges = charges.filter(c => c.q < 0);
+                
+                // If no positive or negative charges, don't draw field lines
+                if (positiveCharges.length === 0 || negativeCharges.length === 0) {
+                    return;
+                }
+                
+                // Draw field lines starting from positive charges
+                for (const charge of positiveCharges) {
+                    // Start field lines in a circle around the charge
+                    for (let i = 0; i < numLines; i++) {
+                        const angle = (i / numLines) * 2 * Math.PI;
+                        const startX = charge.x + 20 * Math.cos(angle);
+                        const startY = charge.y + 20 * Math.sin(angle);
+                        
+                        let x = startX;
+                        let y = startY;
+                        
+                        ctx.beginPath();
+                        ctx.moveTo(x, y);
+                        
+                        // Follow the field line
+                        for (let j = 0; j < steps; j++) {
+                            const field = calculateField(x, y);
+                            const fieldStrength = Math.sqrt(field.Ex * field.Ex + field.Ey * field.Ey);
+                            if (fieldStrength < 0.05) break; // Stop if field is too weak
+                            
+                            // Normalize the field vector
+                            const dx = (field.Ex / fieldStrength) * stepSize;
+                            const dy = (field.Ey / fieldStrength) * stepSize;
+                            
+                            // Move in the direction of the field
+                            x += dx;
+                            y += dy;
+                            
+                            // Stop if we go off the canvas
+                            if (x < 0 || x > width || y < 0 || y > height) break;
+                            
+                            // Check if we're close to any negative charge
+                            let reachedNegative = false;
+                            for (const neg of negativeCharges) {
+                                const dist = Math.sqrt((x - neg.x) ** 2 + (y - neg.y) ** 2);
+                                if (dist < 25) {
+                                    x = neg.x;
+                                    y = neg.y;
+                                    reachedNegative = true;
+                                    break;
+                                }
+                            }
+                            
+                            // Add a line segment
+                            ctx.lineTo(x, y);
+                            
+                            if (reachedNegative) break;
+                            
+                            // Stop if we get too close to any charge (except the starting one)
+                            let tooClose = false;
+                            for (const c of charges) {
+                                if (c === charge) continue; // Skip the charge we're starting from
+                                
+                                const dist = Math.sqrt((x - c.x) ** 2 + (y - c.y) ** 2);
+                                if (dist < 20) {
+                                    tooClose = true;
+                                    break;
+                                }
+                            }
+                            
+                            if (tooClose) break;
+                        }
+                        
+                        // Draw the field line
+                        ctx.strokeStyle = 'rgba(100, 100, 100, 0.5)'; // Lighter gray for field lines
+                        ctx.lineWidth = 1.2; // Slightly thinner lines
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            function drawCharge(charge, isSelected) {
+                // Convert charge position to screen coordinates
+                const screenX = charge.x * zoomLevel + viewOffsetX;
+                const screenY = charge.y * zoomLevel + viewOffsetY;
+                
+                // Skip if charge is outside the visible area
+                if (screenX < -20 || screenX > canvas.width + 20 || 
+                    screenY < -20 || screenY > canvas.height + 20) {
+                    return;
+                }
+                
+                // Draw outer circle (glow effect if selected)
+                if (isSelected) {
+                    ctx.beginPath();
+                    ctx.arc(screenX, screenY, 15, 0, 2 * Math.PI);
+                    ctx.fillStyle = charge.q > 0 ? 'rgba(255, 200, 200, 0.5)' : 'rgba(200, 200, 255, 0.5)';
+                    ctx.fill();
+                }
+                
+                // Draw charge circle (consistent size regardless of zoom)
+                const chargeRadius = 6; // Fixed size in screen pixels
+                ctx.beginPath();
+                ctx.arc(screenX, screenY, chargeRadius, 0, 2 * Math.PI);
+                ctx.fillStyle = charge.q > 0 ? '#ff4444' : '#4444ff';
+                ctx.fill();
+                
+                // Draw charge sign (consistent size)
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 10px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(charge.q > 0 ? '+' : '−', screenX, screenY + 1);
+            }
+            
+            // Add a new charge to the simulation
+            function addCharge(q, x, y) {
+                // If x and y are not provided, add the charge at the center of the canvas
+                if (x === undefined || y === undefined) {
+                    x = canvas.width / 2;
+                    y = canvas.height / 2;
+                }
+                
+                const charge = {
+                    q: q,  // Charge value
+                    x: x,  // x position
+                    y: y,  // y position
+                    isDragging: false
+                };
+                
+                charges.push(charge);
+                console.log(`Added ${q > 0 ? 'positive' : 'negative'} charge at (${x}, ${y})`);
+                draw();
+                return charge;
+            }
+            
+            // Clear all charges
+            function clearCharges() {
+                charges.length = 0;
+                selectedChargeIndex = -1;
+                draw();
+            }
+            
+            // Add default charges if none exist
+            if (charges.length === 0) {
+                // Add charges with explicit positions in world coordinates
+                addCharge(1, 200, 250);
+                addCharge(-1, 300, 250);
+            }
+            
+            // Initial draw
+            console.log('Starting initial draw');
+            updateZoomDisplay(); // Initialize zoom level display
+            draw();
+            console.log('Initial draw complete');
+        });
+    </script>
+</body>
+</html>

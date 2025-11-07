@@ -1,4 +1,43 @@
-# First Example: Check If Your Local ROOT Can Run A Simple PyROOT Notebook
+# PyROOT Setup and First Example
+
+ROOT is a program/library designed to handle large amounts of experimental data, whether from high-energy physics or from other research fields. Here's a little overview about the aspects I find particularly neat about it.
+
+### 1\. The structure
+
+In ROOT, data is grouped together into a forest-themed structure: all data points lie on individual leaves, tied together with others into branches and trees. !
+
+<img src="/branches.png" width="80%" height="auto">
+
+On this picture, you can see one of such trees. You might notice a slight discrepancy between the tree in ROOT and one we'd find in nature – for the ROOT tree, all branches take the same length, and feature the same amount of leaves (grey squares). That is because each branch corresponds to a single output of some detector, and each leaf is a single reading of that channel. These branches must have the same length, because only then can we group together the readings from multiple detectors into coherent measurements.
+
+### 2\. Landau distributions
+
+Yes, there are some Python libraries, which _promise_ to help with creating these distributions, but do they automatically give you all of the parameters of the distribution? Also, any kind of data visualization is just so natural in ROOT. Even the preview of ROOT files is not just a long file of numerical jargon, but it is instead displayed really neatly in the form of histograms (see Figure below). Although this histogram representation makes no sense for some datasets, it is tremendously useful for the other ones.
+
+<img src="/Landau.png" width="60%" height="auto">
+
+The preview of a ROOT file. The nice Landau distribution is the histogram of QDC counts recorded from a scintillator.
+
+
+First, we will need to install ROOT. We will rely on Conda (a package management system common in the physics community), and VS Code to run the following Jupyter Notebooks. Note that this is only one way to do it.
+
+1. download Conda (https://docs.conda.io/en/latest/miniconda.html)
+2. if you haven't already, download VS Code (https://code.visualstudio.com/) and Python (https://www.python.org/downloads/)
+3. open the terminal in VS Code (View -> Terminal)
+4. create a new conda environment (environment is the place where we'll install our packages, allowing us to keep them separate from other packages we might need for other projects) 
+```shell
+conda create -n pyroot python=3.8
+```
+5. activate the environment 
+```shell
+conda activate pyroot
+```
+6. install ROOT 
+```shell
+conda install root
+```
+
+Now we can open up the Jupyter Notebook (download below).
 
 <a href="https://github.com/saskiapoldmaa/saskiapoldmaa.github.io/blob/main/Files/gaussian_distribution_pyroot.ipynb" download>
     <button style="background-color:#616eff; color:white; border:none; padding:7px 12px; cursor:pointer; font-size:15px; border-radius:5px;">
@@ -6,13 +45,14 @@
     </button>
 </a>
 
+This first example is mainly a showcase of ROOT plotting. For now, we'll be plotting data about random numbers, but in the next example, each of these numbers will be replaces by a particle. 
 
-Let's try to 
+Let's try to
 - create a set of random numbers
-- that are distributed according to a Gaussian distribution
-- and see if we can plot these numbers
+- that are sampled from a Gaussian distribution
+- and see if we can plot these
 
-But first...
+First introduce ROOT to Python:
 
 ```python
 import ROOT
@@ -99,8 +139,7 @@ gauss_values1.Draw( "SAME" )
 c1.Draw()
 ```
 
-
-    
+The plot should look like this:
 ![png](../articles/images/nice_gaus.png)
     
 
@@ -133,13 +172,14 @@ histogram1.GetYaxis().CenterTitle(True)
 ```python
 c2.Draw()
 ```
-
+Your second plot should look like this: 
 ![png](../articles/images/gaus.png)
     
 
 
-### Save Some Of The Expressions (and Data) We Have Created Into a ROOT File
+### Creating your first ROOT file!
 
+Save Some Of The Expressions (and Data) We Have Created Into a ROOT File.
 
 ```python
 output_file = ROOT.TFile( "./example1_gaussian_distribution_python.root", "RECREATE" )
@@ -148,3 +188,11 @@ gauss_fml.Write()
 histogram1.Write()
 output_file.Close()
 ```
+Why VS Code is perfect for working with ROOT, is because it has an extension that allows you to visualize these ROOT files.
+
+Navigate to the Extensions tab in VS Code, search for "ROOT File Viewer" and install it. Next time, you can open a .root file in VS Code, and it will show you the file in ROOT's inherent tree structure, and the content itself will be displayed as histograms.
+
+For example, ```example1_gaussian_distribution_python.root``` looks like this:
+
+<img src="../articles/images/root_file.png" alt="" style="width:70%; height:auto;">
+

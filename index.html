@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dummy's Guide to Particle Physics</title>
+    <title>Saskia's Physics Archvive</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link
@@ -41,18 +41,15 @@
         }
 
         h2 {
-            font-size: 1.5rem;
-            color: hsl(235, 100%, 69%);
+            font-size: 2rem;
+            color: hsl(235, 81%, 59%);
             display: block;  /* Make it full width */
-            margin: 20px auto;  /* Center if needed */
             width: 80%;  /* Adjust width */
             max-width: 900px;  /* Optional: Set a maximum width */
         }
 
-
         nav {
             background-color: #f7f7f7;
-            padding: 20px;
             width: 250px;
             height: 100vh;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -61,6 +58,16 @@
             left: 0;
             font-weight: normal;
             transition: background-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        #sidebar {
+            padding: 20px;
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-bottom: 60px; /* Extra space at the bottom for better scrolling */
         }
 
         nav.dark {
@@ -70,6 +77,7 @@
         nav ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         nav ul li {
@@ -86,16 +94,35 @@
 
         nav ul li a:active,
         nav ul li a:focus {
-            color: hsl(235, 100%, 69%);
+            color: hsl(235, 81%, 59%);
             outline: none;
         }
 
         nav ul li a.clicked {
-            color: hsl(235, 100%, 69%);
+            color: hsl(235, 81%, 59%);
         }
 
-        nav ul li a.dark {
+        /* This rule is no longer needed as we're using the more specific rule above */
+        /* nav ul li a.dark {
             color: #f0f0f0;
+        } */
+
+        /* Dark mode styles for all icons */
+        body.dark .icon,
+        body.dark .fab,
+        body.dark .fas,
+        body.dark nav ul li a {
+            color: #f0f0f0 !important;
+        }
+        
+        /* Ensure GitHub icon is white in dark mode */
+        /* GitHub icon styles */
+        .fab.fa-github {
+            color: #000000;  /* Black in light mode */
+        }
+        
+        body.dark .fab.fa-github {
+            color: #f0f0f0 !important;  /* White in dark mode */
         }
 
         nav ul .submenu {
@@ -159,20 +186,24 @@
         }
 
         .content {
+            font-size: 1.2rem;
             flex: 1;
             width: 70%;
             text-align: left;
-            padding-top: 100px;
+            padding-top: 40px;
+            margin-right: 100px;
+            max-width: 50%;
         }
 
         .image {
             flex: 1;
             min-width: 200px;
-            text-align: center;
+            text-align: center;  /* ✅ Centers contents inside this column */
+            position: relative;  /* allows child relative offsets to make sense */
         }
 
         .main-content h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
         }
 
@@ -181,18 +212,28 @@
             margin-bottom: 20px;
         }
 
+        .profile-image {
+            margin-top: -500px; 
+            margin-left: -200px;
+        }
+
         .profile-image img {
-            width: 500px;
+            width: 300px;
             max-width: 100%;
-            border-radius: 30%;
+            border-radius: 100%;
             margin-bottom: 10px;
         }
 
-        .social-icons {
+        .image .social-icons {
             display: flex;
-            justify-content: center;
+            justify-content: center;  /* ✅ centers icons horizontally */
             align-items: center;
+            margin-top: 0px;
+            position: relative;
+            left: -100px; /* keep same offset as your profile-image */
         }
+
+
 
         .social-icons a {
             margin: 10px;
@@ -204,7 +245,7 @@
         }
 
         .social-icons a:hover {
-            color: hsl(235, 100%, 69%);
+            color: hsl(235, 81%, 59%);
         }
 
         .language-toggle {
@@ -238,14 +279,147 @@
             text-decoration: none;
         }
 
-        #searchBox {
+        .search-container {
+            position: relative;
+            display: flex;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .search-container::before {
+            content: '\f002';
+            font-family: 'Font Awesome 5 Free';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 12px;
+            z-index: 1002;
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+
+        #searchWrapper {
+            position: fixed;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            width: 800px;
+            max-width: 85%;
             display: none;
-            width: 300px;
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            transition: all 0.3s ease;
+            z-index: 1001;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        #searchWrapper.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        #searchBox {
+            width: 100%;
+            padding: 5px 12px 5px 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 18px;
+            font-size: 13px;
+            font-family: "Crimson Text", serif;
+            background: white;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease;
+            outline: none;
+            height: 30px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        #searchBox:focus {
+            transform: scale(1.02);
+            border-color: hsl(235, 81%, 59%);
+            box-shadow: 0 2px 12px rgba(94, 114, 228, 0.15);
+        }
+
+        #searchWrapper.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        #searchResults {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 5px;
+            background: white;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eaeaea;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .search-result {
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .search-result:last-child {
+            border-bottom: none;
+        }
+
+        .search-result:hover {
+            background-color: #f8f9ff;
+            color: hsl(235, 81%, 59%);
+            padding-left: 25px;
+        }
+
+        /* Dark mode styles */
+        .dark #searchBox {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dark #searchBox:focus {
+            border-color: hsl(235, 81%, 59%);
+        }
+
+        .dark #searchBox::placeholder {
+            color: #888;
+        }
+
+        .dark #searchResults {
+            background: #333;
+            border-color: #444;
+        }
+
+        .dark .search-result {
+            color: #e0e0e0;
+            border-bottom-color: #444;
+        }
+
+        .dark .search-result:hover {
+            background-color: #3a3a4a;
+        }
+
+        .dark .search-result-title {
+            color: #8a9eff;
+        }
+
+        .dark .search-result-snippet {
+            color: #b3b3b3;
+        }
+
+        .dark mark {
+            background-color: #fff3cd;
+            padding: 0 2px;
+            border-radius: 2px;
         }
 
         #searchBox.show {
@@ -266,6 +440,7 @@
                 position: relative;
                 width: 100%;
                 height: auto;
+                overflow: visible;
             }
 
             header {
@@ -345,6 +520,15 @@
         mark {
             background-color: yellow;
         }
+        
+        #sidebar h1 {
+            color: hsl(235, 81%, 59%);  /* Matching the h2 color */
+            transition: color 0.3s ease;
+        }
+        
+        #sidebar h1:hover {
+            color: #1a237e;  /* Deep blue color */
+        }
     </style>
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
@@ -363,16 +547,19 @@
 
     <header id="header">
         <div class="left">
-
-
-
             <ul>
                 <li id="menu-toggle"><i class="fas fa-bars icon" title="Menu"></i></li>
                 <li><i class="fas fa-adjust icon" title="Toggle Dark/Light Mode" onclick="toggleDarkMode()"></i></li>
-                <li><i class="fas fa-search icon" title="Search" onclick="toggleSearchBox()"></i>
-                    <input type="text" id="searchBox" placeholder="Search..." oninput="highlightText()">
+                <li class="search-container">
+                    <i class="fas fa-search icon" id="searchIcon" title="Search"></i>
                 </li>
             </ul>
+        </div>
+        
+        <!-- Search wrapper will be positioned absolutely -->
+        <div id="searchWrapper">
+            <input type="text" id="searchBox" placeholder="Search articles..." autocomplete="off">
+            <div id="searchResults"></div>
         </div>
         <div class="right">
             <ul>
@@ -385,49 +572,45 @@
 
     <nav id="sidebar">
         <a href="index.html">
-            <h1 id="sidebar-title">Dummy's Guide to Particle Physics</h1>
+            <h1 id="sidebar-title">Saskia's Physics Archive</h1>
         </a>
         <ul>
-            <li onclick="toggleSubmenu('submenu3')" style="font-size: 1.2rem;" >Detectors & Concepts</li>
+            <li onclick="toggleSubmenu('submenu3')" style="font-size: 1.2rem;" >Signals → Particles</li>
             <ul id="submenu3" class="submenu">
                 <li><a href="#" onclick="loadArticle('trigger.md')">1. Trigger</a></li>
-                <li><a href="#" onclick="loadArticle('jets.md')">2. Jets</a></li>
-                <li><a href="#" onclick="loadArticle('feynman.md')">3. Feynman Diagrams</a></li>
-                <li><a href="#" onclick="loadArticle('root.md')">4. Why to <3 ROOT</a></li>
                 <!-- <li><a href="#" onclick="loadArticle('cherenkov.md')">5. Cherenkov detectors</a></li> -->
                 <li><a href="#" onclick="loadArticle('qdc.md')">5. QDCs and Charge Measurements</a></li>
                 <li><a href="#" onclick="loadArticle('dwc.md')">6. Delay Wire Chambers</a></li>
                 <li><a href="#" onclick="loadArticle('nim.md')">7. Capturing Signals</a></li>
-                <li><a href="#" onclick="loadArticle('daq.md')">8. Data -> The Internet?</a></li>
+                <li><a href="#" onclick="loadArticle('daq.md')">8. Data → The Internet?</a></li>
                 <li><a href="#" onclick="loadArticle('randomcoinc.md')">9. Statistical Noise</a></li>
                 <li><a href="#" onclick="loadArticle('montecarlo.md')">10. Monte Carlo Simulations</a></li>
                 </li>
             </ul>
-            <li onclick="toggleSubmenu('submenu0')" style="font-size: 1.2rem;">Dive into Real Data</li>
+            <li onclick="toggleSubmenu('submenu0')" style="font-size: 1.2rem;">Bytes → Physics</li>
             <ul id="submenu0" class="submenu">
                 <li><a href="#" onclick="loadArticle('tut1.md')">1. First steps in ROOT</a></li>
-                <li><a href="#" onclick="loadArticle('tut2.md')">2. Take on the First Detectors</a></li>
-                <li><a href="#" onclick="loadArticle('tut3.md')">3. The intricacies of charge measurements</a></li>
-                <li><a href="#" onclick="loadArticle('tut4.md')">4. Where's the particle?</a></li>
-                <li><a href="#" onclick="loadArticle('identification.md')">5. Identify Particles in the Beam</a></li>
-                <li><a href="#" onclick="loadArticle('beamprofile.md')">6. How Does the Beam Even Look like?</a></li>
-                <li><a href="#" onclick="loadArticle('landau.md')">7. Deriving spectra – how to generate Landau distributions? </a></li>
+                <li><a href="#" onclick="loadArticle('tut11.md')">2. REAL Data 🥳</a></li>
+                <li><a href="#" onclick="loadArticle('tut2.md')">3. Working With Raw Data</a></li>
+                <li><a href="#" onclick="loadArticle('tut3.md')">4. Charge Measurements</a></li>
+                <li><a href="#" onclick="loadArticle('tut4.md')">5. Where's the Particle?</a></li>
+                <li><a href="#" onclick="loadArticle('identification.md')">6. Identifying Particles</a></li>
+                <li><a href="#" onclick="loadArticle('beamprofile.md')">7. Beam Dynamics</a></li>
+                <li><a href="#" onclick="loadArticle('landau.md')">8. Spectra and Landau distributions </a></li>
             </ul>
             <!-- <li onclick="toggleSubmenu('submenu4')" style="font-size: 1.2rem;">Advice</li>
             <ul id="submenu4" class="submenu">
                 <li><a href="#" onclick="loadArticle('resources.md')">1. Resources</a></li>
                 <li><a href="#" onclick="loadArticle('academic.md')">2. Entering the Academic World</a></li>
             </ul> -->
-            <li><a href="?show=challenge.md" style="text-decoration: none; color: inherit;">The Challenge</a></li>
-            
-            <!-- miscellaneous.md -->
-           <!-- <li onclick="toggleSubmenu('submenu4')" style="font-size: 1.2rem;">A Few Stories</li>
-            <ul id="submenu4" class="submenu">
-                <li><a href="#" onclick="loadArticle('strato.md')">1. Ballooning</a></li>
-                <li><a href="#" onclick="loadArticle('beginning.md')">2. First Few Days</a></li>
-                <li><a href="#" onclick="loadArticle('first.md')">3. Training</a></li>
-            </ul> -->
+            <li><a href="?show=challenge.md" style="text-decoration: none; color: inherit;">Problem Collection</a></li>
+            <!-- <li onclick="toggleSubmenu('simulations')" style="font-size: 1.2rem; cursor: pointer;">Interactive Simulations</li> -->
+            <ul id="simulations" class="submenu" style="display: none;">
+                <li><a href="#" onclick="loadSimulation('simulations/electric-potential/index.html')">1. Electric Potential</a></li>
+                <!-- Add more simulations here as they're created -->
+            </ul>
             <li><a href="?show=article.md" style="text-decoration: none; color: inherit;">My First Paper!</a></li>
+            <li><a href="?show=CV.md" style="text-decoration: none; color: inherit;">CV</a></li>
             <!-- <li><a href="#" onclick="loadSimulation('../articles/imagemethod.html')">Image Method</a></li> -->
         </ul>
     </nav>
@@ -436,41 +619,66 @@
 
 
     <div class="container" id="main-container">
-
-        <h2 id="page-title">Dummy's Guide to Particle Physics</h2>
         <div class="main-content">
             <div class="content">
-                <h1 id="main-heading">Hi! I'm Saskia, a Beamline for Schools alumna, and this is a website for anyone
-                    interested in particle* physics.</h1>
-                <p>I decided to compile these materials because</p>
-                <ul>
-                    <li>this knowledge is often difficult to come across on the internet</li>
-                    <li>or the concepts are explained exclusively at a graduate school level</li>
-                    <li>this also helps me gain a more peripheral view on these concepts.</p>
-                    </li>
-                </ul>
-                <p>Anyways, I hope you find something insightful. </i></p>
-                <p style="font-size: 13px;"> * now that I think about it, this blog is becoming more and more about physics in general. But for now, we'll roll with particle physics <p>
-                <p>Last Updated: <span id="lastUpdated"></span></p>
-                <p>Last Addition:</p>
-                <iframe src="../Files/plot.html" width="600" height="600"></iframe>
-                This are the particle tracks recorded between two delay wire chambers. This can be found in the <i>What Does the Beam Even Look Like</i> section.
-                <p>Enjoy!</p>
+            <h1 id="main-heading">Hi! I’m Saskia — a physics student at MIT.</h1>
+
+            <p style="margin-bottom: 30px;">
+                This site collects some of the things I’ve worked on and learned — a mix of problem solving, data analysis, and a few experiments I was lucky enough to take part in.
+            </p>
+
+            <ul>
+                <li>
+                <strong>Signals → Particles:</strong> notes from my independent work on muon detectors and later from my experiment at CERN’s <em>Beamline for Schools</em>, where my team and I could experiment using a real muon beam.
+                </li>
+                <li>
+                <strong>Bytes → Physics:</strong> data analysis examples and small tutorials on working with ROOT.
+                </li>
+                <li>
+                <strong>Problem Collection:</strong> some of my favorite physics olympiad problems along with the solutions and insights I gained from them.
+                </li>
+                <li>
+                <strong>Interactive Simulations:</strong> such as the Wigner Plotter below.
+                </li>
+            </ul>
+
+            <p style="margin-top: 40px;">
+                The <a href="https://wigner.onrender.com/">Wigner Plotter</a> is an interactive tool I wrote to visualize how different operators manipulate the QHO ground state.
+            </p>
+
+            <iframe
+                src="https://wigner.onrender.com/"
+                width="1000"
+                height="600"
+                style="margin-top: 20px; border-radius: 8px; border: none;"
+            ></iframe>
+
+            <p style="margin-top: 40px; font-size: 0.95rem; color: #666;">
+                Last updated: <span id="lastUpdated"></span>
+            </p>
             </div>
+
             <div class="image">
-                <div class="profile-image">
-                    <img src="tshirt.jpeg" alt="Profile Image">
-                </div>
-                <div class="social-icons">
-                    <a href="mailto:saskia.poldmaa@gmail.com" style="color: rgb(139, 139, 189);" title="Email"><i
-                            class="fas fa-envelope"></i></a>
-                    <a href="https://ee.linkedin.com/in/saskia-p%C3%B5ldmaa-2a3b72266"
-                        style="color: rgb(139, 139, 189);" target="_blank" title="LinkedIn"><i
-                            class="fab fa-linkedin"></i></a>
-                </div>
+            <div class="profile-image">
+                <img src="articles/images/nunnupilt.jpg" alt="Profile Image">
+            </div>
+            <div class="social-icons">
+                <a href="mailto:saskia.poldmaa@gmail.com" style="color: rgb(139, 139, 189);" title="Email">
+                <i class="fas fa-envelope"></i>
+                </a>
+                <a
+                href="https://ee.linkedin.com/in/saskia-p%C3%B5ldmaa-2a3b72266"
+                style="color: rgb(139, 139, 189);"
+                target="_blank"
+                title="LinkedIn"
+                >
+                <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
             </div>
         </div>
-    </div>
+        </div>
+
 
     <footer>Saskia Põldmaa, 2025</footer>
 
@@ -560,31 +768,22 @@
         
         async function loadSimulation(simulation) {
             try {
-                const response = await fetch(`simulations/${simulation}`);
-                if (!response.ok) throw new Error("Simulation not found");
-                const text = await response.text();
                 const container = document.getElementById('main-container');
-        
-                // Clear the container first to avoid conflicts
-                container.innerHTML = '';
-        
-                // Inject new content
-                container.innerHTML = text;
-        
-                // Find and execute any scripts inside the loaded simulation
-                container.querySelectorAll('script').forEach((script) => {
-                    const newScript = document.createElement("script");
-                    newScript.textContent = script.textContent;
-                    document.body.appendChild(newScript);
-                });
-        
-                // Call a re-initialization function if needed (like initializeSimulation)
-                if (typeof initializeSimulation === "function") {
-                    initializeSimulation();
-                }
-        
+                container.innerHTML = `
+                    <div style="width: 100%; height: 800px;">
+                        <iframe src="${simulation}" style="width: 100%; height: 100%; border: none; border-radius: 8px;"></iframe>
+                    </div>
+                `;
             } catch (error) {
                 console.error("Error loading simulation:", error);
+                const container = document.getElementById('main-container');
+                container.innerHTML = `
+                    <div style="padding: 20px; color: red;">
+                        <h2>Error loading simulation</h2>
+                        <p>${error.message}</p>
+                        <p>Please try again or check the console for more details.</p>
+                    </div>
+                `;
             }
         }
     </script>
@@ -616,21 +815,216 @@
         // Function to toggle submenus
         function toggleSubmenu(submenuId) {
             var submenu = document.getElementById(submenuId);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+            // Also toggle active class for styling if needed
             submenu.classList.toggle("active");
+            
+            // Prevent the click from propagating to parent elements
+            event.stopPropagation();
         }
     </script>
 
 
     <script>
-        function toggleSearchBox() {
-            var searchBox = document.getElementById('searchBox');
-            if (searchBox.style.display === 'none' || searchBox.style.display === '') {
-                searchBox.style.display = 'block';
-            } else {
-                searchBox.style.display = 'none';
+        // Initialize search functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchIcon = document.getElementById('searchIcon');
+            const searchWrapper = document.getElementById('searchWrapper');
+            const searchBox = document.getElementById('searchBox');
+            
+            // Toggle search box with animation
+            searchIcon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                if (searchWrapper.classList.contains('show')) {
+                    searchWrapper.classList.remove('show');
+                    setTimeout(() => {
+                        searchWrapper.style.display = 'none';
+                    }, 300);
+                } else {
+                    searchWrapper.style.display = 'block';
+                    // Trigger reflow
+                    void searchWrapper.offsetWidth;
+                    searchWrapper.classList.add('show');
+                    searchBox.focus();
+                }
+            });
+            
+            // Close search when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!searchWrapper.contains(e.target) && e.target !== searchIcon) {
+                    searchWrapper.classList.remove('show');
+                    setTimeout(() => {
+                        searchWrapper.style.display = 'none';
+                    }, 300);
+                }
+            });
+            
+            // Handle search input
+            searchBox.addEventListener('input', function() {
+                searchArticles(this.value);
+            });
+            
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && searchWrapper.classList.contains('show')) {
+                    searchWrapper.classList.remove('show');
+                    setTimeout(() => {
+                        searchWrapper.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+
+        // Cache for article content
+        const articleCache = new Map();
+        
+        // Fetch article content
+        async function fetchArticleContent(article) {
+            if (articleCache.has(article.path)) {
+                return articleCache.get(article.path);
+            }
+            
+            try {
+                const response = await fetch(article.path);
+                if (!response.ok) {
+                    console.error(`Failed to fetch ${article.path}: ${response.status} ${response.statusText}`);
+                    return '';
+                }
+                const content = await response.text();
+                // Clean the content for better search results
+                const cleanContent = content
+                    .replace(/^#.*$/gm, '')  // Remove headers
+                    .replace(/```[\s\S]*?```/g, '')  // Remove code blocks
+                    .replace(/`[^`]+`/g, '')  // Remove inline code
+                    .replace(/!\[.*?\]\(.*?\)/g, '')  // Remove images
+                    .replace(/\[(.*?)\]\(.*?\)/g, '$1')  // Remove markdown links but keep link text
+                    .replace(/[\n\r]+/g, ' ')  // Normalize whitespace
+                    .replace(/\s+/g, ' ')  // Replace multiple spaces with single space
+                    .trim();
+                
+                articleCache.set(article.path, cleanContent);
+                return cleanContent;
+            } catch (error) {
+                console.error(`Error loading article ${article.path}:`, error);
+                return '';
             }
         }
 
+        // Get a snippet of text around the first match
+        function getSnippet(text, query, maxLength = 150) {
+            if (!text) return '';
+            
+            const index = text.toLowerCase().indexOf(query.toLowerCase());
+            if (index === -1) return '';
+            
+            const start = Math.max(0, index - 50);
+            const end = Math.min(text.length, index + maxLength);
+            let snippet = text.substring(start, end);
+            
+            if (start > 0) snippet = '...' + snippet;
+            if (end < text.length) snippet = snippet + '...';
+            
+            // Highlight the query in the snippet
+            const regex = new RegExp(`(${query})`, 'gi');
+            return snippet.replace(regex, '<mark>$1</mark>');
+        }
+
+        async function searchArticles(query) {
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (!query) {
+                resultsContainer.innerHTML = '';
+                return;
+            }
+
+            const results = [];
+            
+            // Search through all articles
+            for (const article of articles) {
+                const content = await fetchArticleContent(article);
+                const titleMatch = article.title.toLowerCase().includes(query.toLowerCase());
+                const contentMatch = content.toLowerCase().includes(query.toLowerCase());
+                
+                if (titleMatch || contentMatch) {
+                    results.push({
+                        ...article,
+                        content: content,
+                        isTitleMatch: titleMatch,
+                        contentSnippet: getSnippet(content, query)
+                    });
+                }
+            }
+
+            resultsContainer.innerHTML = '';
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div class="search-result">No results found</div>';
+                return;
+            }
+
+            results.forEach(article => {
+                const result = document.createElement('div');
+                result.className = 'search-result';
+                
+                // Highlight title matches
+                let titleHTML = article.title;
+                if (article.isTitleMatch) {
+                    const regex = new RegExp(`(${query})`, 'gi');
+                    titleHTML = article.title.replace(regex, '<mark>$1</mark>');
+                }
+                
+                result.innerHTML = `
+                    <div class="search-result-title">${titleHTML}</div>
+                    ${article.contentSnippet ? `<div class="search-result-snippet">${article.contentSnippet}</div>` : ''}
+                `;
+                
+                result.onclick = function() {
+                    loadArticle(article.path);
+                    document.getElementById('searchWrapper').style.display = 'none';
+                };
+                resultsContainer.appendChild(result);
+            });
+        }
+
+        const articles = [
+            { title: 'Trigger', path: 'articles/trigger.md' },
+            //{ title: 'Jets', path: 'articles/jets.md' }, //
+            //{ title: 'Feynman Diagrams', path: 'articles/feynman.md' }, //
+            { title: 'QDCs and Charge Measurements', path: 'articles/qdc.md' },
+            { title: 'Delay Wire Chambers', path: 'articles/dwc.md' },
+            { title: 'Capturing Signals', path: 'articles/nim.md' },
+            { title: 'Data -> The Internet?', path: 'articles/daq.md' },
+            { title: 'Statistical Noise', path: 'articles/randomcoinc.md' },
+            { title: 'Monte Carlo Simulations', path: 'articles/montecarlo.md' },
+            { title: 'ROOT Setup and First Example', path: 'articles/tut1.md' },
+            { title: 'Working With Raw Data', path: 'articles/tut2.md' },
+            { title: 'The intricacies of charge measurements', path: 'articles/tut3.md' },
+            { title: "Where's the particle?", path: 'articles/tut4.md' },
+            { title: 'Identify Particles in the Beam', path: 'articles/identification.md' },
+            { title: 'How Does the Beam Even Look like?', path: 'articles/beamprofile.md' },
+            { title: 'Deriving spectra – how are Landau distributions generated?', path: 'articles/landau.md' },
+            { title: 'Getting to work with REAL data! 🥳', path: 'articles/tut11.md' }
+        ];
+
+        // Debounce search to avoid too many requests
+        let searchTimeout;
+        document.getElementById('searchBox').addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            const query = this.value.trim();
+            searchTimeout = setTimeout(() => searchArticles(query), 300);
+        });
+        
+        // Pre-fetch article contents when search is focused
+        document.getElementById('searchBox').addEventListener('focus', async () => {
+            // Start loading a few articles in the background
+            const popularArticles = articles.slice(0, 5);
+            await Promise.all(popularArticles.map(article => fetchArticleContent(article)));
+        });
     </script>
 
     <script>
