@@ -38,12 +38,15 @@ We see that the beam is not entirely parallel. This is of course bad, because th
 An interesting concept to take away from the article is Liouville's theorem, which states that $\\sigma_x\\sigma_{p_x}=const.$ where $\\sigma_x$ is the variance in position and $\\sigma_{p_x}$ the variance in x-directional momentum. Same applies for the y-direction. This has noticeable similarities to the uncertainty principles, which tells us that $\\sigma_x \\sigma_{p_x}\\geq \\hbar/2$. In reality, this product is much greater than $\\hbar/2$. Also, Liouville's theorem has a fascinating conenction to adiabatic invariants, as highlighted [here](https://www.damtp.cam.ac.uk/user/tong/dynamics/clas.pdf)
 
 But at its core, the Liouville theorem theorem tells us that the beam's area in the phase space is constant, i.e. if you reduce the variance in momentum (align the beam better), then $\\sigma_x$ must increase, and the beam becomes wider. Here are a few illustrations of this for the muon beam:
+
 <img src="../articles/images/X-X' Phase Space for a 1GeV Muon Beam.png" width="50%" height="auto" >
 <img src="../articles/images/X-X' Phase Space for a 2GeV Muon Beam.png" width="50%" height="auto" >
 <img src="../articles/images/X-X' Phase Space for a 5GeV Muon Beam.png" width="50%" height="auto" >
 <img src="../articles/images/X-X' Phase Space for a 7GeV Muon Beam.png" width="50%" height="auto" >
 
+
 And here are a few phase space plots for the hadron (pion) beam:
+
 <img src="../articles/images/X-X' Phase Space for a 3GeV Pion Beam.png" width="50%" height="auto" >
 <img src="../articles/images/X-X' Phase Space for a 5GeV Pion Beam.png" width="50%" height="auto" >
 <img src="../articles/images/X-X' Phase Space for a 9GeV Pion Beam.png" width="50%" height="auto" >
