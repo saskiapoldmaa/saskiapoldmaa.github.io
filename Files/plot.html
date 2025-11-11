@@ -9,7 +9,7 @@
 
             try {
                 // Load JSON file
-                let response = await fetch("../Files/plot.json");
+                let response = await fetch("./plot.json");
                 if (!response.ok) throw new Error("Failed to fetch JSON");
 
                 let jsonText = await response.text();
@@ -19,7 +19,7 @@
                 if (!polyline) throw new Error("Failed to parse JSON into ROOT object");
 
                 // Draw the polyline in the div with id 'plot'
-                draw("plot", polyline, "polylines"); // "polylines" mode for 3D visualization
+                draw("plot", polyline, "colz,axis=1");  // "polylines" mode for 3D visualization
 
                 console.log("✅ Successfully loaded and displayed the 3D polyline!");
             } catch (error) {
