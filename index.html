@@ -180,7 +180,7 @@
 
         /* Limit article width for better readability */
         #main-container {
-            max-width: 900px; /* adjust this value if you want wider/narrower text */
+            max-width: 1200px; /* adjust this value if you want wider/narrower text */
             margin-right: 40px; /* keep a right gutter when sidebar is visible */
             box-sizing: border-box;
         }
@@ -220,12 +220,12 @@
         }
 
         .profile-image {
-            margin-top: -500px; 
+            margin-top: -650px; 
             margin-left: -200px;
         }
 
         .profile-image img {
-            width: 300px;
+            width: 200px;
             max-width: 100%;
             border-radius: 100%;
             margin-bottom: 10px;
@@ -627,29 +627,13 @@
     <div class="container" id="main-container">
         <div class="main-content">
             <div class="content">
-            <h1 id="main-heading">Hi! I’m Saskia — a physics student at MIT.</h1>
+            <h1 id="main-heading" style="margin-top: 70px">Hi! I’m Saskia — a physics student at MIT.</h1>
 
             <p style="margin-bottom: 30px;">
-                This site collects some of the things I’ve worked on and learned — a mix of problem solving, data analysis, and a few experiments I was lucky enough to take part in.
+                This site collects some of the projects I’ve worked on and the insights I've gained from them. 
             </p>
-
-            <ul>
-                <li>
-                <strong>Signals → Particles:</strong> notes from my independent work on muon detectors and later from my experiment at CERN’s <em>Beamline for Schools</em>, where my team and I could experiment using a real muon beam.
-                </li>
-                <li>
-                <strong>Bytes → Physics:</strong> data analysis examples and small tutorials on working with ROOT.
-                </li>
-                <li>
-                <strong>Problem Collection:</strong> some of my favorite physics olympiad problems along with the solutions and insights I gained from them.
-                </li>
-                <li>
-                <strong>Interactive Simulations:</strong> such as the Wigner Plotter below.
-                </li>
-            </ul>
-
-            <p style="margin-top: 40px;">
-                The <a href="https://wigner.onrender.com/">Wigner Plotter</a> is an interactive tool I wrote to visualize how different operators manipulate the QHO ground state.
+            <p>
+                My latest addition is <a href="https://wigner.onrender.com/">The Wigner Plotter</a>, an interactive tool to visualize how any operator acts on the QHO ground state.  
             </p>
 
             <iframe
@@ -658,6 +642,20 @@
                 height="600"
                 style="margin-top: 20px; border-radius: 8px; border: none;"
             ></iframe>
+            <p>
+                <a href="https://wigner.onrender.com/">https://wigner.onrender.com/</a>
+            </p>
+
+            <p>I've also written learning materials for anyone wishing to dive into experimental particle physics. These have been compiled from my time experimenting with <a href="https://isef.net/project/phys003-balloon-borne-muon-flux-studies">homemade muon detectors</a> and conducting a small-scale experiment at CERN, thanks to the <a href="https://beamlineforschools.cern/">Beamline for Schools Competition</a></p>
+            <ul>
+                <li>
+                <strong>Signals → Particles:</strong> discusses the experimental side, introducing various detectors and data acquisition techniques.
+                <li>
+                <strong>Bytes → Physics:</strong> includes data analysis tutorials using ROOT — the go-to software, used everywhere from at-home experiments to the LHC. 
+                </li>
+                <li>
+                <strong>Problem Collection:</strong> some of my favorite physics olympiad problems.
+            </ul>
 
             <p style="margin-top: 40px; font-size: 0.95rem; color: #666;">
                 Last updated: <span id="lastUpdated"></span>
@@ -1014,7 +1012,7 @@
             { title: 'Identify Particles in the Beam', path: 'articles/identification.md' },
             { title: 'How Does the Beam Even Look like?', path: 'articles/beamprofile.md' },
             { title: 'Deriving spectra – how are Landau distributions generated?', path: 'articles/landau.md' },
-            { title: 'Getting to work with REAL data! 🥳', path: 'articles/tut11.md' }
+            { title: 'Getting to work with REAL data! ', path: 'articles/tut11.md' }
         ];
 
         // Debounce search to avoid too many requests
