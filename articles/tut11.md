@@ -1,4 +1,4 @@
-# Getting to work with REAL data! 🥳
+# Let's get to work on REAL data! 
 
 First, download and extract the data files from [Zenodo](https://doi.org/10.5281/zenodo.17503416). They should appear in a new folder titled ```./17503417``` where the long number is just the DOI of the dataset.
 

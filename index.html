@@ -178,6 +178,13 @@
             padding: 20px;
         }
 
+        /* Limit article width for better readability */
+        #main-container {
+            max-width: 900px; /* adjust this value if you want wider/narrower text */
+            margin-right: 40px; /* keep a right gutter when sidebar is visible */
+            box-sizing: border-box;
+        }
+
         .main-content {
             display: flex;
             flex-wrap: wrap;
@@ -582,18 +589,18 @@
                 <li><a href="#" onclick="loadArticle('qdc.md')">5. QDCs and Charge Measurements</a></li>
                 <li><a href="#" onclick="loadArticle('dwc.md')">6. Delay Wire Chambers</a></li>
                 <li><a href="#" onclick="loadArticle('nim.md')">7. Capturing Signals</a></li>
-                <li><a href="#" onclick="loadArticle('daq.md')">8. Data → The Internet?</a></li>
+                <li><a href="#" onclick="loadArticle('daq.md')">8. Data Processing</a></li>
                 <li><a href="#" onclick="loadArticle('randomcoinc.md')">9. Statistical Noise</a></li>
                 </li>
             </ul>
             <li onclick="toggleSubmenu('submenu0')" style="font-size: 1.2rem;">Bytes → Physics</li>
             <ul id="submenu0" class="submenu">
                 <li><a href="#" onclick="loadArticle('tut1.md')">1. First steps in ROOT</a></li>
-                <li><a href="#" onclick="loadArticle('tut11.md')">2. REAL Data 🥳</a></li>
+                <li><a href="#" onclick="loadArticle('tut11.md')">2. Real Data!</a></li>
                 <li><a href="#" onclick="loadArticle('tut2.md')">3. Working With Raw Data</a></li>
                 <li><a href="#" onclick="loadArticle('tut3.md')">4. Charge Measurements</a></li>
-                <li><a href="#" onclick="loadArticle('tut4.md')">5. Where's the Particle?</a></li>
-                <li><a href="#" onclick="loadArticle('identification.md')">6. Identifying Particles</a></li>
+                <li><a href="#" onclick="loadArticle('tut4.md')">5. Track Reconstruction</a></li>
+                <li><a href="#" onclick="loadArticle('identification.md')">6. Distinguishing Particles</a></li>
                 <li><a href="#" onclick="loadArticle('beamprofile.md')">7. Beam Dynamics</a></li>
                 <li><a href="#" onclick="loadArticle('landau.md')">8. Spectra and Landau distributions </a></li>
             </ul>
@@ -994,10 +1001,10 @@
             { title: 'Trigger', path: 'articles/trigger.md' },
             //{ title: 'Jets', path: 'articles/jets.md' }, //
             //{ title: 'Feynman Diagrams', path: 'articles/feynman.md' }, //
-            { title: 'QDCs and Charge Measurements', path: 'articles/qdc.md' },
+            { title: 'Charge Measurements', path: 'articles/qdc.md' },
             { title: 'Delay Wire Chambers', path: 'articles/dwc.md' },
-            { title: 'Capturing Signals', path: 'articles/nim.md' },
-            { title: 'Data -> The Internet?', path: 'articles/daq.md' },
+            { title: 'Recording Data', path: 'articles/nim.md' },
+            { title: 'Data Processing', path: 'articles/daq.md' },
             { title: 'Statistical Noise', path: 'articles/randomcoinc.md' },
             { title: 'Monte Carlo Simulations', path: 'articles/montecarlo.md' },
             { title: 'ROOT Setup and First Example', path: 'articles/tut1.md' },

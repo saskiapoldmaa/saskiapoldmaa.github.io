@@ -1,11 +1,12 @@
 Charge to Digital Converters
 ============================
 
-QDC a.k.a a charge to digital converter allows you to measure the charge that passes through it. It comes in all shapes and sizes ranging from an electrical component to the impressive CAEN v792AC (see picture below) that we are using.
+QDCs or charge to digital converters allow you to measure the charge that flows through any input wire. QDCs range from chip-sized electrical components to massive NIM modules, like the one BL4S uses (see below)
 
 ![](/qdc1.jpeg)
+The QDC module (CAEN v792AC) in a NIM
 
-Now let's look at the current at the QDC's input.
+Now let's unpack how it works, starting from a quick look at the signal that goes into a QDC.
 
 ![](/qdc2.png)
 

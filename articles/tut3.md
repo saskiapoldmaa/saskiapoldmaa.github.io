@@ -6,7 +6,7 @@
     </button>
 </a>
 
-Last time we did look into how to access the contents of a raw data file and how to process the **entries** in a **tree** across **branches** so we can read all the data and measurement values that belong to a single event (entry) together. This time, we will 
+Last time we looked into accessing the contents of a raw data file and how to process the **entries** in a **tree** across **branches** so we can read all the data and measurement values that belong to a single event (entry) together. This time, we will 
 
 - look into how the QDC actually performs its measurement
 - learn about something called "pedestal" and try to figure out how to handle that kind of thing
@@ -57,14 +57,18 @@ If you look closely, you will see that we are not only integrating the signal $I
 
 1) if $V_{out}$ is very small (let's say a QDC count of `1`), then it can happen that the count is recorded at the `ADC` as `0` or `2`, due to rounding. This is unavoidable if you measure something by counting, the name of this problem is **Quantization Error**. If you measure such a small quantity, the relative error that you make is huge:
 
-$$ Error = \left| \frac{\text{Count}_{True} - \text{Count}_{Measure}}{\text{Count}_{True}} \right| \times 100 \% \quad \text{So} \quad \left|\frac{2 - 1}{1}\right| \times 100\% \quad = 100\%$$
 
-   In our example, the relative error of measuring `1` as either `0` or `2` is `100%` !!!!
-   If we add, let's say, `100` as a constant offset to the measurement, the relative error becomes 
+$$ \text{Error} = \left| \frac{\text{Count}_T - \text{Count}_M}{\text{Count}_T }\right| \times 100 
+\quad \text{Giving us} \quad 
+\left|\frac{2 - 1}{1}\right| \times 100 \text{\%} = 100 $$
+
+
+In our example, the relative error of measuring `1` as either `0` or `2` is `100%` !!!!
+If we add, let's say, `100` as a constant offset to the measurement, the relative error becomes 
     
-   $$ Error = \left|\frac{101 - 100}{100}\right| \times 100\% \quad = \quad 1\% $$
+$$ \text{Error} = \left|\frac{101 - 100}{100}\right| \times 100\text{\%} \quad = 1 \text{\%} $$
     
-   By sacrificing a bit of range (we are losing the 100 we added i.e., instead of `4096` on our QDC we could only count to `3096` for this example), we can reduce the impact of quantization noise massively, especially for small signals. This is one of the reaons to add a pedastal current to the signal that we integrate, it "shifts" the result by an (ideally) constant amount.
+By sacrificing a bit of range (we are losing the 100 we added i.e., instead of `4096` on our QDC we could only count to `3096` for this example), we can reduce the impact of quantization noise massively, especially for small signals. This is one of the reaons to add a pedastal current to the signal that we integrate, it "shifts" the result by an (ideally) constant amount.
 
 2) The integration on the capacitor is not linear for small signals i.e., there is a bit of a distortion if you compare the measurement results for small signals to the QDC count. By shifting the count again by a constant value, we can avoid this non-linearities and get a better and more reliable measurement.
 

@@ -40,7 +40,7 @@ Trigger systems can become very complicated, for example an extra layer of compl
 
 There is a short yet not infinitesimal time frame in which the signal needs to pass through the detector and other components until it gets stored on the disk. On the image, this time frame is 1 ms. We cannot have a new trigger go off during that same time, since the processing of the previous one has still not yet finished, so we need to ignore all incoming signal for that time period. This is done by a busy logic.
 
-<img src="/my_trigger.png" width="50%" height="auto"> 
+<img src="/my_trigger.png" width="80%" height="auto"> 
 
 Busy logic.
 
